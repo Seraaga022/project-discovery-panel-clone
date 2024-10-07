@@ -1,0 +1,58 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #09090b;
+  color: #c0c0c0;
+}
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.feedback-input {
+  transition: all ease-in 200ms;
+  color: #b2b6cd;
+  outline-color: transparent;
+  &:focus {
+    outline: 2px solid #141423;
+  }
+  &::placeholder {
+    color: #717381;
+    font-size: 17px;
+    font-weight: 500;
+  }
+}
+
+@font-face {
+  font-family: roboto;
+  src: url("../public/fonts/Roboto-Regular.ttf");
+}
+
+.tiptap {
+  p {
+    font-family: roboto;
+  }
+  :first-child {
+    margin-block: 0;
+    min-height: 10px;
+    padding-top: 15px;
+  }
+  
+  ul,
+  ol {
+    padding: 0 1rem;
+    margin: -25px 1rem 1.25rem 0.4rem;
+    li p {
+      margin-block: 0.65em;
+      margin-bottom: 1em;
+    }
+  }
+  transition: all ease-in 200ms;
+  border-radius: 7px;
+  padding-inline: 10px;
+  line-height: 0.3;
+  outline: none;
+  padding-block: 1px;
+  padding-bottom: 20px;
+}
