@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { OptionalNBC, TabT } from "../../utils/types/NavigationButtonComponent";
 import { TbHomeShield } from "react-icons/tb";
 import { CgDatabase } from "react-icons/cg";
@@ -9,28 +9,54 @@ import { RiEditCircleLine } from "react-icons/ri";
 import { RiStackLine } from "react-icons/ri";
 
 const Tab = (props: TabT) => {
+  const { setActiveTabPosition, setCursorPosition, text } = props;
   const navigate = useNavigate();
   const ref = React.useRef<HTMLElement>(null);
-  const activeTab = window.location.pathname
-    .split("")
-    .filter((i) => i !== "/")
-    .join("");
 
-  // preventing from bug
+  // the location is the window.location btw
+  const location = useLocation();
+  const activeTab = window.location.href.split("/")[3];
+
+  // preventing from bugs
   React.useEffect(() => {
-    if (window.location.pathname == "/") {
-      props.setActivePosition({
-        width: 127.76250457763672,
+    if (location.pathname == "/") {
+      setActiveTabPosition({
+        width: 126.80000305175781,
         left: 4,
-        opacity: 1,
       });
-      props.setPosition({
-        width: 127.76250457763672,
+      setCursorPosition({
+        width: 126.80000305175781,
         left: 4,
-        opacity: 1,
+      });
+    } else if (location.pathname == "/assets") {
+      setActiveTabPosition({
+        width: 105.20000457763672,
+        left: 133,
+      });
+      setCursorPosition({
+        width: 105.20000457763672,
+        left: 133,
+      });
+    } else if (location.pathname == "/scans") {
+      setActiveTabPosition({
+        width: 101.17500305175781,
+        left: 240,
+      });
+      setCursorPosition({
+        width: 101.17500305175781,
+        left: 240,
+      });
+    } else if (location.pathname == "/templates") {
+      setActiveTabPosition({
+        width: 124.875,
+        left: 343,
+      });
+      setCursorPosition({
+        width: 124.875,
+        left: 343,
       });
     }
-  }, [window.location.pathname]);
+  }, [location]);
 
   return (
     <Box
@@ -38,24 +64,22 @@ const Tab = (props: TabT) => {
       onMouseEnter={() => {
         if (!ref.current) return;
         const { width } = ref.current.getBoundingClientRect();
-        props.setPosition({
+        setCursorPosition({
           width,
-          opacity: 1,
           left: ref.current.offsetLeft,
         });
       }}
       onClick={() => {
-        if (activeTab === props.text) return;
+        if (activeTab === text) return;
 
-        const tab = props.text;
+        const tab = text;
         if (tab !== "dashboard") navigate(tab);
-        else navigate("");
+        else navigate("/");
 
         if (!ref.current) return;
         const { width } = ref.current.getBoundingClientRect();
-        props.setActivePosition({
+        setActiveTabPosition({
           width,
-          opacity: 1,
           left: ref.current.offsetLeft,
         });
       }}
@@ -69,19 +93,16 @@ const Tab = (props: TabT) => {
         userSelect: "none",
         borderRadius: "5px",
         bgcolor:
-          activeTab === props.text ||
-          (activeTab === "" && props.text === "dashboard")
+          activeTab === text || (activeTab === "" && text === "dashboard")
             ? "#1b1b1e"
             : "",
         color:
-          activeTab === props.text ||
-          (activeTab === "" && props.text === "dashboard")
+          activeTab === text || (activeTab === "" && text === "dashboard")
             ? "#eeeeee"
             : "#a1a1aa",
         "& .tab-icon": {
           color:
-            activeTab === props.text ||
-            (activeTab === "" && props.text === "dashboard")
+            activeTab === text || (activeTab === "" && text === "dashboard")
               ? "#818cf8"
               : "#52525b",
           transition: "color ease-in 100ms",
@@ -100,7 +121,8 @@ const Cursor = ({ position }: { position: OptionalNBC }) => {
       component={motion.div}
       animate={position}
       transition={{
-        duration: 0.19,
+        duration: 0.25,
+        type: "spring",
       }}
       position="absolute"
       bgcolor="#151517"
@@ -112,16 +134,16 @@ const Cursor = ({ position }: { position: OptionalNBC }) => {
 };
 
 const NavigationButtons = () => {
-  const [position, setPosition] = React.useState<OptionalNBC>({
-    left: 0,
-    width: 0,
-    opacity: 0,
-  });
+  const [activeTabPosition, setActiveTabPosition] = React.useState<OptionalNBC>(
+    {
+      left: 0,
+      width: 0,
+    }
+  );
 
-  const [activePosition, setActivePosition] = React.useState<OptionalNBC>({
+  const [cursorPosition, setCursorPosition] = React.useState<OptionalNBC>({
     left: 0,
     width: 0,
-    opacity: 0,
   });
 
   return (
@@ -137,12 +159,12 @@ const NavigationButtons = () => {
       boxSizing="border-box"
       position="relative"
       onMouseLeave={() => {
-        setPosition(activePosition);
+        setCursorPosition(activeTabPosition);
       }}
     >
       <Tab
-        setPosition={setPosition}
-        setActivePosition={setActivePosition}
+        setActiveTabPosition={setActiveTabPosition}
+        setCursorPosition={setCursorPosition}
         text="dashboard"
       >
         <Box display="flex" alignItems="center" gap="8px">
@@ -160,8 +182,8 @@ const NavigationButtons = () => {
         </Box>
       </Tab>
       <Tab
-        setPosition={setPosition}
-        setActivePosition={setActivePosition}
+        setActiveTabPosition={setActiveTabPosition}
+        setCursorPosition={setCursorPosition}
         text="assets"
       >
         <Box display="flex" alignItems="center" gap="8px">
@@ -179,8 +201,8 @@ const NavigationButtons = () => {
         </Box>
       </Tab>
       <Tab
-        setPosition={setPosition}
-        setActivePosition={setActivePosition}
+        setActiveTabPosition={setActiveTabPosition}
+        setCursorPosition={setCursorPosition}
         text="scans"
       >
         <Box display="flex" alignItems="center" gap="8px">
@@ -198,8 +220,8 @@ const NavigationButtons = () => {
         </Box>
       </Tab>
       <Tab
-        setPosition={setPosition}
-        setActivePosition={setActivePosition}
+        setActiveTabPosition={setActiveTabPosition}
+        setCursorPosition={setCursorPosition}
         text="templates"
       >
         <Box display="flex" alignItems="center" gap="8px">
@@ -216,7 +238,7 @@ const NavigationButtons = () => {
           </Typography>
         </Box>
       </Tab>
-      <Cursor position={position} />
+      <Cursor position={cursorPosition} />
     </Box>
   );
 };
