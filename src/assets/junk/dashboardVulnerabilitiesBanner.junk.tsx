@@ -1,4 +1,5 @@
-<Box
+{
+  /* <Box
   maxHeight="218px"
   borderBottom="1px solid #202022"
   position="relative"
@@ -7,7 +8,6 @@
     borderStartEndRadius: "15px",
   }}
 >
-  {/* image */}
   <Box width="100%" height="100%">
     <img
       alt=""
@@ -19,7 +19,6 @@
       }}
     ></img>
   </Box>
-  {/* content */}
   <Box
     position="absolute"
     top="0"
@@ -31,10 +30,8 @@
     boxSizing="border-box"
   >
     <Box display="flex" justifyContent="end" height="200px" alignItems="center">
-      {/* left */}
       <Box mr="auto" display="flex" alignItems="center" height="100%">
         <Box height="100%" pt="100px" pl="30px">
-          {/* chip */}
           <Box>
             <Box
               bgcolor="#18181b"
@@ -47,11 +44,9 @@
               gap="4px"
               width="fit-content"
             >
-              {/* icon */}
               <Box display="flex" justifyContent="center" alignItems="center">
                 <LuSparkles color="#a1a1aa" size={13} />
               </Box>
-              {/* text */}
               <Typography
                 variant="subtitle2"
                 sx={{ color: "#a1a1aa", letterSpacing: 0.5 }}
@@ -60,7 +55,6 @@
               </Typography>
             </Box>
           </Box>
-          {/* templated feed */}
           <Box pt="23px">
             <Typography
               variant="subtitle2"
@@ -69,7 +63,6 @@
               Real time vulnerability templates feed
             </Typography>
           </Box>
-          {/* ads status */}
           <Box pt="10px">
             <Box
               bgcolor="rgba(74,222,128,.1)"
@@ -83,11 +76,9 @@
               py="7px"
               width="fit-content"
             >
-              {/* icon */}
               <Box display="flex" alignItems="center">
                 <FaArrowTrendUp color="rgb(74 222 128/1)" size={14} />
               </Box>
-              {/* text */}
               <Typography
                 variant="subtitle2"
                 sx={{
@@ -101,7 +92,6 @@
           </Box>
         </Box>
       </Box>
-      {/* right */}
       <Box
         borderRadius="10px"
         minWidth="330px"
@@ -114,15 +104,11 @@
         mt="10px"
         overflow="hidden"
       >
-        {/* 3d card */}
         <Box>
-          {/* whats next */}
           <Box display="flex" alignItems="center" gap="10px">
-            {/* icon */}
             <Box display="flex" justifyContent="center" alignItems="center">
               <LuSparkles color="#afb2b7" size={13} />
             </Box>
-            {/* text */}
             <Box>
               <Typography
                 variant="subtitle2"
@@ -137,7 +123,6 @@
               </Typography>
             </Box>
           </Box>
-          {/* explanation text */}
           <Box mt="12px">
             <Box>
               <Typography
@@ -149,7 +134,6 @@
               </Typography>
             </Box>
           </Box>
-          {/* reach to us */}
           <Box mt="14px">
             <Box
               bgcolor="rgba(82,182,255,.1)"
@@ -169,7 +153,6 @@
                 transition: "background ease-in 100ms",
               }}
             >
-              {/* text */}
               <Typography
                 variant="subtitle2"
                 sx={{
@@ -180,14 +163,12 @@
               >
                 Reach out to us
               </Typography>
-              {/* icon */}
               <Box display="flex" justifyContent="center" alignItems="center">
                 <FiExternalLink color="#52b4fe" size={13} />
               </Box>
             </Box>
           </Box>
         </Box>
-        {/* blur effect */}
         <Box
           position="absolute"
           top="15px"
@@ -204,4 +185,5 @@
       </Box>
     </Box>
   </Box>
-</Box>;
+</Box>; */
+}
