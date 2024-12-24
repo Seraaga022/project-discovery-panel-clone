@@ -262,13 +262,8 @@ const NavBar = ({ user }: { user: UserT }) => {
                             animate={{
                               opacity: 1,
                             }}
-                          >
-                            <input
-                              className="feedback-input"
-                              type="text"
-                              title="title input"
-                              placeholder="Add a title"
-                              style={{
+                            sx={{
+                              "& > input": {
                                 width: "100%",
                                 maxHeight: "35px",
                                 height: "35px",
@@ -276,7 +271,14 @@ const NavBar = ({ user }: { user: UserT }) => {
                                 border: "1px solid #19191b",
                                 borderRadius: "7px",
                                 paddingInline: "12px",
-                              }}
+                              },
+                            }}
+                          >
+                            <input
+                              className="feedback-input"
+                              type="text"
+                              title="title input"
+                              placeholder="Add a title"
                             />
                           </Box>
                           {/* feedback input page */}
@@ -489,12 +491,12 @@ const NavBar = ({ user }: { user: UserT }) => {
                         </Stack>
                       </Box>
                       {/* linear image */}
-                      <Box maxWidth="100%" height="350px">
-                        <img
-                          src="/images/linear-image.png"
-                          style={{ width: "100%", height: "100%" }}
-                          alt=""
-                        />
+                      <Box
+                        maxWidth="100%"
+                        height="350px"
+                        sx={{ "& > img": { width: "100%", height: "100%" } }}
+                      >
+                        <img src="/images/linear-image.png" alt="" />
                       </Box>
                       {/* changelogs.map => box[position='relative'] > 
                       (box > *contents*)
