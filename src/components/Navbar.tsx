@@ -1,30 +1,23 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Stack,
-  SvgIcon,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
-import { UserT } from "./../utils/types/User";
-import CustomAvatar from "./../components/NavBar/CustomAvatar";
+import { AppBar, Box, Stack, SvgIcon, Typography } from "@mui/material";
+import type { UserT } from "@appTypes/types/user";
+import NavbarProfile from "./NavBar/NavbarProfile";
 import NavigationButtons from "./NavBar/NavigationButtonsCompo";
 import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import Loader from "./Loader/Loader";
-import CustomDialog from "./ui/CustomDialog";
+import Circular from "./atoms/Loaders/Circular";
+import CustomDialog from "./atoms/CustomDialog";
 import { Clear } from "@mui/icons-material";
-import FeedbackRichInput from "./NavBar/FeedbackRichInput";
+import FeedbackRichInput from "./NavBar/Feedback/FeedbackRichInput";
 import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglelens } from "react-icons/si";
 import { BsFillSendFill } from "react-icons/bs";
-import FeedbackToolbarItem from "../theme/FeedbackToolbarItem";
 import { motion } from "framer-motion";
-import FeedbackExplanation from "./NavBar/FeedbackExplanation";
+import FeedbackExplanation from "./NavBar/Feedback/FeedbackInfo";
 const TeamManagement = lazy(() => import("./NavBar/TeamManagementCompo"));
+import "./NavBar/Feedback/feedbackRichInput.css";
+import CustomButton from "./atoms/CustomButton/CustomButton";
 
-const NavBar = () => {
+const NavBar = ({ user }: { user: UserT }) => {
   const [changelogDialogState, setChangelogDialogState] =
     React.useState<boolean>(false);
   const [feedbackDialogState, setFeedbackDialogState] =
@@ -32,17 +25,8 @@ const NavBar = () => {
   const [isFeedbackExplanationPage, setIsFeedbackExplanationPage] =
     React.useState<boolean>(false);
 
-  const user: UserT = {
-    plan: "free",
-    email: "JohnDoe@gmail.com",
-    avatar: "",
-    get userName() {
-      return this.email.split("@")[0];
-    },
-  };
-
   return (
-    <Box bgcolor="transparent" mb="68px" minWidth="1300px">
+    <Box bgcolor="transparent" mb="68px" width="1300px">
       <AppBar
         sx={{
           backgroundColor: "unset",
@@ -56,7 +40,7 @@ const NavBar = () => {
           maxHeight: "65px",
           borderBottom: "1px solid #202022",
           px: "20px",
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(9px) brightness(25%)",
         }}
       >
         {/* left section */}
@@ -83,8 +67,8 @@ const NavBar = () => {
                         <path
                           d="M21.9688 2.0043C5.42727 1.69307 2.31157 18.3581 12.7067 22.5173M31.9957 21.865C32.3073 5.34145 15.6241 2.22913 11.4604 12.6129M12.1402 31.9957C28.6817 32.3069 31.7974 15.6419 21.4023 11.4827M2.00431 12.0486C1.69274 28.5721 18.3759 31.6845 22.5396 21.3006"
                           stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"
+                          strokeWidth="3"
+                          strokeLinecap="round"
                         ></path>
                       </svg>
                     </SvgIcon>
@@ -120,14 +104,14 @@ const NavBar = () => {
                 </Box>
               </Link>
               {/* team management */}
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={<Circular />}>
                 <TeamManagement user={user} />
               </Suspense>
             </Box>
           </Box>
         </Box>
         {/* middle section */}
-        <Box flex={1}>
+        <Box flex={1} display="flex" justifyContent="center">
           <NavigationButtons />
         </Box>
         {/* right section */}
@@ -155,8 +139,9 @@ const NavBar = () => {
                 <Typography
                   variant="subtitle2"
                   sx={{
-                    fontWeight: 500,
+                    fontWeight: 600,
                     fontSize: "13px",
+                    letterSpacing: 0.5,
                   }}
                 >
                   Feedback
@@ -165,7 +150,7 @@ const NavBar = () => {
               {/* feedback dialog */}
               <CustomDialog
                 show={feedbackDialogState}
-                setState={setFeedbackDialogState}
+                setter={setFeedbackDialogState}
               >
                 <Box
                   component={motion.div}
@@ -310,147 +295,104 @@ const NavBar = () => {
                               opacity: 1,
                             }}
                           >
-                            <ThemeProvider theme={FeedbackToolbarItem}>
-                              <Box
-                                display="flex"
-                                justifyContent="end"
-                                alignItems="center"
-                              >
-                                {/* back */}
-                                <Box mr="auto">
-                                  <Box>
-                                    <Button
-                                      onClick={() =>
-                                        setIsFeedbackExplanationPage(true)
-                                      }
-                                      color="info"
+                            <Box
+                              display="flex"
+                              justifyContent="end"
+                              alignItems="center"
+                            >
+                              {/* back */}
+                              <Box mr="auto">
+                                <CustomButton
+                                  onClick={() =>
+                                    setIsFeedbackExplanationPage(true)
+                                  }
+                                  color="info"
+                                  sx={{
+                                    minWidth: "20px",
+                                    minHeight: "0",
+                                    bgcolor: "#08080a",
+                                    border: "1px solid #252526",
+                                    color: "auto",
+                                    p: "10px",
+                                    "&:hover": {
+                                      bgcolor: "#252526",
+                                    },
+                                  }}
+                                >
+                                  <IoIosArrowBack color="#6b6d79" size={13} />
+                                </CustomButton>
+                              </Box>
+                              <Box display="flex" gap="10px">
+                                {/* screenshot */}
+                                <Box>
+                                  <CustomButton
+                                    color="info"
+                                    startIcon={
+                                      <SiGooglelens color="#6b6d79" size={13} />
+                                    }
+                                    sx={{
+                                      minWidth: "20px",
+                                      maxHeight: "33px",
+                                      bgcolor: "#0e0e10",
+                                      border: "1px solid #19191c",
+                                      color: "auto",
+                                      p: "10px",
+                                      px: "16px",
+                                      "&:hover": {
+                                        bgcolor: "#131315",
+                                      },
+                                    }}
+                                  >
+                                    <Typography
                                       sx={{
-                                        textTransform: "none",
-                                        minWidth: "20px",
-                                        minHeight: "0",
-                                        bgcolor: "#08080a",
-                                        border: "1px solid #252526",
-                                        borderRadius: "6px",
-                                        color: "auto",
-                                        p: "10px",
-                                        "&:hover": {
-                                          bgcolor: "#252526",
-                                        },
+                                        color: "#b2b6cd",
+                                        fontWeight: 500,
+                                        fontSize: "13px",
                                       }}
                                     >
-                                      <Box
-                                        display="flex"
-                                        justifyContent="center"
-                                      >
-                                        <IoIosArrowBack
-                                          color="#6b6d79"
-                                          size={13}
-                                        />
-                                      </Box>
-                                    </Button>
-                                  </Box>
+                                      Take a screenshot
+                                    </Typography>
+                                  </CustomButton>
                                 </Box>
-                                <Box display="flex" gap="10px">
-                                  {/* screenshot */}
-                                  <Box>
-                                    <Button
-                                      color="info"
+                                {/* send */}
+                                <Box>
+                                  <CustomButton
+                                    startIcon={
+                                      <BsFillSendFill
+                                        color="#c0c2f9"
+                                        size={13}
+                                      />
+                                    }
+                                    sx={{
+                                      minWidth: "20px",
+                                      maxHeight: "33px",
+                                      bgcolor: "#6266f1",
+                                      border: "1px solid transparent",
+                                      color: "auto",
+                                      p: "10px",
+                                      px: "14px",
+                                      "&:hover": {
+                                        border: "1px solid #5455bc",
+                                        bgcolor: "#4749ac",
+                                      },
+                                      "&::active": {
+                                        outline: "3px solid #242837",
+                                      },
+                                    }}
+                                  >
+                                    <Typography
                                       sx={{
-                                        textTransform: "none",
-                                        minWidth: "20px",
-                                        maxHeight: "33px",
-                                        bgcolor: "#0e0e10",
-                                        border: "1px solid #19191c",
-                                        borderRadius: "6px",
-                                        color: "auto",
-                                        p: "10px",
-                                        "&:hover": {
-                                          bgcolor: "#131315",
-                                        },
+                                        color: "#fff",
+                                        fontWeight: 500,
+                                        fontSize: "13px",
                                       }}
                                     >
-                                      <Box
-                                        display="flex"
-                                        gap="8px"
-                                        alignItems="center"
-                                        px="5px"
-                                      >
-                                        <Box
-                                          display="flex"
-                                          justifyContent="center"
-                                        >
-                                          <SiGooglelens
-                                            color="#6b6d79"
-                                            size={13}
-                                          />
-                                        </Box>
-                                        <Box>
-                                          <Typography
-                                            sx={{
-                                              color: "#b2b6cd",
-                                              fontWeight: 500,
-                                              fontSize: "13px",
-                                            }}
-                                          >
-                                            Take a screenshot
-                                          </Typography>
-                                        </Box>
-                                      </Box>
-                                    </Button>
-                                  </Box>
-                                  {/* send */}
-                                  <Box>
-                                    <Button
-                                      sx={{
-                                        textTransform: "none",
-                                        minWidth: "20px",
-                                        maxHeight: "33px",
-                                        bgcolor: "#6266f1",
-                                        border: "1px solid transparent",
-                                        borderRadius: "6px",
-                                        color: "auto",
-                                        p: "10px",
-                                        "&:hover": {
-                                          border: "1px solid #5455bc",
-                                          bgcolor: "#4749ac",
-                                        },
-                                        "&::active": {
-                                          outline: "3px solid #242837",
-                                        },
-                                      }}
-                                    >
-                                      <Box
-                                        display="flex"
-                                        gap="6px"
-                                        alignItems="center"
-                                        px="2px"
-                                      >
-                                        <Box
-                                          display="flex"
-                                          justifyContent="center"
-                                        >
-                                          <BsFillSendFill
-                                            color="#c0c2f9"
-                                            size={13}
-                                          />
-                                        </Box>
-                                        <Box>
-                                          <Typography
-                                            sx={{
-                                              color: "#fff",
-                                              fontWeight: 500,
-                                              fontSize: "13px",
-                                            }}
-                                          >
-                                            Submit
-                                          </Typography>
-                                        </Box>
-                                      </Box>
-                                    </Button>
-                                  </Box>
+                                      Submit
+                                    </Typography>
+                                  </CustomButton>
                                 </Box>
                               </Box>
-                            </ThemeProvider>
+                            </Box>
                           </Box>
                         </Box>
                       )}
@@ -478,19 +420,20 @@ const NavBar = () => {
               {/* changelog dialog */}
               <CustomDialog
                 show={changelogDialogState}
-                setState={setChangelogDialogState}
+                setter={setChangelogDialogState}
                 blur={1}
               >
                 <Box
                   bgcolor="#08080a"
-                  minWidth="600px"
+                  width="600px"
                   maxWidth="600px"
+                  maxHeight="700px"
                   borderRadius="10px"
                   border="1px solid #32384d"
                   color="#b2b6cd"
                   overflow="clip"
                 >
-                  <Box minHeight="1000px" sx={{ overFlowY: "scroll" }}>
+                  <Box height="1000px" sx={{ overFlowY: "scroll" }}>
                     <Box
                       sx={{
                         backgroundImage: `linear-gradient(to bottom, #1b1b1c, #08080a 20%)`,
@@ -583,7 +526,7 @@ const NavBar = () => {
               </Box>
               {/* custom avatar */}
               <Box mr="10px" ml="9px">
-                <CustomAvatar user={user} />
+                <NavbarProfile user={user} />
               </Box>
             </Box>
           </Box>

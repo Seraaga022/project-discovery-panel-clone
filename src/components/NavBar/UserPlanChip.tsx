@@ -1,15 +1,22 @@
 import { Yard } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
-import { UserT } from "../../utils/types/User";
-import CustomChip from "../ui/CustomChip";
+import { Box, BoxProps, Typography } from "@mui/material";
+import type { UserT } from "@appTypes/types/user";
+import CustomChip from "../atoms/CustomChip";
 
-const UserPlanChip = ({ plan }: { plan: UserT["plan"] }) => {
+const UserPlanChip: React.FC<
+  {
+    plan: UserT["plan"];
+    iconic?: boolean;
+  } & BoxProps
+> = ({ plan, iconic = true, ...props }) => {
   return (
-    <CustomChip>
+    <CustomChip {...props}>
       {/* Plan icon */}
-      <Box display="flex" alignItems="center">
-        <Yard sx={{ fontSize: "12px" }} />
-      </Box>
+      {iconic && (
+        <Box display="flex" alignItems="center">
+          <Yard sx={{ fontSize: "12px" }} />
+        </Box>
+      )}
       {/* Plan title */}
       <Box>
         <Typography

@@ -18,7 +18,17 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./",
+    // @appTypes
+    "paths": {
+      "@appTypes/*": ["src/utils/types/@appTypes/*"] // Map the alias to the actual path
+    }
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*" // Include all types in the src directory that is more explicit
+    // if ["src"] => all types directly inside of src are included
+    // if ["src/**/*"] => all types inside of src and types inside of inner directories are included
+  ]
 }

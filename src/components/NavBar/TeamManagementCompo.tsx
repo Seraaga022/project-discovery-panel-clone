@@ -1,23 +1,22 @@
-import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import {
-  ExpandMore,
-  ExpandLess,
-  SettingsOutlined,
   AddOutlined,
   Clear,
+  ExpandLess,
+  ExpandMore,
+  SettingsOutlined,
 } from "@mui/icons-material";
+import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import React from "react";
-import { UserT } from "../../utils/types/User";
-import UserPlanChip from "./UserPlanChip";
 import { RxPerson } from "react-icons/rx";
-import HoverCard from "../ui/HoverCard";
-import CustomChip from "../ui/CustomChip";
-import CustomDialog from "../ui/CustomDialog";
+import type { UserT } from "@appTypes/types/user";
 import BillingComponent from "../BillingComponent";
+import CustomDialog from "../atoms/CustomDialog";
+import UserPlanChip from "./UserPlanChip";
+import CustomTooltip from "../atoms/CustomTooltip";
 
 const TeamManagement = ({ user }: { user: UserT }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = !!anchorEl;
+  const IS_OPEN = !!anchorEl;
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -32,9 +31,9 @@ const TeamManagement = ({ user }: { user: UserT }) => {
     <>
       <Box
         id="team-manage-trigger"
-        aria-controls={open ? "team-manage-menu" : undefined}
+        aria-controls={IS_OPEN ? "team-manage-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={IS_OPEN ? "true" : undefined}
         onClick={handleClick}
         sx={{
           display: "flex",
@@ -75,7 +74,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
           {/* Menu Buttons */}
           <Box
             sx={{
-              bgcolor: open ? "#262626" : "",
+              bgcolor: IS_OPEN ? "#262626" : "",
               "&:hover": { bgcolor: "#262626", cursor: "pointer" },
               "&:hover .arrows-container": { color: "#f5f5f5" },
               transition: "all ease-in 90ms",
@@ -114,7 +113,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
       <Menu
         id="team-manage-menu"
         anchorEl={anchorEl}
-        open={open}
+        open={IS_OPEN}
         onClose={handleClose}
         MenuListProps={{
           "aria-labelledby": "team-manage-trigger",
@@ -178,13 +177,13 @@ const TeamManagement = ({ user }: { user: UserT }) => {
             {/* user plan and plan color */}
             <Box display="flex" alignItems="center">
               {/* plan chip */}
-              <HoverCard
+              <CustomTooltip
                 title={
                   <Box p="8px" py="15px" maxWidth="200px">
                     <Stack spacing={2}>
                       {/* chip */}
                       <Box>
-                        <CustomChip>free</CustomChip>
+                        <UserPlanChip iconic={false} plan={user.plan} />
                       </Box>
                       {/* content */}
                       <Box>
@@ -208,12 +207,12 @@ const TeamManagement = ({ user }: { user: UserT }) => {
                 <Box>
                   <UserPlanChip plan={user.plan} />
                 </Box>
-              </HoverCard>
+              </CustomTooltip>
               {/* plan color */}
               <Box ml="10px">
                 <Box
-                  minWidth="16px"
-                  minHeight="16px"
+                  width="16px"
+                  height="16px"
                   bgcolor="#151518"
                   border="1px solid #1d1d20"
                   borderRadius="999px"
@@ -222,8 +221,8 @@ const TeamManagement = ({ user }: { user: UserT }) => {
                   alignItems="center"
                 >
                   <Box
-                    minWidth="6.5px"
-                    minHeight="7px"
+                    width="6.5px"
+                    height="7px"
                     bgcolor="#d4d4d4"
                     borderRadius="999px"
                   ></Box>
@@ -332,37 +331,48 @@ const TeamManagement = ({ user }: { user: UserT }) => {
         {/* billing dialog */}
         <CustomDialog
           show={billingDialogState}
-          setState={setBillingDialogState}
+          setter={setBillingDialogState}
+          blur={70}
         >
           <Box
+            mt="10px"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            p="10px"
+            pt="15px"
             pb="25px"
+            width="100vw"
             position="relative"
           >
             {/* title */}
-            <Box>
+            <Box pr="90px" pb="2px">
               <Box display="flex" justifyContent="center">
                 <Typography
                   variant="subtitle2"
-                  sx={{ color: "#ffffff", fontWeight: 500, fontSize: "21px" }}
+                  sx={{ color: "#fff", fontWeight: 600, fontSize: "21px" }}
                 >
                   Choose Your Plan
                 </Typography>
               </Box>
             </Box>
             {/* close button */}
-            <Box position="absolute" top="15px" right="20px">
+            <Box
+              ml="auto"
+              position="fixed"
+              top="20px"
+              right="50px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              onClick={(event) => {
+                event.stopPropagation();
+                setBillingDialogState(false);
+              }}
+            >
               <Clear
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setBillingDialogState(false);
-                }}
                 sx={{
                   color: "#b6b6b7",
-                  fontSize: "15px",
+                  fontSize: "18px",
                   "&:hover": {
                     color: "#fff",
                   },

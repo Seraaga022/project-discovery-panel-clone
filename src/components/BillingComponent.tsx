@@ -1,24 +1,26 @@
 import React from "react";
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoMdCheckmark,
 } from "react-icons/io";
 import { LuCheckCheck } from "react-icons/lu";
-import {
+import type {
+  TplanCardT,
   PlanTableColT,
   PlanTableRowT,
-  TplanCard,
-} from "../utils/types/BillingComponent";
-import CustomChip from "./ui/CustomChip";
-import HoverCard from "./ui/HoverCard";
+} from "@appTypes/types/billing";
+import CustomChip from "./atoms/CustomChip";
+import CustomTooltip from "./atoms/CustomTooltip";
 import { RiStackLine } from "react-icons/ri";
 import { BsBodyText } from "react-icons/bs";
 import { FiPieChart } from "react-icons/fi";
 import { AiOutlineTeam } from "react-icons/ai";
+import CustomButton from "./atoms/CustomButton/CustomButton";
 
 const PlanCard = ({
+  enterprice,
   pro,
   current,
   level,
@@ -27,18 +29,20 @@ const PlanCard = ({
   buttonText,
   includes,
   ...props
-}: TplanCard) => {
+}: TplanCardT) => {
+  console.log(enterprice);
   const [price, setPrice] = React.useState<number>(208);
-  const [active, setActive] = React.useState<number>(0);
+  const [activeProPricingOption, setActiveProPricingOption] =
+    React.useState<number>(0);
 
   React.useEffect(() => {
-    if (active === 0) setPrice(208);
-    if (active === 1) setPrice(250);
-  }, [active]);
+    if (activeProPricingOption === 0) setPrice(208);
+    if (activeProPricingOption === 1) setPrice(250);
+  }, [activeProPricingOption]);
 
   return (
     <Box
-      minWidth="370px"
+      width="370px"
       maxWidth="370px"
       {...props}
       borderRadius="12px"
@@ -77,9 +81,9 @@ const PlanCard = ({
         <Box display="flex" p="10px" gap="10px">
           {/* month */}
           <Box
-            bgcolor={active === 1 ? "#27272a" : ""}
-            color={active === 1 ? "#eeeeed" : ""}
-            onClick={() => setActive(1)}
+            bgcolor={activeProPricingOption === 1 ? "#27272a" : ""}
+            color={activeProPricingOption === 1 ? "#eeeeed" : ""}
+            onClick={() => setActiveProPricingOption(1)}
             px="10px"
             py="3px"
             borderRadius="8px"
@@ -93,7 +97,10 @@ const PlanCard = ({
               <Typography
                 variant="subtitle1"
                 className="monthly-text"
-                sx={{ fontSize: "12px", color: "#979699" }}
+                sx={{
+                  fontSize: "12px",
+                  color: activeProPricingOption === 1 ? "#e4e3e3" : "#979699",
+                }}
               >
                 Monthly
               </Typography>
@@ -102,15 +109,15 @@ const PlanCard = ({
           {/* year */}
           <Box
             display="flex"
-            bgcolor={active === 0 ? "#27272a" : ""}
-            color={active === 0 ? "#eeeeed" : ""}
-            onClick={() => setActive(0)}
+            bgcolor={activeProPricingOption === 0 ? "#27272a" : ""}
+            color={activeProPricingOption === 0 ? "#eeeeed" : ""}
+            onClick={() => setActiveProPricingOption(0)}
             px="10px"
             py="3px"
             borderRadius="8px"
             justifyContent="center"
             alignItems="center"
-            gap="3px"
+            gap="5px"
             sx={{
               cursor: "pointer",
               transition: "all ease-in 100ms",
@@ -121,12 +128,15 @@ const PlanCard = ({
               <Typography
                 variant="subtitle1"
                 className="yearly-text"
-                sx={{ fontSize: "12px", color: "#979699" }}
+                sx={{
+                  fontSize: "12px",
+                  color: activeProPricingOption === 0 ? "#e4e3e3" : "#979699",
+                }}
               >
                 Yearly
               </Typography>
             </Box>
-            <HoverCard
+            <CustomTooltip
               title={
                 <Box>
                   <Typography variant="subtitle2" sx={{ fontSize: "12px" }}>
@@ -134,6 +144,7 @@ const PlanCard = ({
                   </Typography>
                 </Box>
               }
+              placement="top"
             >
               <Box>
                 <CustomChip
@@ -148,7 +159,7 @@ const PlanCard = ({
                       fontFamily: "console",
                     },
                     borderRadius: "9999px",
-                    px: "3px",
+                    px: "5px",
                     height: "15px",
                     display: "flex",
                     justifyContent: "center",
@@ -160,14 +171,14 @@ const PlanCard = ({
                     sx={{
                       textTransform: "none",
                       fontFamily: "consolas",
-                      fontSize: "12px",
+                      fontSize: "11.5px",
                     }}
                   >
                     16.67% off
                   </Typography>
                 </CustomChip>
               </Box>
-            </HoverCard>
+            </CustomTooltip>
           </Box>
         </Box>
       </Box>
@@ -183,7 +194,8 @@ const PlanCard = ({
         {/* level & description */}
         <Stack spacing={5}>
           <Box>
-            <Stack spacing={1.6}>
+            <Stack spacing={0.8}>
+              {/* level */}
               <Box>
                 <Typography
                   variant="subtitle2"
@@ -199,6 +211,7 @@ const PlanCard = ({
                   {level}
                 </Typography>
               </Box>
+              {/* description */}
               <Box maxWidth={pro ? "200px" : "unset"}>
                 <Typography
                   variant="subtitle2"
@@ -244,7 +257,7 @@ const PlanCard = ({
         {/* button */}
         <Box mt="30px">
           <Box>
-            <Button
+            <CustomButton
               fullWidth
               disabled={current}
               sx={{
@@ -254,19 +267,22 @@ const PlanCard = ({
                 },
                 bgcolor: pro ? "#eab308" : "",
                 border: pro ? "none" : "1px solid #27272a",
-                textTransform: "none",
                 color: pro ? "#09090b" : "#929292",
                 "&:hover": {
-                  bgcolor: pro ? "#" : "#27272a",
+                  bgcolor: pro ? "" : "#27272a",
                   color: pro ? "" : "#fafafa",
                 },
                 borderRadius: "5px",
               }}
             >
-              <Typography variant="subtitle2">
+              <Typography
+                variant="subtitle2"
+                fontWeight={600}
+                fontSize=".85rem"
+              >
                 {pro ? `Get Pro for $${price} / month` : buttonText}
               </Typography>
-            </Button>
+            </CustomButton>
           </Box>
         </Box>
       </Box>
@@ -279,6 +295,7 @@ const PlanCard = ({
       <Box p="40px">
         <Box>
           <Stack spacing={1.4}>
+            {/* static title */}
             <Box>
               <Typography
                 sx={{ color: "#eeeeee", fontWeight: 600, fontSize: "14px" }}
@@ -286,6 +303,7 @@ const PlanCard = ({
                 Includess
               </Typography>
             </Box>
+            {/* include items */}
             <Box>
               <Stack spacing={0.7} pl="4px">
                 {includes.map((a) => (
@@ -312,23 +330,23 @@ const PlanCard = ({
   );
 };
 
-const TableDefaulStyles = {
+const TABLE_DEFAULT_STYLES = {
   col: {
     aspectCol: {
-      minWidth: "420px",
-      maxWidth: "420px",
+      width: "450px",
+      maxWidth: "450px",
       px: "20px",
       py: "24px",
-      minHeight: "35px",
-      maxHeight: "35px",
+      minHeight: "25px",
+      maxHeight: "25px",
     },
     freeCol: {
-      minWidth: "180px",
-      maxWidth: "180px",
+      width: "200px",
+      maxWidth: "200px",
       px: "20px",
       py: "24px",
-      minHeight: "35px",
-      maxHeight: "35px",
+      minHeight: "25px",
+      maxHeight: "25px",
     },
   },
   aspectIcon: {
@@ -357,36 +375,39 @@ const TableDefaulStyles = {
 };
 
 const PlanTableCol = (props: PlanTableColT) => {
-  const proCol = {
-    ...TableDefaulStyles.col.freeCol,
-    bgcolor: "#0f0f11",
+  const { index, children } = props;
+
+  const PRO_COL_STYLES = {
+    ...TABLE_DEFAULT_STYLES.col.freeCol,
+    bgcolor: "rgba(255, 255, 255, 0.025)",
   };
-  const enterpriseCol = {
-    ...TableDefaulStyles.col.freeCol,
+  const ENTERPRISE_COL_STYLES = {
+    ...TABLE_DEFAULT_STYLES.col.freeCol,
   };
-  switch (props.index) {
+
+  switch (index) {
     case 0:
       return (
-        <Box {...TableDefaulStyles.col.aspectCol} {...props}>
-          {props.children}
+        <Box {...TABLE_DEFAULT_STYLES.col.aspectCol} {...props}>
+          {children}
         </Box>
       );
     case 1:
       return (
-        <Box {...TableDefaulStyles.col.freeCol} {...props} display="flex">
-          {props.children}
+        <Box {...TABLE_DEFAULT_STYLES.col.freeCol} {...props} display="flex">
+          {children}
         </Box>
       );
     case 2:
       return (
-        <Box {...proCol} {...props} display="flex" alignItems="end">
-          {props.children}
+        <Box {...PRO_COL_STYLES} {...props} display="flex" alignItems="end">
+          {children}
         </Box>
       );
     case 3:
       return (
-        <Box {...enterpriseCol} {...props}>
-          {props.children}
+        <Box {...ENTERPRISE_COL_STYLES} {...props}>
+          {children}
         </Box>
       );
   }
@@ -407,10 +428,10 @@ const PlanTableRow = (props: PlanTableRowT) => {
 };
 
 const PlanTables = () => {
-  const items = [
+  const plansFeatures = [
     {
       head: {
-        aspectIcon: <RiStackLine {...TableDefaulStyles.aspectIcon} />,
+        aspectIcon: <RiStackLine {...TABLE_DEFAULT_STYLES.aspectIcon} />,
         aspectText: "Nuclei Templates",
       },
       body: [
@@ -466,7 +487,7 @@ const PlanTables = () => {
     },
     {
       head: {
-        aspectIcon: <BsBodyText {...TableDefaulStyles.aspectIcon} />,
+        aspectIcon: <BsBodyText {...TABLE_DEFAULT_STYLES.aspectIcon} />,
         aspectText: "Reconnaissance and Asset Management",
       },
       body: [
@@ -540,7 +561,7 @@ const PlanTables = () => {
     },
     {
       head: {
-        aspectIcon: <FiPieChart {...TableDefaulStyles.aspectIcon} />,
+        aspectIcon: <FiPieChart {...TABLE_DEFAULT_STYLES.aspectIcon} />,
         aspectText: "Vulnerability Exposure Management",
       },
       body: [
@@ -620,7 +641,7 @@ const PlanTables = () => {
     },
     {
       head: {
-        aspectIcon: <AiOutlineTeam {...TableDefaulStyles.aspectIcon} />,
+        aspectIcon: <AiOutlineTeam {...TABLE_DEFAULT_STYLES.aspectIcon} />,
         aspectText: "Admin and Team",
       },
       body: [
@@ -671,26 +692,26 @@ const PlanTables = () => {
   ];
 
   return (
-    <Box id="all-plans" pb="20px">
-      {items.map((item, index) => (
+    <Box pb="20px">
+      {plansFeatures.map((item, index) => (
         <Box>
-          {/* table head */}
+          {/* table header */}
           <PlanTableRow firstRow>
             <PlanTableCol index={0} pt="150px" pb="40px">
               <CustomChip
                 sx={{
-                  bgcolor: TableDefaulStyles.headCol.bgcolor,
-                  color: TableDefaulStyles.headCol.color,
-                  border: TableDefaulStyles.headCol.border,
-                  width: TableDefaulStyles.headCol.width,
-                  borderRadius: TableDefaulStyles.headCol.borderRadius,
+                  bgcolor: TABLE_DEFAULT_STYLES.headCol.bgcolor,
+                  color: TABLE_DEFAULT_STYLES.headCol.color,
+                  border: TABLE_DEFAULT_STYLES.headCol.border,
+                  width: TABLE_DEFAULT_STYLES.headCol.width,
+                  borderRadius: TABLE_DEFAULT_STYLES.headCol.borderRadius,
                 }}
               >
                 <Box
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  {...TableDefaulStyles.headCol.wrapper}
+                  {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
                     {item.head.aspectIcon}
@@ -698,7 +719,7 @@ const PlanTables = () => {
                   <Box display="flex" alignItems="center">
                     <Typography
                       variant="subtitle2"
-                      sx={TableDefaulStyles.aspectText}
+                      sx={TABLE_DEFAULT_STYLES.aspectText}
                     >
                       {item.head.aspectText}
                     </Typography>
@@ -709,23 +730,23 @@ const PlanTables = () => {
             <PlanTableCol index={1} pt="150px" pb="40px">
               <CustomChip
                 sx={{
-                  bgcolor: TableDefaulStyles.headCol.bgcolor,
-                  color: TableDefaulStyles.headCol.color,
-                  border: TableDefaulStyles.headCol.border,
-                  width: TableDefaulStyles.headCol.width,
-                  borderRadius: TableDefaulStyles.headCol.borderRadius,
+                  bgcolor: TABLE_DEFAULT_STYLES.headCol.bgcolor,
+                  color: TABLE_DEFAULT_STYLES.headCol.color,
+                  border: TABLE_DEFAULT_STYLES.headCol.border,
+                  width: TABLE_DEFAULT_STYLES.headCol.width,
+                  borderRadius: TABLE_DEFAULT_STYLES.headCol.borderRadius,
                 }}
               >
                 <Box
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  {...TableDefaulStyles.headCol.wrapper}
+                  {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
                     <Typography
                       variant="subtitle2"
-                      sx={TableDefaulStyles.aspectText}
+                      sx={TABLE_DEFAULT_STYLES.aspectText}
                     >
                       Free
                     </Typography>
@@ -741,31 +762,29 @@ const PlanTables = () => {
               sx={{
                 backgroundImage:
                   index === 0
-                    ? `linear-gradient(to bottom, #09090b 25%, 
-                  #0f0f11 95%, 
-                  #0f0f11 100%)`
-                    : "",
+                    ? "linear-gradient(to top, transparent 100%,rgba(255, 255, 255, 0.025))"
+                    : "unset",
               }}
             >
               <CustomChip
                 sx={{
-                  bgcolor: TableDefaulStyles.headCol.proBgColor,
-                  color: TableDefaulStyles.headCol.proColor,
-                  border: TableDefaulStyles.headCol.border,
-                  width: TableDefaulStyles.headCol.width,
-                  borderRadius: TableDefaulStyles.headCol.borderRadius,
+                  bgcolor: TABLE_DEFAULT_STYLES.headCol.proBgColor,
+                  color: TABLE_DEFAULT_STYLES.headCol.proColor,
+                  border: TABLE_DEFAULT_STYLES.headCol.border,
+                  width: TABLE_DEFAULT_STYLES.headCol.width,
+                  borderRadius: TABLE_DEFAULT_STYLES.headCol.borderRadius,
                 }}
               >
                 <Box
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  {...TableDefaulStyles.headCol.wrapper}
+                  {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
                     <Typography
                       variant="subtitle2"
-                      sx={TableDefaulStyles.aspectText}
+                      sx={TABLE_DEFAULT_STYLES.aspectText}
                     >
                       Pro
                     </Typography>
@@ -776,23 +795,23 @@ const PlanTables = () => {
             <PlanTableCol index={3} pt="150px" pb="40px">
               <CustomChip
                 sx={{
-                  bgcolor: TableDefaulStyles.headCol.bgcolor,
-                  color: TableDefaulStyles.headCol.color,
-                  border: TableDefaulStyles.headCol.border,
-                  width: TableDefaulStyles.headCol.width,
-                  borderRadius: TableDefaulStyles.headCol.borderRadius,
+                  bgcolor: TABLE_DEFAULT_STYLES.headCol.bgcolor,
+                  color: TABLE_DEFAULT_STYLES.headCol.color,
+                  border: TABLE_DEFAULT_STYLES.headCol.border,
+                  width: TABLE_DEFAULT_STYLES.headCol.width,
+                  borderRadius: TABLE_DEFAULT_STYLES.headCol.borderRadius,
                 }}
               >
                 <Box
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  {...TableDefaulStyles.headCol.wrapper}
+                  {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
                     <Typography
                       variant="subtitle2"
-                      sx={TableDefaulStyles.aspectText}
+                      sx={TABLE_DEFAULT_STYLES.aspectText}
                     >
                       Enterprise
                     </Typography>
@@ -807,7 +826,7 @@ const PlanTables = () => {
               <PlanTableRow>
                 <PlanTableCol index={0}>
                   <Box
-                    minHeight={TableDefaulStyles.col.aspectCol.minHeight}
+                    height={TABLE_DEFAULT_STYLES.col.aspectCol.minHeight}
                     display="flex"
                     alignItems="start"
                   >
@@ -822,7 +841,7 @@ const PlanTables = () => {
                 </PlanTableCol>
                 <PlanTableCol index={1}>
                   <Box
-                    minHeight={TableDefaulStyles.col.aspectCol.minHeight}
+                    height={TABLE_DEFAULT_STYLES.col.aspectCol.minHeight}
                     display="flex"
                     alignItems="start"
                   >
@@ -837,7 +856,7 @@ const PlanTables = () => {
                 </PlanTableCol>
                 <PlanTableCol index={2}>
                   <Box
-                    minHeight={TableDefaulStyles.col.aspectCol.minHeight}
+                    height={TABLE_DEFAULT_STYLES.col.aspectCol.minHeight}
                     display="flex"
                     alignItems="start"
                   >
@@ -856,7 +875,7 @@ const PlanTables = () => {
                 </PlanTableCol>
                 <PlanTableCol index={3}>
                   <Box
-                    minHeight={TableDefaulStyles.col.aspectCol.minHeight}
+                    height={TABLE_DEFAULT_STYLES.col.aspectCol.minHeight}
                     display="flex"
                     alignItems="start"
                   >
@@ -883,8 +902,15 @@ const PlanTables = () => {
 };
 
 const BillingComponent = () => {
+  const allPlansSectionRef = React.useRef<HTMLInputElement>(null);
+
+  const handleCompareAllPlansClick = () => {
+    if (!allPlansSectionRef.current) return;
+    allPlansSectionRef.current.scrollIntoView();
+  };
+
   return (
-    <Stack alignItems="center">
+    <Stack alignItems="center" height="100%" width="100%">
       {/* plans cards */}
       <Box display="flex" gap="10px">
         <PlanCard
@@ -892,7 +918,7 @@ const BillingComponent = () => {
           level="free"
           description="For bug bounty hunters, researchers, and individuals"
           a11ies={["Asset reconnaissance", "Vulnerability research"]}
-          buttonText="CurrentPlan"
+          buttonText="Current Plan"
           includes={[
             "Weekly reconnaissance",
             "Tech detections and inventory",
@@ -917,6 +943,7 @@ const BillingComponent = () => {
           ]}
         />
         <PlanCard
+          enterprice
           level="enterprise"
           description="For large attack surfaces and enterprise requirements"
           a11ies={[
@@ -934,33 +961,30 @@ const BillingComponent = () => {
       </Box>
       {/* scroll to all plans button */}
       <Box width="100%" mt="50px" display="flex" justifyContent="center">
-        <Button
+        <CustomButton
+          color="info"
+          endIcon={<IoIosArrowDown color="#c5c5c6" />}
           sx={{
-            textTransform: "none",
-            borderRadius: "6px",
             bgcolor: "#212124",
             "&:hover": {
               bgcolor: "#27272a",
             },
+            px: "14px",
           }}
+          onClick={handleCompareAllPlansClick}
         >
-          <a href="#all-plans">
-            <Box display="flex" alignItems="center" gap="5px">
-              <Typography
-                variant="subtitle1"
-                sx={{ fontSize: "14px", color: "#c5c5c6", fontWeight: 500 }}
-              >
-                Compare all plans
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <IoIosArrowDown color="#c5c5c6" />
-              </Box>
-            </Box>
-          </a>
-        </Button>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontSize: "14px", color: "#c5c5c6", fontWeight: 500 }}
+          >
+            Compare all plans
+          </Typography>
+        </CustomButton>
       </Box>
       {/* plans tables */}
-      <PlanTables />
+      <Box ref={allPlansSectionRef}>
+        <PlanTables />
+      </Box>
     </Stack>
   );
 };

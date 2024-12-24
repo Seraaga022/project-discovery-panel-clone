@@ -2,20 +2,20 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { OptionalNBC, TabT } from "../../utils/types/NavigationButtonComponent";
+import type { OptionalNBC, TabT } from "@appTypes/types/navigationTabButton";
 import { TbHomeShield } from "react-icons/tb";
 import { CgDatabase } from "react-icons/cg";
 import { RiEditCircleLine } from "react-icons/ri";
 import { RiStackLine } from "react-icons/ri";
 
-const Tab = (props: TabT) => {
+const Tab: React.FC<TabT> = (props) => {
   const { setActiveTabPosition, setCursorPosition, text } = props;
   const navigate = useNavigate();
   const ref = React.useRef<HTMLElement>(null);
 
   // the location is the window.location btw
   const location = useLocation();
-  const activeTab = window.location.href.split("/")[3];
+  const ACTIVE_TAB = window.location.href.split("/")[3];
 
   // preventing from bugs
   React.useEffect(() => {
@@ -70,10 +70,10 @@ const Tab = (props: TabT) => {
         });
       }}
       onClick={() => {
-        if (activeTab === text) return;
+        if (ACTIVE_TAB === text) return;
 
-        const tab = text;
-        if (tab !== "dashboard") navigate(tab);
+        const TAB = text;
+        if (TAB !== "dashboard") navigate(TAB);
         else navigate("/");
 
         if (!ref.current) return;
@@ -93,16 +93,16 @@ const Tab = (props: TabT) => {
         userSelect: "none",
         borderRadius: "5px",
         bgcolor:
-          activeTab === text || (activeTab === "" && text === "dashboard")
+          ACTIVE_TAB === text || (ACTIVE_TAB === "" && text === "dashboard")
             ? "#1b1b1e"
             : "",
         color:
-          activeTab === text || (activeTab === "" && text === "dashboard")
+          ACTIVE_TAB === text || (ACTIVE_TAB === "" && text === "dashboard")
             ? "#eeeeee"
             : "#a1a1aa",
         "& .tab-icon": {
           color:
-            activeTab === text || (activeTab === "" && text === "dashboard")
+            ACTIVE_TAB === text || (ACTIVE_TAB === "" && text === "dashboard")
               ? "#818cf8"
               : "#52525b",
           transition: "color ease-in 100ms",
@@ -115,7 +115,7 @@ const Tab = (props: TabT) => {
   );
 };
 
-const Cursor = ({ position }: { position: OptionalNBC }) => {
+const Cursor: React.FC<{ position: OptionalNBC }> = ({ position }) => {
   return (
     <Box
       component={motion.div}
