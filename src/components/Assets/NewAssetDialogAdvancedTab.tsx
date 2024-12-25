@@ -34,6 +34,64 @@ const NewAssetDialogAdvancedTab = () => {
     );
   };
 
+  const SWITCH_STYLES = {
+    scale: 0.8,
+    mx: "-16px",
+    display: "flex",
+    alignItems: "center",
+    "& .Mui-disabled": {
+      "& .MuiSwitch-thumb": {
+        bgcolor: "#8a8a8b",
+      },
+      "& + .MuiSwitch-track": {
+        bgcolor: "#242425 !important",
+        opacity: ".8 !important",
+      },
+    },
+    "& .Mui-checked": {
+      "& .MuiSwitch-thumb": {
+        bgcolor: "#6366f1",
+      },
+      "& + .MuiSwitch-track": {
+        bgcolor: "#333333 !important",
+        opacity: "1 !important",
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      ml: "7px",
+      mt: "3px",
+      bgcolor: "#eeeeee",
+      width: "14px",
+      height: "14px",
+      boxSizing: "border-box",
+    },
+    "& .MuiTouchRipple-root": {
+      bgcolor: "transparent",
+      height: "100%",
+    },
+    "& .MuiSwitch-track": {
+      m: "0",
+      bgcolor: "#333333",
+      opacity: 1,
+      height: "23px",
+      pr: "42px",
+      borderRadius: "9999px",
+      boxSizing: "border-box",
+    },
+  };
+
+  const FORM_CONTROL_LABEL_STYLES = {
+    "& .MuiTypography-root": {
+      color: "#dedede",
+      ml: "20px",
+      fontSize: "12px",
+      "&.Mui-disabled": {
+        color: "#a6a6a6",
+        opacity: 0.7,
+      },
+    },
+  };
+
   return (
     <Stack>
       {/* passive subdomain discovery */}
@@ -142,7 +200,7 @@ const NewAssetDialogAdvancedTab = () => {
         }}
       >
         <Box sx={{ cursor: "pointer" }}>
-          {/* main checkbox & contents */}
+          {/* main checkbox & text's */}
           <Box display="flex">
             {/* left */}
             <Box flex={0.03}>
@@ -241,17 +299,7 @@ const NewAssetDialogAdvancedTab = () => {
               <Box>
                 <FormControlLabel
                   label="DNS Bruteforce"
-                  sx={{
-                    "& .MuiTypography-root": {
-                      color: "#dedede",
-                      ml: "20px",
-                      fontSize: "12px",
-                      "&.Mui-disabled": {
-                        color: "#a6a6a6",
-                        opacity: 0.7,
-                      },
-                    },
-                  }}
+                  sx={FORM_CONTROL_LABEL_STYLES}
                   control={
                     <Switch
                       onChange={() =>
@@ -265,51 +313,7 @@ const NewAssetDialogAdvancedTab = () => {
                         !activeSubdomainCheckboxItems[1]
                       }
                       checked={activeSubdomainCheckboxItems[0]}
-                      sx={{
-                        scale: 0.8,
-                        mx: "-16px",
-                        display: "flex",
-                        alignItems: "center",
-                        "& .Mui-disabled": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#8a8a8b",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#242425 !important",
-                            opacity: ".8 !important",
-                          },
-                        },
-                        "& .Mui-checked": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#6366f1",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#333333 !important",
-                            opacity: "1 !important",
-                          },
-                        },
-                        "& .MuiSwitch-thumb": {
-                          ml: "7px",
-                          mt: "3px",
-                          bgcolor: "#eeeeee",
-                          width: "14px",
-                          height: "14px",
-                          boxSizing: "border-box",
-                        },
-                        "& .MuiTouchRipple-root": {
-                          bgcolor: "transparent",
-                          height: "100%",
-                        },
-                        "& .MuiSwitch-track": {
-                          m: "0",
-                          bgcolor: "#333333",
-                          opacity: 1,
-                          height: "23px",
-                          pr: "42px",
-                          borderRadius: "9999px",
-                          boxSizing: "border-box",
-                        },
-                      }}
+                      sx={SWITCH_STYLES}
                     />
                   }
                 />
@@ -321,15 +325,7 @@ const NewAssetDialogAdvancedTab = () => {
                   sx={{
                     position: "relative",
                     top: "-8px",
-                    "& .MuiTypography-root": {
-                      color: "#dedede",
-                      ml: "20px",
-                      fontSize: "12px",
-                      "&.Mui-disabled": {
-                        color: "#a6a6a6",
-                        opacity: 0.7,
-                      },
-                    },
+                    ...FORM_CONTROL_LABEL_STYLES,
                   }}
                   control={
                     <Switch
@@ -344,51 +340,7 @@ const NewAssetDialogAdvancedTab = () => {
                         !activeSubdomainCheckboxItems[0] &&
                         !activeSubdomainCheckboxItems[1]
                       }
-                      sx={{
-                        scale: 0.8,
-                        mx: "-16px",
-                        display: "flex",
-                        alignItems: "center",
-                        "& .Mui-disabled": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#8a8a8b",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#242425 !important",
-                            opacity: ".8 !important",
-                          },
-                        },
-                        "& .Mui-checked": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#6366f1",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#333333 !important",
-                            opacity: "1 !important",
-                          },
-                        },
-                        "& .MuiSwitch-thumb": {
-                          ml: "7px",
-                          mt: "3px",
-                          bgcolor: "#eeeeee",
-                          width: "14px",
-                          height: "14px",
-                          boxSizing: "border-box",
-                        },
-                        "& .MuiTouchRipple-root": {
-                          bgcolor: "transparent",
-                          height: "100%",
-                        },
-                        "& .MuiSwitch-track": {
-                          m: "0",
-                          bgcolor: "#333333",
-                          opacity: 1,
-                          height: "23px",
-                          pr: "42px",
-                          borderRadius: "9999px",
-                          boxSizing: "border-box",
-                        },
-                      }}
+                      sx={SWITCH_STYLES}
                     />
                   }
                 />
@@ -417,7 +369,7 @@ const NewAssetDialogAdvancedTab = () => {
         }}
       >
         <Box sx={{ cursor: "pointer" }}>
-          {/* main checkbox & contents */}
+          {/* main checkbox & text's */}
           <Box display="flex">
             {/* left */}
             <Box flex={0.03}>
@@ -498,7 +450,7 @@ const NewAssetDialogAdvancedTab = () => {
               </Stack>
             </Box>
           </Box>
-          {/* radios */}
+          {/* radio's */}
           <Box flex={1} px="50px" mt="20px">
             <Box display="flex" flexDirection="column">
               <RadioGroup
@@ -513,24 +465,13 @@ const NewAssetDialogAdvancedTab = () => {
                     label="TOP 100 PORTS"
                     sx={{
                       mb: "15px",
-                      "& .MuiTypography-root": {
-                        color: "#dedede",
-                        ml: "20px",
-                        fontSize: "12px",
-                        fontFamily: "consolas",
-                        "&.Mui-disabled": {
-                          color: "#a6a6a6",
-                          opacity: 0.7,
-                        },
-                      },
+                      ...FORM_CONTROL_LABEL_STYLES,
                     }}
                     control={
                       <Radio
                         size="small"
                         disabled={identifyOpenPortsLimits === 0}
                         sx={{
-                          // width: 0.1,
-                          // height: 0.1,
                           "&.MuiButtonBase-root": {
                             ml: "11px",
                             maxWidth: "1px",
@@ -579,16 +520,7 @@ const NewAssetDialogAdvancedTab = () => {
                     sx={{
                       position: "relative",
                       top: "-8px",
-                      "& .MuiTypography-root": {
-                        color: "#dedede",
-                        ml: "20px",
-                        fontSize: "12px",
-                        fontFamily: "consolas",
-                        "&.Mui-disabled": {
-                          color: "#a6a6a6",
-                          opacity: 0.7,
-                        },
-                      },
+                      ...FORM_CONTROL_LABEL_STYLES
                     }}
                     control={
                       <Radio
@@ -651,7 +583,7 @@ const NewAssetDialogAdvancedTab = () => {
           },
         }}
       />
-      {/* detect web tech */}
+      {/* detect web tech's */}
       <Box
         sx={{
           "&:hover": { bgcolor: "#141415" },
@@ -661,7 +593,7 @@ const NewAssetDialogAdvancedTab = () => {
         }}
       >
         <Box sx={{ cursor: "pointer" }}>
-          {/* main checkbox & contents */}
+          {/* section checkbox & text's */}
           <Box display="flex">
             {/* left */}
             <Box flex={0.03}>
@@ -765,15 +697,7 @@ const NewAssetDialogAdvancedTab = () => {
                 <FormControlLabel
                   label="Screenshot"
                   sx={{
-                    "& .MuiTypography-root": {
-                      color: "#dedede",
-                      ml: "20px",
-                      fontSize: "12px",
-                      "&.Mui-disabled": {
-                        color: "#a6a6a6",
-                        opacity: 0.7,
-                      },
-                    },
+                    ...FORM_CONTROL_LABEL_STYLES,
                   }}
                   control={
                     <Switch
@@ -788,51 +712,7 @@ const NewAssetDialogAdvancedTab = () => {
                         !detectWebTechCheckboxItems[1]
                       }
                       checked={detectWebTechCheckboxItems[0]}
-                      sx={{
-                        scale: 0.8,
-                        mx: "-16px",
-                        display: "flex",
-                        alignItems: "center",
-                        "& .Mui-disabled": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#8a8a8b",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#242425 !important",
-                            opacity: ".8 !important",
-                          },
-                        },
-                        "& .Mui-checked": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#6366f1",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#333333 !important",
-                            opacity: "1 !important",
-                          },
-                        },
-                        "& .MuiSwitch-thumb": {
-                          ml: "7px",
-                          mt: "3px",
-                          bgcolor: "#eeeeee",
-                          width: "14px",
-                          height: "14px",
-                          boxSizing: "border-box",
-                        },
-                        "& .MuiTouchRipple-root": {
-                          bgcolor: "transparent",
-                          height: "100%",
-                        },
-                        "& .MuiSwitch-track": {
-                          m: "0",
-                          bgcolor: "#333333",
-                          opacity: 1,
-                          height: "23px",
-                          pr: "42px",
-                          borderRadius: "9999px",
-                          boxSizing: "border-box",
-                        },
-                      }}
+                      sx={SWITCH_STYLES}
                     />
                   }
                 />
@@ -857,15 +737,7 @@ const NewAssetDialogAdvancedTab = () => {
                   sx={{
                     position: "relative",
                     top: "-8px",
-                    "& .MuiTypography-root": {
-                      color: "#dedede",
-                      ml: "20px",
-                      fontSize: "12px",
-                      "&.Mui-disabled": {
-                        color: "#a6a6a6",
-                        opacity: 0.7,
-                      },
-                    },
+                    ...FORM_CONTROL_LABEL_STYLES,
                   }}
                   control={
                     <Switch
@@ -880,51 +752,7 @@ const NewAssetDialogAdvancedTab = () => {
                         !detectWebTechCheckboxItems[0] &&
                         !detectWebTechCheckboxItems[1]
                       }
-                      sx={{
-                        scale: 0.8,
-                        mx: "-16px",
-                        display: "flex",
-                        alignItems: "center",
-                        "& .Mui-disabled": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#8a8a8b",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#242425 !important",
-                            opacity: ".8 !important",
-                          },
-                        },
-                        "& .Mui-checked": {
-                          "& .MuiSwitch-thumb": {
-                            bgcolor: "#6366f1",
-                          },
-                          "& + .MuiSwitch-track": {
-                            bgcolor: "#333333 !important",
-                            opacity: "1 !important",
-                          },
-                        },
-                        "& .MuiSwitch-thumb": {
-                          ml: "7px",
-                          mt: "3px",
-                          bgcolor: "#eeeeee",
-                          width: "14px",
-                          height: "14px",
-                          boxSizing: "border-box",
-                        },
-                        "& .MuiTouchRipple-root": {
-                          bgcolor: "transparent",
-                          height: "100%",
-                        },
-                        "& .MuiSwitch-track": {
-                          m: "0",
-                          bgcolor: "#333333",
-                          opacity: 1,
-                          height: "23px",
-                          pr: "42px",
-                          borderRadius: "9999px",
-                          boxSizing: "border-box",
-                        },
-                      }}
+                      sx={SWITCH_STYLES}
                     />
                   }
                 />
