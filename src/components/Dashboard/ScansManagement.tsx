@@ -46,22 +46,21 @@ const ScansManagement = () => {
           <Box display="flex" zIndex={999} gap="10px">
             {/* button */}
             <CustomButton
+              pulsingAnimation
               color="warning"
-              endIcon={<FaPlus color="#f47116" size={11} />}
+              endIcon={<FaPlus color="#000" size={11} />}
               sx={{
-                bgcolor: "#27170c",
-                "&:hover": {
-                  bgcolor: "#341c0c",
-                },
+                bgcolor: "#f97316",
                 px: "12px",
                 py: "4px",
               }}
             >
               <Typography
-                variant="subtitle1"
+                variant="default"
                 sx={{
-                  color: "#f47116",
-                  fontSize: "12.5px",
+                  color: "#000",
+                  fontSize: "12px",
+                  letterSpacing: ".6",
                   fontWeight: 600,
                 }}
               >

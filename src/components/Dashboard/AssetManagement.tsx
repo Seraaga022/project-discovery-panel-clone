@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { FaPlus } from "react-icons/fa";
 import { IoMdCloudOutline } from "react-icons/io";
-import { PulsingAnimation } from "../atoms/Animations";
 import CustomButton from "../atoms/CustomButton/CustomButton";
 
 const AssetManagement = () => {
@@ -44,43 +43,28 @@ const AssetManagement = () => {
           </Box>
           {/* buttons */}
           <Box display="flex" zIndex={999} gap="10px">
-            <Box position="relative">
-              {/* pulsing animation */}
-              <Box
-                position="absolute"
-                top="-3px"
-                right="-3px"
-                width="12px"
-                height="12px"
-                borderRadius="9999px"
-                bgcolor="#e9d5ff"
-                display="flex"
-                zIndex="99999"
-              >
-                <PulsingAnimation />
-              </Box>
-              {/* domain button */}
-              <CustomButton
-                color="secondary"
-                endIcon={<FaPlus color="#09090b" size={11} />}
+            {/* domain button */}
+            <CustomButton
+              pulsingAnimation
+              color="secondary"
+              endIcon={<FaPlus color="#09090b" size={11} />}
+              sx={{
+                bgcolor: "rgb(0 148 255/1)",
+                px: "12px",
+                py: "3.5px",
+              }}
+            >
+              <Typography
+                variant="subtitle1"
                 sx={{
-                  bgcolor: "rgb(0 148 255/1)",
-                  px: "12px",
-                  py: "3.5px",
+                  color: "rgb(9 9 11/1)",
+                  fontSize: "12px",
+                  fontWeight: 600,
                 }}
               >
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    color: "rgb(9 9 11/1)",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Add Domain or IP
-                </Typography>
-              </CustomButton>
-            </Box>
+                Add Domain or IP
+              </Typography>
+            </CustomButton>
             {/* cloud button */}
             <CustomButton
               color="warning"
