@@ -17,7 +17,7 @@ const TeamManagement = lazy(() => import("./NavBar/TeamManagementCompo"));
 import "./NavBar/Feedback/feedbackRichInput.css";
 import CustomButton from "./atoms/CustomButton/CustomButton";
 
-const NavBar = ({ user }: { user: UserT }) => {
+const Navbar = ({ user }: { user: UserT }) => {
   const [changelogDialogState, setChangelogDialogState] =
     React.useState<boolean>(false);
   const [feedbackDialogState, setFeedbackDialogState] =
@@ -149,8 +149,8 @@ const NavBar = ({ user }: { user: UserT }) => {
               </Box>
               {/* feedback dialog */}
               <CustomDialog
-                show={feedbackDialogState}
-                setter={setFeedbackDialogState}
+                isOpen={feedbackDialogState}
+                setIsOpen={setFeedbackDialogState}
               >
                 <Box
                   component={motion.div}
@@ -421,8 +421,8 @@ const NavBar = ({ user }: { user: UserT }) => {
               </Box>
               {/* changelog dialog */}
               <CustomDialog
-                show={changelogDialogState}
-                setter={setChangelogDialogState}
+                isOpen={changelogDialogState}
+                setIsOpen={setChangelogDialogState}
                 blur={1}
               >
                 <Box
@@ -538,4 +538,4 @@ const NavBar = ({ user }: { user: UserT }) => {
   );
 };
 
-export default NavBar;
+export default Navbar;

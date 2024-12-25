@@ -4,6 +4,7 @@ import type { UserT } from "@appTypes/types/user";
 import CustomDialog from "../atoms/CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";
+import BillingDialog from "../molecules/BillingDialog";
 
 const CustomProfileMenuItem = (props: {
   value: string;
@@ -44,6 +45,9 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
   const [apiUserKeyDropDownState, setUserApiKeyDialogState] =
     React.useState(false);
   const userApiKey = useUserApiKey();
+
+  const [isBillingDialogOpen, setIsBillingDialogOpen] =
+    React.useState<boolean>(false);
 
   return (
     <>
@@ -95,6 +99,7 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
             "&:hover .upgrade-plan-text": { color: "#fafafa" },
             transition: "all ease-in 100ms",
           }}
+          onClick={() => setIsBillingDialogOpen(true)}
         >
           <Stack spacing={2}>
             <Box display="flex" alignItems="center" gap="10px">
@@ -156,7 +161,8 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
             </Box>
           </Stack>
         </MenuItem>
-        <Box sx={{ bgcolor: "#27272a", height: ".5px", my: "3px" }}></Box>
+        {/* divider */}
+        <Box sx={{ bgcolor: "#27272a", height: ".5px", my: "3px" }} />
         <CustomProfileMenuItem
           value="Api key"
           onClick={() => {
@@ -173,9 +179,10 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
         />
         <CustomProfileMenuItem value="Logout" />
       </Menu>
+      {/* api key dialog */}
       <CustomDialog
-        show={apiUserKeyDropDownState}
-        setter={setUserApiKeyDialogState}
+        isOpen={apiUserKeyDropDownState}
+        setIsOpen={setUserApiKeyDialogState}
       >
         {/* user api key component */}
         <UserApiKeyComponent
@@ -183,6 +190,11 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
           setUserApiKeyDialogState={setUserApiKeyDialogState}
         />
       </CustomDialog>
+      {/* billing dialog */}
+      <BillingDialog
+        isOpen={isBillingDialogOpen}
+        setIsOpen={setIsBillingDialogOpen}
+      />
     </>
   );
 };

@@ -3,14 +3,14 @@ import React from "react";
 
 const CustomDialog: React.FC<{
   children: React.ReactNode;
-  show: boolean;
-  setter: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   blur?: number;
-}> = ({ children, show, setter, blur = 11 }) => {
+}> = ({ children, isOpen, setIsOpen, blur = 11 }) => {
   return (
     <Dialog
-      open={show}
-      onClose={() => setter(false)}
+      open={isOpen}
+      onClose={() => setIsOpen(false)}
       sx={{
         "& .MuiPaper-root": {
           scrollBehavior: "smooth",

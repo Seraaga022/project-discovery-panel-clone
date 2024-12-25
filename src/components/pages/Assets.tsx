@@ -355,8 +355,8 @@ const Assets = () => {
                         </Box>
                         {/* create asset dialog */}
                         <CustomDialog
-                          show={isNewAssetDialogOpen}
-                          setter={setIsNewAssetDialogOpen}
+                          isOpen={isNewAssetDialogOpen}
+                          setIsOpen={setIsNewAssetDialogOpen}
                         >
                           <Box
                             overflow="hidden"

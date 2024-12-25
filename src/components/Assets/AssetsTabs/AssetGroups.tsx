@@ -97,8 +97,8 @@ const AssetGroups = () => {
                   </Box>
                   {/* create asset dialog */}
                   <CustomDialog
-                    show={isNewAssetDialogOpen}
-                    setter={setIsNewAssetDialogOpen}
+                    isOpen={isNewAssetDialogOpen}
+                    setIsOpen={setIsNewAssetDialogOpen}
                   >
                     s
                   </CustomDialog>

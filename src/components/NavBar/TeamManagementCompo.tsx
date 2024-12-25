@@ -1,6 +1,5 @@
 import {
   AddOutlined,
-  Clear,
   ExpandLess,
   ExpandMore,
   SettingsOutlined,
@@ -9,10 +8,9 @@ import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import React from "react";
 import { RxPerson } from "react-icons/rx";
 import type { UserT } from "@appTypes/types/user";
-import BillingComponent from "../BillingComponent";
-import CustomDialog from "../atoms/CustomDialog";
 import UserPlanChip from "./UserPlanChip";
 import CustomTooltip from "../atoms/CustomTooltip";
+import BillingDialog from "../molecules/BillingDialog";
 
 const TeamManagement = ({ user }: { user: UserT }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -24,7 +22,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
     setAnchorEl(null);
   };
 
-  const [billingDialogState, setBillingDialogState] =
+  const [isBillingDialogOpen, setIsBillingDialogOpen] =
     React.useState<boolean>(false);
 
   return (
@@ -245,7 +243,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
             },
             mb: "5px",
           }}
-          onClick={() => setBillingDialogState(true)}
+          onClick={() => setIsBillingDialogOpen(true)}
         >
           <Box
             height="100%"
@@ -293,7 +291,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
               color: "#f4f4f5",
             },
           }}
-          onClick={() => setBillingDialogState(true)}
+          onClick={() => setIsBillingDialogOpen(true)}
         >
           <Box
             height="100%"
@@ -329,61 +327,10 @@ const TeamManagement = ({ user }: { user: UserT }) => {
           </Box>
         </Box>
         {/* billing dialog */}
-        <CustomDialog
-          show={billingDialogState}
-          setter={setBillingDialogState}
-          blur={70}
-        >
-          <Box
-            mt="10px"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            pt="15px"
-            pb="25px"
-            width="100vw"
-            position="relative"
-          >
-            {/* title */}
-            <Box pr="90px" pb="2px">
-              <Box display="flex" justifyContent="center">
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: "#fff", fontWeight: 600, fontSize: "21px" }}
-                >
-                  Choose Your Plan
-                </Typography>
-              </Box>
-            </Box>
-            {/* close button */}
-            <Box
-              ml="auto"
-              position="fixed"
-              top="20px"
-              right="50px"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              onClick={(event) => {
-                event.stopPropagation();
-                setBillingDialogState(false);
-              }}
-            >
-              <Clear
-                sx={{
-                  color: "#b6b6b7",
-                  fontSize: "18px",
-                  "&:hover": {
-                    color: "#fff",
-                  },
-                  cursor: "pointer",
-                  transition: "color ease-in 150ms",
-                }}
-              />
-            </Box>
-          </Box>
-          <BillingComponent />
-        </CustomDialog>
+        <BillingDialog
+          isOpen={isBillingDialogOpen}
+          setIsOpen={setIsBillingDialogOpen}
+        />
       </Menu>
     </>
   );

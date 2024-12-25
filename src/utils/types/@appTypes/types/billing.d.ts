@@ -21,3 +21,8 @@ export type PlanTableColT = React.PropsWithChildren &
     index: 0 | 1 | 2 | 3;
     first?: boolean;
   };
+
+export interface BillingDialogProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
