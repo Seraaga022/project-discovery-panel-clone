@@ -82,6 +82,7 @@ const Scans = () => {
                 mt="30px"
                 boxSizing="border-box"
                 p="22px"
+                pb="5px"
                 bgcolor="#0d0d0f"
                 border="1px solid hsla(0,0%,93%,.1)"
                 borderRadius="8px"
