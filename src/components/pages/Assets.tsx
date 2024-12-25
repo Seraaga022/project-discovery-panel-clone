@@ -9,13 +9,13 @@ import { RxPlus } from "react-icons/rx";
 import { TbScreenshot } from "react-icons/tb";
 import { VscCompass } from "react-icons/vsc";
 import { Link, Outlet } from "react-router-dom";
-import CreateAssetAdvancedTab from "../Assets/CreateAssetAdvancedTab";
-import CreateAssetScopeTab from "../Assets/CreateAssetScopeTab";
-import NewAssetDialogTabsFooter from "../Assets/CreateAssetTabsFooter";
+import NewAssetDialogAdvancedTab from "../Assets/NewAssetDialogAdvancedTab";
+import NewAssetDialogScopeTab from "../Assets/NewAssetDialogScopeTab";
+import NewAssetDialogTabsFooter from "../Assets/NewAssetDialogTabsFooter";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
 import Spinner from "../atoms/Loaders/Spinner";
 import CustomDialog from "../atoms/CustomDialog";
-import NewAssetDialogTabsHeader from "../Assets/CreateAssetTabsHeader";
+import NewAssetDialogTabsHeader from "../Assets/NewAssetDialogTabsHeader";
 import useDialog from "../../hooks/ui/useDialog";
 const AssetNavbarItemsCounter = lazy(
   () => import("../Assets/AssetNavbarItemsCounter")
@@ -383,7 +383,7 @@ const Assets = () => {
                               <Box>
                                 {activeFeatureTab === 0 ? (
                                   <Box>
-                                    <CreateAssetScopeTab />
+                                    <NewAssetDialogScopeTab />
                                   </Box>
                                 ) : (
                                   <Box
@@ -404,7 +404,7 @@ const Assets = () => {
                                       },
                                     }}
                                   >
-                                    <CreateAssetAdvancedTab />
+                                    <NewAssetDialogAdvancedTab />
                                   </Box>
                                 )}
                               </Box>

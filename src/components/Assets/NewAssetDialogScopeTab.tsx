@@ -11,7 +11,7 @@ import CustomTooltip from "../atoms/CustomTooltip";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import React, { useRef } from "react";
 
-const CreateAssetScopeTab = () => {
+const NewAssetDialogScopeTab = () => {
   const ASSET_PLACEHOLDER = `Enter or Upload list of Domains, IP and CIDR (one per line)
 
                             Example:
@@ -22,13 +22,13 @@ const CreateAssetScopeTab = () => {
                             189.29.20.204
                             292.22.20.11/24`;
 
-  const [IsAutoStartVulScanChecked, setAutoStartVulScanChecked] =
+  const [isAutoStartVulScanChecked, setIsAutoStartVulScanChecked] =
     React.useState<boolean>(false);
 
   const handleAutoStartVulScanChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setAutoStartVulScanChecked(event.target.checked);
+    setIsAutoStartVulScanChecked(event.target.checked);
   };
 
   const assetFilesInputRef = useRef<HTMLInputElement>(null);
@@ -158,7 +158,7 @@ const CreateAssetScopeTab = () => {
                   label={
                     <Typography
                       sx={{
-                        color: IsAutoStartVulScanChecked
+                        color: isAutoStartVulScanChecked
                           ? "#e5e5e5"
                           : "#525252",
                         fontSize: "14px",
@@ -360,4 +360,4 @@ const CreateAssetScopeTab = () => {
   );
 };
 
-export default CreateAssetScopeTab;
+export default NewAssetDialogScopeTab;

@@ -13,13 +13,19 @@ import CustomTooltip from "../atoms/CustomTooltip";
 import { FiInfo } from "react-icons/fi";
 import React from "react";
 
-const CreateAssetAdvancedTab = () => {
-  const [passiveSubdomainIsOn, setPassiveSubdomainIsOn] =
+const NewAssetDialogAdvancedTab = () => {
+  const [isPassiveSubdomainChecked, setIsPassiveSubdomainChecked] =
     React.useState<boolean>(true);
+
   const [activeSubdomainCheckboxItems, setActiveSubdomainCheckboxItems] =
     React.useState([true, true]);
+
+  const [detectWebTechCheckboxItems, setDetectWebTechCheckboxItems] =
+    React.useState([false, true]);
+
   const [identifyOpenPortsLimits, setIdentifyOpenPortsLimits] =
     React.useState(100);
+
   const handleIdentifyOpenPortsLimitChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -27,8 +33,6 @@ const CreateAssetAdvancedTab = () => {
       Number((event.target as HTMLInputElement).value)
     );
   };
-  const [detectWebTechCheckboxItems, setDetectWebTechCheckboxItems] =
-    React.useState([false, true]);
 
   return (
     <Stack>
@@ -44,15 +48,19 @@ const CreateAssetAdvancedTab = () => {
       >
         <Box
           display="flex"
-          onClick={() => setPassiveSubdomainIsOn(!passiveSubdomainIsOn)}
+          onClick={() =>
+            setIsPassiveSubdomainChecked(!isPassiveSubdomainChecked)
+          }
           sx={{ cursor: "pointer" }}
         >
           {/* left */}
           <Box flex={0.03}>
             <Box display="flex" alignItems="start" justifyContent="center">
               <Checkbox
-                onChange={() => setPassiveSubdomainIsOn(!passiveSubdomainIsOn)}
-                checked={passiveSubdomainIsOn}
+                onChange={() =>
+                  setIsPassiveSubdomainChecked(!isPassiveSubdomainChecked)
+                }
+                checked={isPassiveSubdomainChecked}
                 defaultChecked
                 size="small"
                 color="primary"
@@ -929,4 +937,4 @@ const CreateAssetAdvancedTab = () => {
   );
 };
 
-export default CreateAssetAdvancedTab;
+export default NewAssetDialogAdvancedTab;
