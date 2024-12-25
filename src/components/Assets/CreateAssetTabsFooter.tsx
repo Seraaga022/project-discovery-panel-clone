@@ -1,6 +1,5 @@
 import {
   Box,
-  BoxProps,
   Checkbox,
   Divider,
   Menu,
@@ -17,73 +16,44 @@ import { IoCloseCircleSharp } from "react-icons/io5";
 import { RxPlus } from "react-icons/rx";
 import { WiTime4 } from "react-icons/wi";
 import CustomButton from "../atoms/CustomButton/CustomButton";
+import useMenu from "../../hooks/ui/useMenu";
+import useNewAssetDiscoveryFrequencyManagement from "../../hooks/logical/useNewAssetDiscoveryFrequency";
+import {
+  DialogTabsFooterProps,
+  TimeMenuItemsProps,
+} from "@appTypes/types/newAssetDialog";
 
-type TCustomTime = {
-  hour: string;
-  minute: string;
-  dayTime: string;
-};
-
-interface ComponentProps {
-  setIsNewAssetDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setAssets: React.Dispatch<React.SetStateAction<number[]>>;
-  activeTab: number;
-}
-
-const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
+const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
   setIsNewAssetDialogOpen,
   setAssets,
   activeTab,
 }) => {
-  const [activeFrequencyTime, setActiveFrequencyTime] = React.useState<
-    null | "daily" | "weekly" | "monthly" | "custom"
-  >(null);
-  const frequentyDaysItems = ["S", "M", "T", "W", "T", "F", "S"];
-  const [frequentyDays, setFrequentyDays] = React.useState<Array<boolean>>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  // discovery time menu
+  const {
+    anchorEl: discoveryTimeMenuAnchorEl,
+    IS_MENU_OPEN: IS_DISCOVERY_TIME_MENU_OPEN,
+    handleMenuTriggerClick: handleDiscoveryTimeInputClick,
+    handleMenuClose: handleDiscoveryTimeMenuClose,
+  } = useMenu();
 
-  const [timeDropDownAnchorEl, setTimeDropDownAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-  const isTimeDropDownOpen = !!timeDropDownAnchorEl;
-  const handleTimeInputClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    setTimeDropDownAnchorEl(event.currentTarget);
-  };
-  const handleTimeDropDownClose = () => {
-    setTimeDropDownAnchorEl(null);
-  };
+  // discovery alert menu
+  const {
+    anchorEl: discoveryAlertMenuAnchorEl,
+    IS_MENU_OPEN: IS_DISCOVERY_ALERT_CONTROL_MENU_OPEN,
+    handleMenuTriggerClick: handleDiscoveryAlertMenuTriggerClick,
+    handleMenuClose: handleDiscoveryAlertMenuClose,
+  } = useMenu();
 
-  const [selectedCustomTime, setSelectedCustomTime] =
-    React.useState<TCustomTime>({
-      hour: "",
-      minute: "",
-      dayTime: "",
-    });
-
-  const clearCutomTimeState = () => {
-    setSelectedCustomTime({
-      hour: "",
-      minute: "",
-      dayTime: "",
-    });
-  };
-  const getFullCustomTime = () => {
-    if (selectedCustomTime.hour !== "")
-      return (
-        selectedCustomTime.hour +
-        ":" +
-        selectedCustomTime.minute +
-        " " +
-        selectedCustomTime.dayTime
-      );
-    else return "";
-  };
+  const {
+    activeFrequencyInterval,
+    setActiveFrequencyInterval,
+    discoveryDays,
+    setDiscoveryDays,
+    discoveryTime,
+    setDiscoveryTime,
+    clearCutomTimeState,
+    getFullDiscoveryTime,
+  } = useNewAssetDiscoveryFrequencyManagement();
 
   const TimeMenuItems = ({
     hour,
@@ -91,38 +61,31 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
     dayTime,
     value,
     ...props
-  }: React.PropsWithChildren & {
-    hour?: boolean;
-    minute?: boolean;
-    dayTime?: boolean;
-    value: string;
-  } & BoxProps) => {
+  }: TimeMenuItemsProps) => {
     const ref = React.useRef<HTMLInputElement>(null);
 
     const handleMenuItemClick = () => {
       if (!ref.current) return;
       else if (hour)
-        setSelectedCustomTime({
-          ...selectedCustomTime,
+        setDiscoveryTime({
+          ...discoveryTime,
           hour: value,
-          minute:
-            selectedCustomTime.minute === "" ? "00" : selectedCustomTime.minute,
+          minute: discoveryTime.minute === "" ? "00" : discoveryTime.minute,
           dayTime: "AM",
         });
       else if (minute)
-        setSelectedCustomTime({
-          ...selectedCustomTime,
+        setDiscoveryTime({
+          ...discoveryTime,
           minute: value,
-          hour: selectedCustomTime.hour === "" ? "12" : selectedCustomTime.hour,
+          hour: discoveryTime.hour === "" ? "12" : discoveryTime.hour,
           dayTime: "AM",
         });
       else if (dayTime)
-        setSelectedCustomTime({
-          ...selectedCustomTime,
+        setDiscoveryTime({
+          ...discoveryTime,
           dayTime: value,
-          minute:
-            selectedCustomTime.minute === "" ? "00" : selectedCustomTime.minute,
-          hour: selectedCustomTime.hour === "" ? "12" : selectedCustomTime.hour,
+          minute: discoveryTime.minute === "" ? "00" : discoveryTime.minute,
+          hour: discoveryTime.hour === "" ? "12" : discoveryTime.hour,
         });
 
       ref.current.scrollIntoView({ behavior: "smooth" });
@@ -149,6 +112,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
       </Box>
     );
   };
+
+  const frequentyDaysItems = ["S", "M", "T", "W", "T", "F", "S"];
+
   const timeDropDownHours = [
     "12",
     "01",
@@ -225,20 +191,10 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
     "58",
     "59",
   ];
-  const timeFormat = "utc";
+  const DISCOVERY_TIME_FORMAT = "utc";
 
-  const [alertControlDropDownAnchorEl, setAlertControlDropDownAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-  const isAlertControlDropDownOpen = !!alertControlDropDownAnchorEl;
-  const handleAlertManagemDropDownClick = (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
-    setAlertControlDropDownAnchorEl(event.currentTarget);
-  };
-  const handleAlertControlDropDownClose = () => {
-    setAlertControlDropDownAnchorEl(null);
-  };
-  const [alertStatus, setAlertStatus] = React.useState<boolean>(true);
+  const [isDiscoveryAlertChecked, setIsDiscoveryAlertChecked] =
+    React.useState<boolean>(true);
 
   return (
     <>
@@ -284,14 +240,14 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                 }}
               >
                 <Box
-                  onClick={() => setActiveFrequencyTime(null)}
+                  onClick={() => setActiveFrequencyInterval(null)}
                   sx={{
                     "&:hover": {
                       "& > .item_text": {
                         color: "#e4e4e7",
                       },
                     },
-                    bgcolor: activeFrequencyTime === null ? "#232328" : "",
+                    bgcolor: activeFrequencyInterval === null ? "#232328" : "",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -301,7 +257,8 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     variant="subtitle2"
                     className="item_text"
                     sx={{
-                      color: activeFrequencyTime === null ? "#eee" : "#a1a1aa",
+                      color:
+                        activeFrequencyInterval === null ? "#eee" : "#a1a1aa",
                       fontSize: "12px",
                       fontWeight: 600,
                       transition: "all ease 90ms",
@@ -311,14 +268,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   </Typography>
                 </Box>
                 <Box
-                  onClick={() => setActiveFrequencyTime("daily")}
+                  onClick={() => setActiveFrequencyInterval("daily")}
                   sx={{
                     "&:hover": {
                       "& > .item_text": {
                         color: "#e4e4e7",
                       },
                     },
-                    bgcolor: activeFrequencyTime === "daily" ? "#232328" : "",
+                    bgcolor:
+                      activeFrequencyInterval === "daily" ? "#232328" : "",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -329,7 +287,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     className="item_text"
                     sx={{
                       color:
-                        activeFrequencyTime === "daily" ? "#eee" : "#a1a1aa",
+                        activeFrequencyInterval === "daily"
+                          ? "#eee"
+                          : "#a1a1aa",
                       fontSize: "12px",
                       fontWeight: 600,
                       transition: "all ease 90ms",
@@ -339,14 +299,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   </Typography>
                 </Box>
                 <Box
-                  onClick={() => setActiveFrequencyTime("weekly")}
+                  onClick={() => setActiveFrequencyInterval("weekly")}
                   sx={{
                     "&:hover": {
                       "& > .item_text": {
                         color: "#e4e4e7",
                       },
                     },
-                    bgcolor: activeFrequencyTime === "weekly" ? "#232328" : "",
+                    bgcolor:
+                      activeFrequencyInterval === "weekly" ? "#232328" : "",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -357,7 +318,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     className="item_text"
                     sx={{
                       color:
-                        activeFrequencyTime === "weekly" ? "#eee" : "#a1a1aa",
+                        activeFrequencyInterval === "weekly"
+                          ? "#eee"
+                          : "#a1a1aa",
                       fontSize: "12px",
                       fontWeight: 600,
                       transition: "all ease 90ms",
@@ -367,14 +330,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   </Typography>
                 </Box>
                 <Box
-                  onClick={() => setActiveFrequencyTime("monthly")}
+                  onClick={() => setActiveFrequencyInterval("monthly")}
                   sx={{
                     "&:hover": {
                       "& > .item_text": {
                         color: "#e4e4e7",
                       },
                     },
-                    bgcolor: activeFrequencyTime === "monthly" ? "#232328" : "",
+                    bgcolor:
+                      activeFrequencyInterval === "monthly" ? "#232328" : "",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -385,7 +349,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     className="item_text"
                     sx={{
                       color:
-                        activeFrequencyTime === "monthly" ? "#eee" : "#a1a1aa",
+                        activeFrequencyInterval === "monthly"
+                          ? "#eee"
+                          : "#a1a1aa",
                       fontSize: "12px",
                       fontWeight: 600,
                       transition: "all ease 90ms",
@@ -395,14 +361,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   </Typography>
                 </Box>
                 <Box
-                  onClick={() => setActiveFrequencyTime("custom")}
+                  onClick={() => setActiveFrequencyInterval("custom")}
                   sx={{
                     "&:hover": {
                       "& > .item_text": {
                         color: "#e4e4e7",
                       },
                     },
-                    bgcolor: activeFrequencyTime === "custom" ? "#232328" : "",
+                    bgcolor:
+                      activeFrequencyInterval === "custom" ? "#232328" : "",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -413,7 +380,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     className="item_text"
                     sx={{
                       color:
-                        activeFrequencyTime === "custom" ? "#eee" : "#a1a1aa",
+                        activeFrequencyInterval === "custom"
+                          ? "#eee"
+                          : "#a1a1aa",
                       fontSize: "12px",
                       fontWeight: 600,
                       transition: "all ease 90ms",
@@ -430,7 +399,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
       {/* custom asset frequency times */}
       <Box
         mt="15px"
-        display={activeFrequencyTime === "custom" ? "flex" : "none"}
+        display={activeFrequencyInterval === "custom" ? "flex" : "none"}
         boxSizing="border-box"
         px="25px"
         height="25px"
@@ -470,13 +439,13 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                     userSelect: "none",
                     borderWidth: "1px",
                     borderStyle: "solid",
-                    borderColor: frequentyDays[index]
+                    borderColor: discoveryDays[index]
                       ? "rgb(212 212 212/1)"
                       : "rgb(64 64 64/1)",
                   }}
                   onClick={() =>
-                    setFrequentyDays(
-                      frequentyDays.map((item, idx) =>
+                    setDiscoveryDays(
+                      discoveryDays.map((item, idx) =>
                         idx === index ? !item : item
                       )
                     )
@@ -485,7 +454,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   <Typography
                     variant="subtitle2"
                     sx={{
-                      color: frequentyDays[index]
+                      color: discoveryDays[index]
                         ? "rgb(212 212 212/1)"
                         : "rgb(115 115 115/1)",
                       fontSize: "12px",
@@ -528,17 +497,19 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   pl="4px"
                   id="team-manage-trigger"
                   aria-controls={
-                    isTimeDropDownOpen ? "team-manage-menu" : undefined
+                    IS_DISCOVERY_TIME_MENU_OPEN ? "team-manage-menu" : undefined
                   }
                   aria-haspopup="true"
-                  aria-expanded={isTimeDropDownOpen ? "true" : undefined}
-                  onClick={handleTimeInputClick}
+                  aria-expanded={
+                    IS_DISCOVERY_TIME_MENU_OPEN ? "true" : undefined
+                  }
+                  onClick={handleDiscoveryTimeInputClick}
                   sx={{
-                    height: isTimeDropDownOpen ? "110%" : "100%",
-                    top: isTimeDropDownOpen ? "-1px" : "",
+                    height: IS_DISCOVERY_TIME_MENU_OPEN ? "110%" : "100%",
+                    top: IS_DISCOVERY_TIME_MENU_OPEN ? "-1px" : "",
                     bgcolor: "",
                     "&:hover": {
-                      bgcolor: isTimeDropDownOpen ? "#141414" : "",
+                      bgcolor: IS_DISCOVERY_TIME_MENU_OPEN ? "#141414" : "",
                     },
                   }}
                 >
@@ -561,12 +532,12 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                       title="time"
                       placeholder="Set time"
                       value={
-                        selectedCustomTime.hour !== ""
-                          ? selectedCustomTime.hour +
+                        discoveryTime.hour !== ""
+                          ? discoveryTime.hour +
                             ":" +
-                            selectedCustomTime.minute +
+                            discoveryTime.minute +
                             " " +
-                            selectedCustomTime.dayTime
+                            discoveryTime.dayTime
                           : ""
                       }
                     />
@@ -578,7 +549,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                         cursor: "pointer",
                       }}
                     >
-                      {getFullCustomTime().length > 0 ? (
+                      {getFullDiscoveryTime().length > 0 ? (
                         <Box
                           onClick={(event) => {
                             event.stopPropagation();
@@ -620,9 +591,9 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                 </Grid2>
                 <Menu
                   id="team-manage-menu"
-                  anchorEl={timeDropDownAnchorEl}
-                  open={isTimeDropDownOpen}
-                  onClose={handleTimeDropDownClose}
+                  anchorEl={discoveryTimeMenuAnchorEl}
+                  open={IS_DISCOVERY_TIME_MENU_OPEN}
+                  onClose={handleDiscoveryTimeMenuClose}
                   MenuListProps={{
                     "aria-labelledby": "team-manage-trigger",
                   }}
@@ -658,9 +629,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                           <TimeMenuItems
                             hour
                             value={h}
-                            bgcolor={
-                              selectedCustomTime.hour === h ? "#111a2c" : ""
-                            }
+                            bgcolor={discoveryTime.hour === h ? "#111a2c" : ""}
                           >
                             <Typography
                               variant="subtitle2"
@@ -696,7 +665,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                             minute
                             value={m}
                             bgcolor={
-                              selectedCustomTime.minute === m ? "#111a2c" : ""
+                              discoveryTime.minute === m ? "#111a2c" : ""
                             }
                           >
                             <Typography
@@ -728,7 +697,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                           dayTime
                           value="AM"
                           bgcolor={
-                            selectedCustomTime.dayTime === "AM" ? "#111a2c" : ""
+                            discoveryTime.dayTime === "AM" ? "#111a2c" : ""
                           }
                         >
                           <Typography
@@ -746,7 +715,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                           dayTime
                           value="PM"
                           bgcolor={
-                            selectedCustomTime.dayTime === "PM" ? "#111a2c" : ""
+                            discoveryTime.dayTime === "PM" ? "#111a2c" : ""
                           }
                         >
                           <Typography
@@ -781,7 +750,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                       userSelect: "none",
                     }}
                   >
-                    {timeFormat.toUpperCase()}
+                    {DISCOVERY_TIME_FORMAT.toUpperCase()}
                   </Typography>
                 </Box>
               </Box>
@@ -802,11 +771,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
             mr="auto"
             id="alert-manage-trigger"
             aria-controls={
-              isAlertControlDropDownOpen ? "alert-manage-menu" : undefined
+              IS_DISCOVERY_ALERT_CONTROL_MENU_OPEN
+                ? "alert-manage-menu"
+                : undefined
             }
             aria-haspopup="true"
-            aria-expanded={isAlertControlDropDownOpen ? "true" : undefined}
-            onClick={handleAlertManagemDropDownClick}
+            aria-expanded={
+              IS_DISCOVERY_ALERT_CONTROL_MENU_OPEN ? "true" : undefined
+            }
+            onClick={handleDiscoveryAlertMenuTriggerClick}
             sx={{
               cursor: "pointer",
             }}
@@ -854,7 +827,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                   boxSizing="border-box"
                   p="2px"
                   px="7px"
-                  bgcolor={alertStatus ? "#818cf8" : "#4e4e4f"}
+                  bgcolor={isDiscoveryAlertChecked ? "#818cf8" : "#4e4e4f"}
                   borderRadius="7px"
                 >
                   <Box>
@@ -865,7 +838,7 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                         fontSize: "13px",
                       }}
                     >
-                      {alertStatus ? "On" : "Off"}
+                      {isDiscoveryAlertChecked ? "On" : "Off"}
                     </Typography>
                   </Box>
                 </Box>
@@ -875,15 +848,15 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
           {/* alert drop down */}
           <Menu
             id="alert-manage-menu"
-            anchorEl={alertControlDropDownAnchorEl}
-            open={isAlertControlDropDownOpen}
-            onClose={handleAlertControlDropDownClose}
+            anchorEl={discoveryAlertMenuAnchorEl}
+            open={IS_DISCOVERY_ALERT_CONTROL_MENU_OPEN}
+            onClose={handleDiscoveryAlertMenuClose}
             MenuListProps={{
               "aria-labelledby": "alert-manage-trigger",
             }}
             sx={{
               top:
-                activeFrequencyTime === "custom"
+                activeFrequencyInterval === "custom"
                   ? activeTab == 0
                     ? "-90px"
                     : "-120px"
@@ -913,14 +886,18 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
                 },
                 maxHeight: "40px",
               }}
-              onClick={() => setAlertStatus(!alertStatus)}
+              onClick={() =>
+                setIsDiscoveryAlertChecked(!isDiscoveryAlertChecked)
+              }
             >
               {/* left */}
               <Box flex={0.2}>
                 <Checkbox
                   size="small"
-                  onChange={() => setAlertStatus(!alertStatus)}
-                  checked={alertStatus}
+                  onChange={() =>
+                    setIsDiscoveryAlertChecked(!isDiscoveryAlertChecked)
+                  }
+                  checked={isDiscoveryAlertChecked}
                   defaultChecked
                   sx={{
                     borderRadius: "5px",
@@ -1091,4 +1068,4 @@ const CreateAssetTabsFooter: React.FC<ComponentProps> = ({
   );
 };
 
-export default CreateAssetTabsFooter;
+export default NewAssetDialogTabsFooter;

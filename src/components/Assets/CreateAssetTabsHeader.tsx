@@ -1,11 +1,12 @@
 import { Clear } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
+import { DialogTabsHeaderProps } from "@appTypes/types/newAssetDialog";
 
-const CreateAssetTabsHeader: React.FC<{
-  dialogOpenSetter: React.Dispatch<React.SetStateAction<boolean>>;
-  activeTabSetter: React.Dispatch<React.SetStateAction<number>>;
-  activeTab: number;
-}> = ({ dialogOpenSetter, activeTabSetter, activeTab }) => {
+const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
+  dialogOpenSetter,
+  activeTabSetter,
+  activeTab,
+}) => {
   return (
     <>
       {/* close button */}
@@ -148,4 +149,4 @@ const CreateAssetTabsHeader: React.FC<{
   );
 };
 
-export default CreateAssetTabsHeader;
+export default NewAssetDialogTabsHeader;

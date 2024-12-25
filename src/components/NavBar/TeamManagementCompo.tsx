@@ -5,34 +5,31 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
-import React from "react";
 import { RxPerson } from "react-icons/rx";
 import type { UserT } from "@appTypes/types/user";
 import UserPlanChip from "./UserPlanChip";
 import CustomTooltip from "../atoms/CustomTooltip";
 import BillingDialog from "../molecules/BillingDialog";
+import useMenu from "../../hooks/ui/useMenu";
+import useDialog from "../../hooks/ui/useDialog";
 
 const TeamManagement = ({ user }: { user: UserT }) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const IS_OPEN = !!anchorEl;
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const {
+    anchorEl,
+    IS_MENU_OPEN: IS_TEAM_MANAGEMENT_MENU_OPEN,
+    handleMenuTriggerClick: handleTeamManagementMenuTriggerClick,
+    handleMenuClose: handleTeamManagementMenuClose,
+  } = useMenu();
 
-  const [isBillingDialogOpen, setIsBillingDialogOpen] =
-    React.useState<boolean>(false);
+  const {
+    isDialogOpen: isBillingDialogOpen,
+    setIsDialogOpen: setIsBillingDialogOpen,
+  } = useDialog();
 
   return (
     <>
       <Box
-        id="team-manage-trigger"
-        aria-controls={IS_OPEN ? "team-manage-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={IS_OPEN ? "true" : undefined}
-        onClick={handleClick}
+        onClick={handleTeamManagementMenuTriggerClick}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -72,7 +69,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
           {/* Menu Buttons */}
           <Box
             sx={{
-              bgcolor: IS_OPEN ? "#262626" : "",
+              bgcolor: IS_TEAM_MANAGEMENT_MENU_OPEN ? "#262626" : "",
               "&:hover": { bgcolor: "#262626", cursor: "pointer" },
               "&:hover .arrows-container": { color: "#f5f5f5" },
               transition: "all ease-in 90ms",
@@ -111,11 +108,8 @@ const TeamManagement = ({ user }: { user: UserT }) => {
       <Menu
         id="team-manage-menu"
         anchorEl={anchorEl}
-        open={IS_OPEN}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "team-manage-trigger",
-        }}
+        open={IS_TEAM_MANAGEMENT_MENU_OPEN}
+        onClose={handleTeamManagementMenuClose}
         sx={{
           mt: "7px",
           "& .MuiPaper-root": {
@@ -130,8 +124,9 @@ const TeamManagement = ({ user }: { user: UserT }) => {
           },
         }}
       >
+        {/* brief profile */}
         <MenuItem
-          onClick={handleClose}
+          onClick={handleTeamManagementMenuClose}
           sx={{
             border: "1px solid #262629",
             borderRadius: "6px",

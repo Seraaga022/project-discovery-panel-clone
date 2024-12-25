@@ -11,11 +11,11 @@ import { VscCompass } from "react-icons/vsc";
 import { Link, Outlet } from "react-router-dom";
 import CreateAssetAdvancedTab from "../Assets/CreateAssetAdvancedTab";
 import CreateAssetScopeTab from "../Assets/CreateAssetScopeTab";
-import CreateAssetTabsFooter from "../Assets/CreateAssetTabsFooter";
+import NewAssetDialogTabsFooter from "../Assets/CreateAssetTabsFooter";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
 import Spinner from "../atoms/Loaders/Spinner";
 import CustomDialog from "../atoms/CustomDialog";
-import CreateAssetTabsHeader from "../Assets/CreateAssetTabsHeader";
+import NewAssetDialogTabsHeader from "../Assets/CreateAssetTabsHeader";
 const AssetNavbarItemsCounter = lazy(
   () => import("../Assets/AssetNavbarItemsCounter")
 );
@@ -370,7 +370,7 @@ const Assets = () => {
                             <Box height="100%" maxWidth="530px">
                               {/* header */}
                               <Box>
-                                <CreateAssetTabsHeader
+                                <NewAssetDialogTabsHeader
                                   dialogOpenSetter={setIsNewAssetDialogOpen}
                                   activeTabSetter={setActiveFeatureTab}
                                   activeTab={activeFeatureTab}
@@ -407,7 +407,7 @@ const Assets = () => {
                               </Box>
                               {/* footer */}
                               <Box>
-                                <CreateAssetTabsFooter
+                                <NewAssetDialogTabsFooter
                                   activeTab={activeFeatureTab}
                                   setAssets={setAssets}
                                   setIsNewAssetDialogOpen={

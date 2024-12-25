@@ -1,10 +1,11 @@
 import { Avatar, Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
-import React from "react";
 import type { UserT } from "@appTypes/types/user";
 import CustomDialog from "../atoms/CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";
 import BillingDialog from "../molecules/BillingDialog";
+import useMenu from "../../hooks/ui/useMenu";
+import useDialog from "../../hooks/ui/useDialog";
 
 const CustomProfileMenuItem = (props: {
   value: string;
@@ -32,22 +33,24 @@ const CustomProfileMenuItem = (props: {
 };
 
 const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
-  const [anchorElement, setAnchorElement] = React.useState<null | HTMLElement>(
-    null
-  );
-  const open = !!anchorElement;
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    setAnchorElement(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorElement(null);
-  };
-  const [apiUserKeyDropDownState, setUserApiKeyDialogState] =
-    React.useState(false);
-  const userApiKey = useUserApiKey();
+  const {
+    anchorEl,
+    IS_MENU_OPEN: IS_PROFILE_MENU_OPEN,
+    handleMenuTriggerClick: handleClick,
+    handleMenuClose: handleClose,
+  } = useMenu();
 
-  const [isBillingDialogOpen, setIsBillingDialogOpen] =
-    React.useState<boolean>(false);
+  const {
+    isDialogOpen: isApiUserKeyDropDownOpen,
+    setIsDialogOpen: setIsUserApiKeyDialogOpen,
+  } = useDialog();
+
+  const {
+    isDialogOpen: isBillingDialogOpen,
+    setIsDialogOpen: setIsBillingDialogOpen,
+  } = useDialog();
+
+  const userApiKey = useUserApiKey();
 
   return (
     <>
@@ -65,15 +68,15 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
           cursor: "pointer",
         }}
         id="avatar-drop-down-trigger"
-        aria-controls={open ? "avatar-drop-down" : undefined}
+        aria-controls={IS_PROFILE_MENU_OPEN ? "avatar-drop-down" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={IS_PROFILE_MENU_OPEN ? "true" : undefined}
         onClick={handleClick}
       />
       <Menu
         id="avatar-drop-down"
-        anchorEl={anchorElement}
-        open={open}
+        anchorEl={anchorEl}
+        open={IS_PROFILE_MENU_OPEN}
         onClose={handleClose}
         MenuListProps={{
           "aria-labelledby": "avatar-drop-down-trigger",
@@ -166,7 +169,7 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
         <CustomProfileMenuItem
           value="Api key"
           onClick={() => {
-            setUserApiKeyDialogState(true);
+            setIsUserApiKeyDialogOpen(true);
             handleClose();
           }}
         />
@@ -181,13 +184,13 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
       </Menu>
       {/* api key dialog */}
       <CustomDialog
-        isOpen={apiUserKeyDropDownState}
-        setIsOpen={setUserApiKeyDialogState}
+        isOpen={isApiUserKeyDropDownOpen}
+        setIsOpen={setIsUserApiKeyDialogOpen}
       >
         {/* user api key component */}
         <UserApiKeyComponent
           userApiKey={userApiKey}
-          setUserApiKeyDialogState={setUserApiKeyDialogState}
+          setUserApiKeyDialogState={setIsUserApiKeyDialogOpen}
         />
       </CustomDialog>
       {/* billing dialog */}

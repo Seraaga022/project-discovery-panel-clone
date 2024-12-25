@@ -294,7 +294,7 @@ const CreateAssetScopeTab = () => {
           </Box>
         </Box>
       </Box>
-      {/* discovering limit */}
+      {/* remaining descoveries */}
       <Box mt="4px">
         <Box display="flex" px="25px" alignItems="center" gap="3px">
           <CustomTooltip
@@ -323,10 +323,10 @@ const CreateAssetScopeTab = () => {
             </Box>
           </CustomTooltip>
           <Typography
-            variant="subtitle2"
+            variant="default"
             sx={{
               color: "#a1a1aa",
-              fontSize: "",
+              fontSize: ".8rem",
               display: "flex",
             }}
           >
@@ -334,7 +334,7 @@ const CreateAssetScopeTab = () => {
             <Box
               component="span"
               sx={{
-                fontSize: "1rem",
+                fontSize: ".8rem",
                 fontWeight: 600,
                 color: "#eee",
               }}
@@ -345,7 +345,7 @@ const CreateAssetScopeTab = () => {
             <Box
               component="span"
               sx={{
-                fontSize: "1rem",
+                fontSize: ".8rem",
                 fontWeight: 600,
                 color: "#eee",
               }}
