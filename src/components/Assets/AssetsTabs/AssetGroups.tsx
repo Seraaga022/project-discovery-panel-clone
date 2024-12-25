@@ -2,11 +2,13 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { RiCloudLine } from "react-icons/ri";
 import { RxPlus } from "react-icons/rx";
 import CustomDialog from "../../atoms/CustomDialog";
-import React from "react";
+import useDialog from "../../../hooks/ui/useDialog";
 
 const AssetGroups = () => {
-  const [isNewAssetDialogOpen, setIsNewAssetDialogOpen] =
-    React.useState<boolean>(false);
+  const {
+    isDialogOpen: isNewAssetDialogOpen,
+    setIsDialogOpen: setIsNewAssetDialogOpen,
+  } = useDialog();
 
   return (
     <Box pt="62px">
@@ -95,7 +97,7 @@ const AssetGroups = () => {
                       </Box>
                     </Button>
                   </Box>
-                  {/* create asset dialog */}
+                  {/* create dialog */}
                   <CustomDialog
                     isOpen={isNewAssetDialogOpen}
                     setIsOpen={setIsNewAssetDialogOpen}

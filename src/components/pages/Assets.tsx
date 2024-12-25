@@ -16,6 +16,7 @@ import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
 import Spinner from "../atoms/Loaders/Spinner";
 import CustomDialog from "../atoms/CustomDialog";
 import NewAssetDialogTabsHeader from "../Assets/CreateAssetTabsHeader";
+import useDialog from "../../hooks/ui/useDialog";
 const AssetNavbarItemsCounter = lazy(
   () => import("../Assets/AssetNavbarItemsCounter")
 );
@@ -106,8 +107,10 @@ const Assets = () => {
 
   const [assets, setAssets] = React.useState<number[]>([]);
 
-  const [isNewAssetDialogOpen, setIsNewAssetDialogOpen] =
-    React.useState<boolean>(false);
+  const {
+    isDialogOpen: isNewAssetDialogOpen,
+    setIsDialogOpen: setIsNewAssetDialogOpen,
+  } = useDialog();
 
   return (
     <Box>
