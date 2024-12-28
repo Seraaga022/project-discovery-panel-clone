@@ -4,7 +4,7 @@ import { RxPlus } from "react-icons/rx";
 import CustomDialog from "../../atoms/CustomDialog";
 import useDialog from "../../../hooks/ui/useDialog";
 
-const AssetGroups = () => {
+const Overview = () => {
   const {
     isDialogOpen: isNewAssetDialogOpen,
     setIsDialogOpen: setIsNewAssetDialogOpen,
@@ -162,4 +162,4 @@ const AssetGroups = () => {
   );
 };
 
-export default AssetGroups;
+export default Overview;

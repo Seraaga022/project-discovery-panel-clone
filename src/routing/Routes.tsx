@@ -5,7 +5,7 @@ import Scans from "../components/pages/Scans";
 import Templates from "../components/pages/Templates";
 import Assets from "../components/pages/Assets";
 import Technologies from "../components/Assets/AssetsTabs/Technologies";
-import AssetGroups from "../components/Assets/AssetsTabs/AssetGroups";
+import Overview from "../components/Assets/AssetsTabs/Overview";
 import Inventory from "../components/Assets/AssetsTabs/Inventory";
 
 export const routes = createBrowserRouter([
@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
         path: "assets",
         element: <Assets />,
         children: [
-          { index: true, element: <AssetGroups /> },
+          { index: true, element: <Overview /> },
           { path: "inventory", element: <Inventory /> },
           { path: "technologies", element: <Technologies /> },
         ],
