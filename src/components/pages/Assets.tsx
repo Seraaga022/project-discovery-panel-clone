@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { AiOutlineCloudServer } from "react-icons/ai";
 import { CgDatabase } from "react-icons/cg";
 import { FaSistrix } from "react-icons/fa";
@@ -13,13 +13,9 @@ import NewAssetDialogAdvancedTab from "../Assets/NewAssetDialogAdvancedTab";
 import NewAssetDialogScopeTab from "../Assets/NewAssetDialogScopeTab";
 import NewAssetDialogTabsFooter from "../Assets/NewAssetDialogTabsFooter";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
-import Spinner from "../atoms/Loaders/Spinner";
 import CustomDialog from "../atoms/CustomDialog";
 import NewAssetDialogTabsHeader from "../Assets/NewAssetDialogTabsHeader";
 import useDialog from "../../hooks/ui/useDialog";
-const AssetNavbarItemsCounter = lazy(
-  () => import("../Assets/AssetNavbarItemsCounter")
-);
 
 const Assets = () => {
   const [activeTab, setActiveTab] = React.useState(
@@ -42,7 +38,7 @@ const Assets = () => {
           style={{ transition: "all ease-in 100ms" }}
         />
       ),
-      title: "Asset Groups",
+      title: "Overview",
       classNameBase: assetsNavItemsBaseClasses[0],
       url: "",
     },
@@ -131,33 +127,40 @@ const Assets = () => {
                   top: "65px",
                 }}
               >
-                <Box display="flex" height="44px" px="15px" gap="15px">
+                <Box
+                  display="flex"
+                  height="44px"
+                  px="15px"
+                  gap="15px"
+                  alignItems="end"
+                >
                   {assetsNavItems.map((i) => {
                     const iconClass = `${i.classNameBase}_icon`;
                     const textClass = `${i.classNameBase}_text`;
                     return (
-                      <Box
-                        sx={{
-                          transition: "all ease-in 100ms",
-                          px: "10px",
-                          borderBottom:
-                            activeTab === i.url
-                              ? "2px solid #6366f1"
-                              : "2px solid transparent",
-                          display: "flex",
-                          alignItems: "center",
-                          "&:hover": {
-                            [`& .${iconClass}`]: {
-                              color: "#a1a1aa !important",
+                      <Link to={i.url}>
+                        <Box
+                          sx={{
+                            transition: "all ease-in 100ms",
+                            px: "10px",
+                            pb: "10px",
+                            borderBottom:
+                              activeTab === i.url
+                                ? "2px solid #6366f1"
+                                : "2px solid transparent",
+                            display: "flex",
+                            alignItems: "center",
+                            "&:hover": {
+                              [`& .${iconClass}`]: {
+                                color: "#a1a1aa !important",
+                              },
+                              [`& .${textClass}`]: {
+                                color: "#e4e4e7 !important",
+                              },
                             },
-                            [`& .${textClass}`]: {
-                              color: "#e4e4e7 !important",
-                            },
-                          },
-                        }}
-                        onClick={() => setActiveTab(i.url)}
-                      >
-                        <Link to={i.url}>
+                          }}
+                          onClick={() => setActiveTab(i.url)}
+                        >
                           <Box display="flex" gap="7px" alignItems="center">
                             {/* icon */}
                             <Box display="flex" alignItems="center">
@@ -167,36 +170,22 @@ const Assets = () => {
                             <Box display="flex" justifyContent="center">
                               <Typography
                                 className={textClass}
-                                variant="subtitle2"
+                                variant="default"
                                 sx={{
                                   color:
                                     activeTab === i.url ? "#eeeeee" : "#a1a1aa",
-                                  fontSize: "13px",
+                                  fontSize: "12.5px",
                                   letterSpacing: 0.5,
-                                  fontWeight: activeTab === i.url ? 600 : 500,
+                                  fontWeight: activeTab === i.url ? 500 : 400,
                                   transition: "all ease-in 100ms",
                                 }}
                               >
                                 {i.title}
                               </Typography>
                             </Box>
-                            {/* count */}
-                            <Box ml="2px">
-                              <Box
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                              >
-                                <Suspense fallback={<Spinner />}>
-                                  <AssetNavbarItemsCounter
-                                    assetType={i.title.toLocaleLowerCase()}
-                                  />
-                                </Suspense>
-                              </Box>
-                            </Box>
                           </Box>
-                        </Link>
-                      </Box>
+                        </Box>
+                      </Link>
                     );
                   })}
                 </Box>
