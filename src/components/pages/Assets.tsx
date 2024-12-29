@@ -9,12 +9,12 @@ import { RxPlus } from "react-icons/rx";
 import { TbScreenshot } from "react-icons/tb";
 import { VscCompass } from "react-icons/vsc";
 import { Link, Outlet } from "react-router-dom";
-import NewAssetDialogAdvancedTab from "../Assets/NewAssetDialogAdvancedTab";
-import NewAssetDialogScopeTab from "../Assets/NewAssetDialogScopeTab";
-import NewAssetDialogTabsFooter from "../Assets/NewAssetDialogTabsFooter";
+import NewAssetDialogAdvancedTab from "../Assets/NewAssetDialog/NewAssetDialogAdvancedTab";
+import NewAssetDialogScopeTab from "../Assets/NewAssetDialog/NewAssetDialogScopeTab";
+import NewAssetDialogTabsFooter from "../Assets/NewAssetDialog/NewAssetDialogTabsFooter";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
 import CustomDialog from "../atoms/CustomDialog";
-import NewAssetDialogTabsHeader from "../Assets/NewAssetDialogTabsHeader";
+import NewAssetDialogTabsHeader from "../Assets/NewAssetDialog/NewAssetDialogTabsHeader";
 import useDialog from "../../hooks/ui/useDialog";
 
 const Assets = () => {
