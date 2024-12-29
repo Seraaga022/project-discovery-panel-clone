@@ -31,5 +31,5 @@
     // if ["src"] => all types directly inside of src are included
     // if ["src/**/*"] => all types inside of src and types inside of inner directories are included
   ],
-  "exclude": ["node_modules", "src/junk"]
+  "exclude": ["node_modules", "src/assets/junk"]
 }
