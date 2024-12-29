@@ -1,7 +1,7 @@
 import { Yard } from "@mui/icons-material";
 import { Box, BoxProps, Typography } from "@mui/material";
 import type { UserT } from "@appTypes/types/user";
-import CustomChip from "../atoms/CustomChip";
+import CustomChip from "../CustomChip";
 
 const UserPlanChip: React.FC<
   {

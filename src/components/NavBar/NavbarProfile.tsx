@@ -1,9 +1,9 @@
 import { Avatar, Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import type { UserT } from "@appTypes/types/user";
-import CustomDialog from "../atoms/CustomDialog";
+import CustomDialog from "../CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";
-import BillingDialog from "../molecules/BillingDialog";
+import BillingDialog from "../BillingDialog";
 import useMenu from "../../hooks/ui/useMenu";
 import useDialog from "../../hooks/ui/useDialog";
 

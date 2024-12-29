@@ -1,5 +1,5 @@
 import { Box, BoxProps, Typography } from "@mui/material";
-import CustomButton from "../atoms/CustomButton/CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 
 const CreateTeam = (props: BoxProps) => {
   return (

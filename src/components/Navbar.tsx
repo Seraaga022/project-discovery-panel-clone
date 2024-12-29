@@ -4,8 +4,8 @@ import NavbarProfile from "./NavBar/NavbarProfile";
 import NavigationButtons from "./NavBar/NavigationButtonsCompo";
 import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import Circular from "./atoms/Loaders/Circular";
-import CustomDialog from "./atoms/CustomDialog";
+import Circular from "./Loaders/Circular";
+import CustomDialog from "./CustomDialog";
 import { Clear } from "@mui/icons-material";
 import FeedbackRichInput from "./NavBar/Feedback/FeedbackRichInput";
 import { IoIosArrowBack } from "react-icons/io";
@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import FeedbackExplanation from "./NavBar/Feedback/FeedbackInfo";
 const TeamManagement = lazy(() => import("./NavBar/TeamManagementCompo"));
 import "./NavBar/Feedback/feedbackRichInput.css";
-import CustomButton from "./atoms/CustomButton/CustomButton";
+import CustomButton from "./CustomButton/CustomButton";
 
 const Navbar = ({ user }: { user: UserT }) => {
   const [changelogDialogState, setChangelogDialogState] =
