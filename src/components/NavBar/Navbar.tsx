@@ -14,8 +14,8 @@ import { BsFillSendFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import FeedbackExplanation from "./Feedback/FeedbackInfo";
 const TeamManagement = lazy(() => import("./TeamManagementCompo"));
-import "./NavBar/Feedback/feedbackRichInput.css";
 import CustomButton from "../Common/CustomButton/CustomButton";
+import "./Feedback/feedbackRichInput.css";
 
 const Navbar = ({ user }: { user: UserT }) => {
   const [changelogDialogState, setChangelogDialogState] =
