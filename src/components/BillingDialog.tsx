@@ -5,7 +5,10 @@ import { Clear } from "@mui/icons-material";
 import BillingComponent from "./BillingComponent";
 import { BillingDialogProps } from "@appTypes/_index";
 
-const BillingDialog: React.FC<BillingDialogProps> = ({ isOpen, setIsOpen }) => {
+const BillingDialog /* : React.FC<BillingDialogProps> */ = ({
+  isOpen,
+  setIsOpen,
+}: BillingDialogProps) => {
   return (
     <CustomDialog isOpen={isOpen} setIsOpen={setIsOpen} blur={70}>
       {/* title and close button */}
@@ -57,9 +60,10 @@ const BillingDialog: React.FC<BillingDialogProps> = ({ isOpen, setIsOpen }) => {
           />
         </Box>
       </Box>
-      <BillingComponent />
+      <BillingDialog.Component />
     </CustomDialog>
   );
 };
 
+BillingDialog.Component = BillingComponent;
 export default BillingDialog;

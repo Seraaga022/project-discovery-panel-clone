@@ -1,21 +1,21 @@
 import { AppBar, Box, Stack, SvgIcon, Typography } from "@mui/material";
 import type { UserT } from "@appTypes/types/user";
-import NavbarProfile from "./NavBar/NavbarProfile";
-import NavigationButtons from "./NavBar/NavigationButtonsCompo";
+import NavbarProfile from "./NavbarProfile";
+import NavigationButtons from "./NavigationButtonsCompo";
 import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import Circular from "./Loaders/Circular";
-import CustomDialog from "./CustomDialog";
+import Circular from "../Loaders/Circular";
+import CustomDialog from "../CustomDialog";
 import { Clear } from "@mui/icons-material";
-import FeedbackRichInput from "./NavBar/Feedback/FeedbackRichInput";
+import FeedbackRichInput from "./Feedback/FeedbackRichInput";
 import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglelens } from "react-icons/si";
 import { BsFillSendFill } from "react-icons/bs";
 import { motion } from "framer-motion";
-import FeedbackExplanation from "./NavBar/Feedback/FeedbackInfo";
-const TeamManagement = lazy(() => import("./NavBar/TeamManagementCompo"));
+import FeedbackExplanation from "./Feedback/FeedbackInfo";
+const TeamManagement = lazy(() => import("./TeamManagementCompo"));
 import "./NavBar/Feedback/feedbackRichInput.css";
-import CustomButton from "./CustomButton/CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 
 const Navbar = ({ user }: { user: UserT }) => {
   const [changelogDialogState, setChangelogDialogState] =

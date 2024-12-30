@@ -1,5 +1,5 @@
 import { Box, ThemeProvider } from "@mui/material";
-import Navbar from "../Navbar";
+import Navbar from "../NavBar/Navbar";
 import { Outlet } from "react-router-dom";
 import { AppTheme } from "../../theme/AppTheme";
 import type { UserT } from "@appTypes/types/user";
