@@ -139,7 +139,7 @@ const PlanCard = ({
             <CustomTooltip
               title={
                 <Box>
-                  <Typography variant="subtitle2" sx={{ fontSize: "12px" }}>
+                  <Typography sx={{ fontSize: "12px" }}>
                     Buy yearly and save 16.67%
                   </Typography>
                 </Box>
@@ -198,7 +198,6 @@ const PlanCard = ({
               {/* level */}
               <Box>
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     "&:first-letter": {
                       textTransform: "capitalize",
@@ -213,10 +212,7 @@ const PlanCard = ({
               </Box>
               {/* description */}
               <Box maxWidth={pro ? "200px" : "unset"}>
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: "#929292", fontWeight: 400 }}
-                >
+                <Typography sx={{ color: "#929292", fontWeight: 400 }}>
                   {description}
                 </Typography>
               </Box>
@@ -240,10 +236,7 @@ const PlanCard = ({
                         <IoIosArrowForward color="#eeeeee" />
                       </Box>
                       <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{ color: "#929292", fontWeight: 400 }}
-                        >
+                        <Typography sx={{ color: "#929292", fontWeight: 400 }}>
                           {a}
                         </Typography>
                       </Box>
@@ -275,11 +268,7 @@ const PlanCard = ({
                 borderRadius: "5px",
               }}
             >
-              <Typography
-                variant="subtitle2"
-                fontWeight={600}
-                fontSize=".85rem"
-              >
+              <Typography fontWeight={600} fontSize=".85rem">
                 {pro ? `Get Pro for $${price} / month` : buttonText}
               </Typography>
             </CustomButton>
@@ -312,10 +301,7 @@ const PlanCard = ({
                       <LuCheckCheck color="#eeeeee" />
                     </Box>
                     <Box>
-                      <Typography
-                        variant="subtitle2"
-                        sx={{ color: "#929292", fontWeight: 400 }}
-                      >
+                      <Typography sx={{ color: "#929292", fontWeight: 400 }}>
                         {a}
                       </Typography>
                     </Box>
@@ -717,10 +703,7 @@ const PlanTables = () => {
                     {item.head.aspectIcon}
                   </Box>
                   <Box display="flex" alignItems="center">
-                    <Typography
-                      variant="subtitle2"
-                      sx={TABLE_DEFAULT_STYLES.aspectText}
-                    >
+                    <Typography sx={TABLE_DEFAULT_STYLES.aspectText}>
                       {item.head.aspectText}
                     </Typography>
                   </Box>
@@ -744,10 +727,7 @@ const PlanTables = () => {
                   {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
-                    <Typography
-                      variant="subtitle2"
-                      sx={TABLE_DEFAULT_STYLES.aspectText}
-                    >
+                    <Typography sx={TABLE_DEFAULT_STYLES.aspectText}>
                       Free
                     </Typography>
                   </Box>
@@ -782,10 +762,7 @@ const PlanTables = () => {
                   {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
-                    <Typography
-                      variant="subtitle2"
-                      sx={TABLE_DEFAULT_STYLES.aspectText}
-                    >
+                    <Typography sx={TABLE_DEFAULT_STYLES.aspectText}>
                       Pro
                     </Typography>
                   </Box>
@@ -809,10 +786,7 @@ const PlanTables = () => {
                   {...TABLE_DEFAULT_STYLES.headCol.wrapper}
                 >
                   <Box display="flex" alignItems="center">
-                    <Typography
-                      variant="subtitle2"
-                      sx={TABLE_DEFAULT_STYLES.aspectText}
-                    >
+                    <Typography sx={TABLE_DEFAULT_STYLES.aspectText}>
                       Enterprise
                     </Typography>
                   </Box>
@@ -830,7 +804,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography variant="subtitle2" sx={{ color: "#e9e9e9" }}>
+                    <Typography sx={{ color: "#e9e9e9" }}>
                       {typeof i.subject === "boolean" ? (
                         <IoMdCheckmark size={20} />
                       ) : (
@@ -845,7 +819,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography variant="subtitle2" sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee" }}>
                       {typeof i.freeOption === "boolean" ? (
                         <IoMdCheckmark size={20} />
                       ) : (
@@ -860,7 +834,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography variant="subtitle2" sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee" }}>
                       {typeof i.proOption === "boolean" ? (
                         i.proOption ? (
                           <IoMdCheckmark size={20} />
@@ -879,7 +853,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography variant="subtitle2" sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee" }}>
                       {typeof i.enterpriseOption === "boolean" ? (
                         i.enterpriseOption ? (
                           <IoMdCheckmark size={20} />

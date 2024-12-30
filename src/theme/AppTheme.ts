@@ -31,6 +31,7 @@ export const AppTheme = createTheme({
     MuiTypography: {
       defaultProps: {
         fontFamily: "roboto, sans-serif",
+        variant: "default",
       },
     },
     MuiTooltip: {

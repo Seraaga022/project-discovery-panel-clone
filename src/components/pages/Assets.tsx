@@ -170,7 +170,6 @@ const Assets = () => {
                             <Box display="flex" justifyContent="center">
                               <Typography
                                 className={textClass}
-                                variant="default"
                                 sx={{
                                   color:
                                     activeTab === i.url ? "#eeeeee" : "#a1a1aa",
@@ -212,7 +211,6 @@ const Assets = () => {
                   {/* heading */}
                   <Box display="flex" justifyContent="center">
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#fff",
                         fontSize: "20px",
@@ -225,10 +223,7 @@ const Assets = () => {
                   </Box>
                   {/* description */}
                   <Box mt="2.5px" display="flex" justifyContent="center">
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ color: "#848485", fontSize: "15px" }}
-                    >
+                    <Typography sx={{ color: "#848485", fontSize: "15px" }}>
                       Continuously monitor as your team deploys. Free up to 10
                       domains.
                     </Typography>
@@ -264,7 +259,6 @@ const Assets = () => {
                               {/* heading */}
                               <Box>
                                 <Typography
-                                  variant="subtitle2"
                                   sx={{
                                     color: "#fff",
                                     fontSize: "14px",
@@ -278,7 +272,6 @@ const Assets = () => {
                               {/* description */}
                               <Box>
                                 <Typography
-                                  variant="subtitle2"
                                   sx={{
                                     color: "rgb(107 114 128/1)",
                                     fontSize: "13px",
@@ -323,7 +316,6 @@ const Assets = () => {
                             <Box display="flex" gap="8px">
                               <Box>
                                 <Typography
-                                  variant="subtitle2"
                                   sx={{
                                     fontSize: "13px",
                                     fontWeight: 600,
@@ -428,7 +420,6 @@ const Assets = () => {
                             <Box display="flex" alignItems="center" gap="8px">
                               <Box>
                                 <Typography
-                                  variant="subtitle2"
                                   sx={{
                                     fontSize: "13px",
                                     fontWeight: 600,

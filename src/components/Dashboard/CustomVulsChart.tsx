@@ -79,7 +79,6 @@ const CustomVulsChart = () => {
                   {/* day */}
                   <Box position="absolute" left="0" ref={templatesChartDayRef}>
                     <Typography
-                      variant="subtitle2"
                       sx={{ color: "#6e8391", fontSize: "15px" }}
                     >
                       {chartTitleData.day}
@@ -106,7 +105,6 @@ const CustomVulsChart = () => {
                   {/* templates qntts */}
                   <Box position="absolute" right="2px">
                     <Typography
-                      variant="subtitle2"
                       sx={{ color: "#6e8391", fontSize: "15px" }}
                     >
                       {chartTitleData.total}&nbsp;templates
@@ -325,7 +323,6 @@ const CustomVulsChart = () => {
                         justifyContent="center"
                       >
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "17px",
                             color: "#737f8f",
@@ -351,7 +348,6 @@ const CustomVulsChart = () => {
                         justifyContent="center"
                       >
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "15px",
                             color: "#737f8f",
@@ -378,7 +374,6 @@ const CustomVulsChart = () => {
                         justifyContent="center"
                       >
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "15px",
                             color: "#737f8f",
@@ -404,7 +399,6 @@ const CustomVulsChart = () => {
                         justifyContent="center"
                       >
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "15px",
                             color: "#737f8f",
@@ -431,7 +425,6 @@ const CustomVulsChart = () => {
                         justifyContent="center"
                       >
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "15px",
                             color: "#737f8f",

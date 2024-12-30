@@ -17,7 +17,6 @@ const TemplateScansDetails = () => {
         {/* static text */}
         <Box>
           <Typography
-            variant="subtitle2"
             sx={{
               color: "#7d7d7e",
               fontSize: "14px",
@@ -37,7 +36,6 @@ const TemplateScansDetails = () => {
               <Box display="flex" gap="7px">
                 <Box>
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "#fff",
                       fontSize: "14px",
@@ -49,10 +47,7 @@ const TemplateScansDetails = () => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ color: "#858586", fontSize: "14px" }}
-                  >
+                  <Typography sx={{ color: "#858586", fontSize: "14px" }}>
                     Templates
                   </Typography>
                 </Box>
@@ -76,7 +71,6 @@ const TemplateScansDetails = () => {
               <Box display="flex" gap="7px">
                 <Box>
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "#fff",
                       fontSize: "14px",
@@ -88,10 +82,7 @@ const TemplateScansDetails = () => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ color: "#858586", fontSize: "14px" }}
-                  >
+                  <Typography sx={{ color: "#858586", fontSize: "14px" }}>
                     In last 30 days
                   </Typography>
                 </Box>

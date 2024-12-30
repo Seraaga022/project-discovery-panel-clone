@@ -56,7 +56,6 @@ const Scans = () => {
                 {/* heading */}
                 <Box display="flex" justifyContent="center">
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "#fff",
                       fontSize: "20px",
@@ -69,10 +68,7 @@ const Scans = () => {
                 </Box>
                 {/* description */}
                 <Box mt="2.5px" display="flex" justifyContent="center">
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ color: "#848485", fontSize: "15px" }}
-                  >
+                  <Typography sx={{ color: "#848485", fontSize: "15px" }}>
                     Requires Pro or Enterprise subscription
                   </Typography>
                 </Box>
@@ -108,7 +104,6 @@ const Scans = () => {
                             {/* heading */}
                             <Box>
                               <Typography
-                                variant="subtitle2"
                                 sx={{
                                   color: "#fff",
                                   fontSize: "14px",
@@ -122,7 +117,6 @@ const Scans = () => {
                             {/* description */}
                             <Box>
                               <Typography
-                                variant="subtitle2"
                                 sx={{
                                   color: "rgb(107 114 128/1)",
                                   fontSize: "13px",
@@ -155,7 +149,6 @@ const Scans = () => {
                           {/* title */}
                           <Box>
                             <Typography
-                              variant="subtitle2"
                               color="#fff"
                               fontWeight={600}
                               letterSpacing={0.65}
@@ -165,11 +158,7 @@ const Scans = () => {
                           </Box>
                           {/* description */}
                           <Box>
-                            <Typography
-                              variant="subtitle2"
-                              fontWeight={300}
-                              color="#6b7280"
-                            >
+                            <Typography fontWeight={300} color="#6b7280">
                               Ultra-fast nuclei scans hosted and managed by
                               ProjectDiscovery.
                             </Typography>
@@ -208,7 +197,6 @@ const Scans = () => {
                           {/* title */}
                           <Box>
                             <Typography
-                              variant="subtitle2"
                               color="#fff"
                               fontWeight={600}
                               letterSpacing={0.65}
@@ -218,11 +206,7 @@ const Scans = () => {
                           </Box>
                           {/* description */}
                           <Box>
-                            <Typography
-                              variant="subtitle2"
-                              fontWeight={300}
-                              color="#6b7280"
-                            >
+                            <Typography fontWeight={300} color="#6b7280">
                               Connect and upload scan results from Nuclei.
                             </Typography>
                           </Box>

@@ -25,7 +25,6 @@ const AutoScanFeatureCard = () => {
         {/* text */}
         <Box>
           <Typography
-            variant="subtitle2"
             sx={{
               color: "rgb(110 131 145/1)",
               fontSize: "14px",
@@ -51,7 +50,6 @@ const AutoScanFeatureCard = () => {
             {/* text */}
             <Box>
               <Typography
-                variant="subtitle2"
                 sx={{
                   color: "hsla(0,0%,93%,.5)",
                   fontSize: "13px",

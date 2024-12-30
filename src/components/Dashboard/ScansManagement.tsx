@@ -56,7 +56,6 @@ const ScansManagement = () => {
               }}
             >
               <Typography
-                variant="default"
                 sx={{
                   color: "#000",
                   fontSize: "12px",

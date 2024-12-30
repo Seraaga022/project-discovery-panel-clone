@@ -39,7 +39,6 @@ const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
           {/* heading */}
           <Box>
             <Typography
-              variant="subtitle2"
               sx={{
                 color: "#fff",
                 fontSize: "15.6px",
@@ -53,7 +52,6 @@ const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
           {/* description */}
           <Box mt="5px">
             <Typography
-              variant="subtitle2"
               sx={{
                 color: "#a1a1a1",
                 fontSize: "13px",
@@ -95,7 +93,6 @@ const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
               height="100%"
             >
               <Typography
-                variant="subtitle2"
                 sx={{
                   color: "rgb(161 161 170/1)",
                   fontSize: "13px",
@@ -129,7 +126,6 @@ const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
               alignItems="center"
             >
               <Typography
-                variant="subtitle2"
                 sx={{
                   color: "rgb(161 161 170/1)",
                   opacity: activeTab === 1 ? 1 : 0.7,

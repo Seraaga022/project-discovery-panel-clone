@@ -29,17 +29,13 @@ const Overview = () => {
                 <Box>
                   {/* heading */}
                   <Box>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ color: "#fff", fontSize: "17px" }}
-                    >
+                    <Typography sx={{ color: "#fff", fontSize: "17px" }}>
                       Your Assets
                     </Typography>
                   </Box>
                   {/* description */}
                   <Box mt="7px">
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#a1a1aa",
                         fontSize: "13px",
@@ -79,7 +75,6 @@ const Overview = () => {
                       <Box display="flex" gap="8px">
                         <Box>
                           <Typography
-                            variant="subtitle2"
                             sx={{
                               fontSize: "13px",
                               fontWeight: 600,
@@ -122,7 +117,6 @@ const Overview = () => {
                       <Box display="flex" alignItems="center" gap="8px">
                         <Box>
                           <Typography
-                            variant="subtitle2"
                             sx={{
                               fontSize: "13px",
                               fontWeight: 600,

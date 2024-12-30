@@ -134,7 +134,6 @@ const VulnerabilitiesFeed = () => {
                   {/* text */}
                   <Box>
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "hsla(0,0%,93%,.5)",
                         fontSize: "15px",
@@ -177,7 +176,6 @@ const VulnerabilitiesFeed = () => {
                         {/* text */}
                         <Box>
                           <Typography
-                            variant="subtitle2"
                             sx={{
                               color: "hsla(0,0%,93%,.7)",
                               fontSize: "13px",

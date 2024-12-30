@@ -20,7 +20,6 @@ const AssetNavbarItemsCounter: React.FC<{ assetType: string }> = ({
         height="19px"
       >
         <Typography
-          variant="subtitle2"
           sx={{ color: "#171717", fontSize: "10px" }}
           fontFamily="cursive"
         >

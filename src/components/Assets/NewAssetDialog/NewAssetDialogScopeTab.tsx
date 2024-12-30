@@ -280,7 +280,6 @@ const NewAssetDialogScopeTab = () => {
                 <Box>
                   <Typography
                     className="upload-file_text"
-                    variant="subtitle2"
                     sx={{
                       fontSize: "12px",
                       color: "rgb(113 113 122/1)",
@@ -306,7 +305,6 @@ const NewAssetDialogScopeTab = () => {
                 p="5px"
               >
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     fontSize: "13px",
                   }}
@@ -323,7 +321,6 @@ const NewAssetDialogScopeTab = () => {
             </Box>
           </CustomTooltip>
           <Typography
-            variant="default"
             sx={{
               color: "#a1a1aa",
               fontSize: ".8rem",

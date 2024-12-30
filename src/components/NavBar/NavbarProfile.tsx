@@ -22,10 +22,7 @@ const CustomProfileMenuItem = (props: {
       }}
       onClick={onClick}
     >
-      <Typography
-        variant="subtitle2"
-        sx={{ fontSize: "14px", fontWeight: 400 }}
-      >
+      <Typography sx={{ fontSize: "14px", fontWeight: 400 }}>
         {value}
       </Typography>
     </MenuItem>
@@ -123,7 +120,6 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
               </Box>
               <Box>
                 <Typography
-                  variant="subtitle2"
                   sx={{ color: "#9d9da6", fontSize: ".75rem", fontWeight: 400 }}
                 >
                   @{user.userName}
@@ -148,7 +144,6 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
                 }}
               >
                 <Typography
-                  variant="subtitle2"
                   className="upgrade-plan-text"
                   sx={{
                     fontSize: ".85rem",

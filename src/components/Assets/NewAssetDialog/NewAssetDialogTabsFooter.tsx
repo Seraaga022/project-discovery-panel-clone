@@ -213,7 +213,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
             <Box flex={0.5}>
               <Box display="flex" alignItems="center" height="100%">
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     color: "#a1a1aa",
                     fontSize: "13px",
@@ -254,7 +253,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle2"
                     className="item_text"
                     sx={{
                       color:
@@ -283,7 +281,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle2"
                     className="item_text"
                     sx={{
                       color:
@@ -314,7 +311,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle2"
                     className="item_text"
                     sx={{
                       color:
@@ -345,7 +341,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle2"
                     className="item_text"
                     sx={{
                       color:
@@ -376,7 +371,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle2"
                     className="item_text"
                     sx={{
                       color:
@@ -408,7 +402,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
           {/* title */}
           <Box display="flex" justifyContent="center" alignItems="center">
             <Typography
-              variant="subtitle2"
               sx={{
                 color: "rgb(163 163 163/1)",
                 fontSize: "12px",
@@ -452,7 +445,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   }
                 >
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: discoveryDays[index]
                         ? "rgb(212 212 212/1)"
@@ -632,7 +624,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                             bgcolor={discoveryTime.hour === h ? "#111a2c" : ""}
                           >
                             <Typography
-                              variant="subtitle2"
                               sx={{
                                 color: "#eee",
                                 fontSize: "13px",
@@ -669,7 +660,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                             }
                           >
                             <Typography
-                              variant="subtitle2"
                               sx={{
                                 color: "#eee",
                                 fontSize: "13px",
@@ -701,7 +691,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                           }
                         >
                           <Typography
-                            variant="subtitle2"
                             sx={{
                               color: "#eee",
                               fontSize: "13px",
@@ -719,7 +708,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                           }
                         >
                           <Typography
-                            variant="subtitle2"
                             sx={{
                               color: "#eee",
                               fontSize: "13px",
@@ -742,7 +730,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   height="100%"
                 >
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(64 64 64/1)",
                       fontSize: "10px",
@@ -813,7 +800,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                 {/* Alert text */}
                 <Box mr="8px">
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "#fff",
                       fontSize: "12px",
@@ -832,7 +818,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                 >
                   <Box>
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#fff",
                         fontSize: "13px",
@@ -929,7 +914,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   {/* text */}
                   <Box display="flex" alignItems="center">
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#a3a3a3",
                         fontSize: "12px",
@@ -943,7 +927,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
               {/* right */}
               <Box flex={0.2}>
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     color: "#949495",
                     fontSize: "12px",
@@ -974,7 +957,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
               }}
             >
               <Typography
-                variant="subtitle2"
                 sx={{
                   color: "#a3a3a3",
                   fontSize: "12px",
@@ -1016,7 +998,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                     alignItems="center"
                   >
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#fafafa",
                         fontSize: "11px",
@@ -1046,7 +1027,6 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                   <Box display="flex" gap="8px">
                     <Box>
                       <Typography
-                        variant="subtitle2"
                         sx={{
                           fontSize: "11px",
                           color: "#18181b",

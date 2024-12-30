@@ -49,7 +49,6 @@ const TeamManagement = ({ user }: { user: UserT }) => {
             {/* personal team section */}
             <Box>
               <Typography
-                variant="subtitle2"
                 className="personal-team-manager"
                 sx={{
                   color: "#d4d4d4",
@@ -159,10 +158,7 @@ const TeamManagement = ({ user }: { user: UserT }) => {
                 />
               </Box>
               <Box display="flex" alignItems="center">
-                <Typography
-                  variant="subtitle2"
-                  sx={{ fontSize: "13px", fontWeight: 400 }}
-                >
+                <Typography sx={{ fontSize: "13px", fontWeight: 400 }}>
                   Personal
                 </Typography>
               </Box>
@@ -181,7 +177,6 @@ const TeamManagement = ({ user }: { user: UserT }) => {
                       {/* content */}
                       <Box>
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "10px",
                             fontWeight: "400",
@@ -259,7 +254,6 @@ const TeamManagement = ({ user }: { user: UserT }) => {
             </Box>
             <Box height="100%" display="flex" alignItems="center">
               <Typography
-                variant="subtitle2"
                 className="create-team-text"
                 sx={{
                   fontSize: "12px",
@@ -307,7 +301,6 @@ const TeamManagement = ({ user }: { user: UserT }) => {
             </Box>
             <Box height="100%" display="flex" alignItems="center">
               <Typography
-                variant="subtitle2"
                 className="manage-team-text"
                 sx={{
                   fontSize: "12px",

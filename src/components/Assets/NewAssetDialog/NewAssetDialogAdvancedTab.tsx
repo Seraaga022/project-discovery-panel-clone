@@ -131,7 +131,6 @@ const NewAssetDialogAdvancedTab = () => {
               {/* title */}
               <Box display="flex" alignItems="center" gap="6px" pt="5px">
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     color: "rgb(229 229 229/1)",
                     fontSize: "13px",
@@ -144,7 +143,6 @@ const NewAssetDialogAdvancedTab = () => {
                   title={
                     <Box maxWidth="200px" pr="20px">
                       <Typography
-                        variant="subtitle2"
                         sx={{
                           fontSize: "11px",
                         }}
@@ -165,7 +163,6 @@ const NewAssetDialogAdvancedTab = () => {
               {/* description */}
               <Box>
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     color: "rgb(161 161 170/1)",
                     fontSize: "11.7px",
@@ -245,7 +242,6 @@ const NewAssetDialogAdvancedTab = () => {
                   }
                 >
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(229 229 229/1)",
                       fontSize: "13px",
@@ -258,7 +254,6 @@ const NewAssetDialogAdvancedTab = () => {
                     title={
                       <Box maxWidth="200px" pr="20px">
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "11px",
                           }}
@@ -279,7 +274,6 @@ const NewAssetDialogAdvancedTab = () => {
                 {/* description */}
                 <Box>
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(161 161 170/1)",
                       fontSize: "11.7px",
@@ -403,7 +397,6 @@ const NewAssetDialogAdvancedTab = () => {
                   }
                 >
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(229 229 229/1)",
                       fontSize: "13px",
@@ -416,7 +409,6 @@ const NewAssetDialogAdvancedTab = () => {
                     title={
                       <Box maxWidth="200px" pr="20px">
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "11px",
                           }}
@@ -437,7 +429,6 @@ const NewAssetDialogAdvancedTab = () => {
                 {/* description */}
                 <Box>
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(161 161 170/1)",
                       fontSize: "11.7px",
@@ -486,7 +477,6 @@ const NewAssetDialogAdvancedTab = () => {
                     title={
                       <Box maxWidth="200px" pr="20px">
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             color: "#f4f4f5",
                             fontSize: "10px",
@@ -520,7 +510,7 @@ const NewAssetDialogAdvancedTab = () => {
                     sx={{
                       position: "relative",
                       top: "-8px",
-                      ...FORM_CONTROL_LABEL_STYLES
+                      ...FORM_CONTROL_LABEL_STYLES,
                     }}
                     control={
                       <Radio
@@ -541,7 +531,6 @@ const NewAssetDialogAdvancedTab = () => {
                     title={
                       <Box maxWidth="220px">
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             color: "#f4f4f5",
                             fontSize: "10px",
@@ -638,7 +627,6 @@ const NewAssetDialogAdvancedTab = () => {
                   }
                 >
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(229 229 229/1)",
                       fontSize: "13px",
@@ -651,7 +639,6 @@ const NewAssetDialogAdvancedTab = () => {
                     title={
                       <Box maxWidth="240px" p="5px">
                         <Typography
-                          variant="subtitle2"
                           sx={{
                             fontSize: "11px",
                             letterSpacing: 0.5,
@@ -675,7 +662,6 @@ const NewAssetDialogAdvancedTab = () => {
                 {/* description */}
                 <Box>
                   <Typography
-                    variant="subtitle2"
                     sx={{
                       color: "rgb(161 161 170/1)",
                       fontSize: "11px",
@@ -719,7 +705,6 @@ const NewAssetDialogAdvancedTab = () => {
                 <Box position="relative" top="10px">
                   <Box bgcolor="#3e2b14" borderRadius="999px" px="6px" py="1px">
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#f39c0b",
                         fontSize: "10px",

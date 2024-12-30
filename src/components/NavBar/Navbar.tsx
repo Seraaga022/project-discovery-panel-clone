@@ -76,7 +76,6 @@ const Navbar = ({ user }: { user: UserT }) => {
                   {/* Version */}
                   <Box marginRight="5px">
                     <Typography
-                      variant="subtitle2"
                       sx={{
                         color: "#a1a1ab",
                         "&:hover": { color: "#e5e5e5" },
@@ -137,7 +136,6 @@ const Navbar = ({ user }: { user: UserT }) => {
                 onClick={() => setFeedbackDialogState(true)}
               >
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     fontWeight: 600,
                     fontSize: "13px",
@@ -244,7 +242,6 @@ const Navbar = ({ user }: { user: UserT }) => {
                           >
                             <Box>
                               <Typography
-                                variant="subtitle2"
                                 sx={{ fontSize: "19px", color: "#f8f9fc" }}
                               >
                                 Feedback
@@ -405,7 +402,6 @@ const Navbar = ({ user }: { user: UserT }) => {
               {/* changelog */}
               <Box onClick={() => setChangelogDialogState(true)}>
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     fontSize: "13px",
                     color: "#a1a1aa",
@@ -470,7 +466,6 @@ const Navbar = ({ user }: { user: UserT }) => {
                         <Stack spacing={1.1}>
                           <Box px="40px">
                             <Typography
-                              variant="subtitle2"
                               sx={{
                                 fontSize: "26px",
                                 color: "#f8f9fc",
@@ -482,7 +477,6 @@ const Navbar = ({ user }: { user: UserT }) => {
                           </Box>
                           <Box px="40px">
                             <Typography
-                              variant="subtitle2"
                               sx={{ fontSize: "17px", color: "#b2b6cd" }}
                             >
                               Here's what we added while you were away.
@@ -508,7 +502,6 @@ const Navbar = ({ user }: { user: UserT }) => {
               {/* docs */}
               <Box>
                 <Typography
-                  variant="subtitle2"
                   sx={{
                     fontSize: "13px",
                     color: "#a1a1aa",

@@ -11,7 +11,6 @@ const WelcomeTexts = ({
     <Box {...props}>
       <Box>
         <Typography
-          variant="default"
           sx={{ color: "#c0c0c0", fontSize: ".9rem", lineHeight: "19px" }}
         >
           Hello&nbsp;

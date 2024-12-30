@@ -14,17 +14,13 @@ const FeedbackExplanation = ({
         <Box>
           <Box>
             <Typography
-              variant="subtitle2"
               sx={{ fontSize: "19px", color: "#f8f9fc", fontWeight: 500 }}
             >
               Give us feedback
             </Typography>
           </Box>
           <Box mt="5px">
-            <Typography
-              variant="subtitle2"
-              sx={{ fontSize: "14px", color: "#adb1c7" }}
-            >
+            <Typography sx={{ fontSize: "14px", color: "#adb1c7" }}>
               Tell us how we could make the product more
               <Box component={"br"}></Box> useful for you.
             </Typography>
@@ -69,7 +65,6 @@ const FeedbackExplanation = ({
               }}
             >
               <Typography
-                variant="subtitle2"
                 sx={{
                   color: "#fff",
                   fontWeight: 600,
@@ -91,10 +86,7 @@ const FeedbackExplanation = ({
             {/* go to feedback */}
             <Box flex={0.05}>
               <Box>
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: "#737583", fontFamily: "consolas" }}
-                >
+                <Typography sx={{ color: "#737583", fontFamily: "consolas" }}>
                   1
                 </Typography>
               </Box>

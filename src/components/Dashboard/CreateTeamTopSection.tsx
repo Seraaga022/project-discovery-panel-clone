@@ -13,11 +13,7 @@ const CreateTeam = (props: BoxProps) => {
           py: "7px",
         }}
       >
-        <Typography
-          variant="default"
-          fontWeight={600}
-          sx={{ fontSize: "14px" }}
-        >
+        <Typography fontWeight={600} sx={{ fontSize: "14px" }}>
           Create new team
         </Typography>
       </CustomButton>

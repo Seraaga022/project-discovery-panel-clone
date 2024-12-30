@@ -170,7 +170,6 @@ const NavigationButtons = () => {
         <Box display="flex" alignItems="center" gap="8px">
           <TbHomeShield className="tab-icon" size={20} />
           <Typography
-            variant="subtitle2"
             sx={{
               fontSize: "12px",
               "&:first-letter": { textTransform: "capitalize" },
@@ -189,7 +188,6 @@ const NavigationButtons = () => {
         <Box display="flex" alignItems="center" gap="8px">
           <CgDatabase className="tab-icon" size={20} />
           <Typography
-            variant="subtitle2"
             sx={{
               fontSize: "12px",
               "&:first-letter": { textTransform: "capitalize" },
@@ -208,7 +206,6 @@ const NavigationButtons = () => {
         <Box display="flex" alignItems="center" gap="8px">
           <RiEditCircleLine className="tab-icon" size={20} />
           <Typography
-            variant="subtitle2"
             sx={{
               fontSize: "12px",
               "&:first-letter": { textTransform: "capitalize" },
@@ -227,7 +224,6 @@ const NavigationButtons = () => {
         <Box display="flex" alignItems="center" gap="8px">
           <RiStackLine className="tab-icon" size={20} />
           <Typography
-            variant="subtitle2"
             sx={{
               fontSize: "12px",
               "&:first-letter": { textTransform: "capitalize" },

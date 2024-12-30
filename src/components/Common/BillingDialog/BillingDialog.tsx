@@ -25,7 +25,6 @@ const BillingDialog /* : React.FC<BillingDialogProps> */ = ({
         <Box pr="90px" pb="2px">
           <Box display="flex" justifyContent="center">
             <Typography
-              variant="subtitle2"
               sx={{ color: "#fff", fontWeight: 600, fontSize: "21px" }}
             >
               Choose Your Plan

@@ -75,7 +75,7 @@ const UserApiKeyComponent = ({
             </Typography>
           </Box>
           <Box>
-            <Typography variant="subtitle2" sx={{ color: "#a1a1aa" }}>
+            <Typography sx={{ color: "#a1a1aa" }}>
               You can find documentation{" "}
               <Box component="span" color="rgb(165 180 252)">
                 here
@@ -105,7 +105,6 @@ const UserApiKeyComponent = ({
               alignItems="center"
             >
               <Typography
-                variant="default"
                 sx={{
                   userSelect: "text",
                   fontSize: ".9rem",
