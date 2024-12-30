@@ -199,12 +199,10 @@ const PlanCard = ({
               <Box>
                 <Typography
                   sx={{
-                    "&:first-letter": {
-                      textTransform: "capitalize",
-                    },
                     fontSize: "25px",
                     color: pro ? "#eab308" : "#eeeeee",
                     fontWeight: 700,
+                    textTransform: "capitalize",
                   }}
                 >
                   {level}
@@ -804,7 +802,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography sx={{ color: "#e9e9e9" }}>
+                    <Typography sx={{ color: "#e9e9e9", fontSize: ".85rem" }}>
                       {typeof i.subject === "boolean" ? (
                         <IoMdCheckmark size={20} />
                       ) : (
@@ -819,7 +817,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee", fontSize: ".85rem" }}>
                       {typeof i.freeOption === "boolean" ? (
                         <IoMdCheckmark size={20} />
                       ) : (
@@ -834,7 +832,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee", fontSize: ".85rem" }}>
                       {typeof i.proOption === "boolean" ? (
                         i.proOption ? (
                           <IoMdCheckmark size={20} />
@@ -853,7 +851,7 @@ const PlanTables = () => {
                     display="flex"
                     alignItems="start"
                   >
-                    <Typography sx={{ color: "#eeeeee" }}>
+                    <Typography sx={{ color: "#eeeeee", fontSize: ".85rem" }}>
                       {typeof i.enterpriseOption === "boolean" ? (
                         i.enterpriseOption ? (
                           <IoMdCheckmark size={20} />
