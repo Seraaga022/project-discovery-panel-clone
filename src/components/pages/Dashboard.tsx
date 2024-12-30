@@ -1,9 +1,9 @@
 import { Box, Divider, Skeleton } from "@mui/material";
 import { lazy, Suspense } from "react";
-import type { UserT } from "@appTypes/types/user";
 import PageContainer from "../Common/PageContainer";
 import TemplateScansDetails from "../Dashboard/TemplateScansDetails";
 import VulenerabilitiesFeed from "../Dashboard/VulenerabilitiesFeed";
+import { useUser } from "../../hooks/useUser";
 const DashboardWelcome = lazy(() => import("../Dashboard/WelcomeTexts"));
 const DashboardCreateTeam = lazy(
   () => import("../Dashboard/CreateTeamTopSection")
@@ -12,14 +12,7 @@ const AssetManagement = lazy(() => import("../Dashboard/AssetManagement"));
 const ScansManagement = lazy(() => import("../Dashboard/ScansManagement"));
 
 const Dashboard = () => {
-  const user: UserT = {
-    plan: "free",
-    email: "JohnDoe@gmail.com",
-    avatar: "",
-    get userName() {
-      return this.email.split("@")[0];
-    },
-  };
+  const user = useUser();
 
   return (
     <Box>
