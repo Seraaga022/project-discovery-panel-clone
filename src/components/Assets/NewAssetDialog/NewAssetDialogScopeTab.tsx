@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { LiaPaperclipSolid } from "react-icons/lia";
-import CustomTooltip from "../../CustomTooltip";
+import CustomTooltip from "../../Common/CustomTooltip";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import React, { useRef } from "react";
 

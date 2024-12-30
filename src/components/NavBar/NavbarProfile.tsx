@@ -1,9 +1,9 @@
 import { Avatar, Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import type { UserT } from "@appTypes/types/user";
-import CustomDialog from "../CustomDialog";
+import CustomDialog from "../Common/CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";
-import BillingDialog from "../BillingDialog";
+import BillingDialog from "../Common/BillingDialog/BillingDialog";
 import useMenu from "../../hooks/ui/useMenu";
 import useDialog from "../../hooks/ui/useDialog";
 

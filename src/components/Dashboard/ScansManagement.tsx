@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { FaPlus } from "react-icons/fa";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../Common/CustomButton/CustomButton";
 
 const ScansManagement = () => {
   return (

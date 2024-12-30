@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../components/pages/Layout";
-import Dashboard from "../components/pages/Dashboard";
-import Scans from "../components/pages/Scans";
-import Templates from "../components/pages/Templates";
-import Assets from "../components/pages/Assets";
+import Layout from "../components/Pages/Layout";
+import Dashboard from "../components/Pages/Dashboard";
+import Scans from "../components/Pages/Scans";
+import Templates from "../components/Pages/Templates";
+import Assets from "../components/Pages/Assets";
 import Technologies from "../components/Assets/AssetsTabs/Technologies";
 import Overview from "../components/Assets/AssetsTabs/Overview";
 import Inventory from "../components/Assets/AssetsTabs/Inventory";

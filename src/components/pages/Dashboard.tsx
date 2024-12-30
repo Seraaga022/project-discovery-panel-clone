@@ -1,7 +1,7 @@
 import { Box, Divider, Skeleton } from "@mui/material";
 import { lazy, Suspense } from "react";
 import type { UserT } from "@appTypes/types/user";
-import PageContainer from "../PageContainer";
+import PageContainer from "../Common/PageContainer";
 import TemplateScansDetails from "../Dashboard/TemplateScansDetails";
 import VulenerabilitiesFeed from "../Dashboard/VulenerabilitiesFeed";
 const DashboardWelcome = lazy(() => import("../Dashboard/WelcomeTexts"));

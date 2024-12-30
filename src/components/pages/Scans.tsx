@@ -6,8 +6,8 @@ import { HiCubeTransparent } from "react-icons/hi";
 import { VscCompass } from "react-icons/vsc";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
 import { FiLink } from "react-icons/fi";
-import PageContainer from "../PageContainer";
-import CustomButton from "../CustomButton/CustomButton";
+import PageContainer from "../Common/PageContainer";
+import CustomButton from "../Common/CustomButton/CustomButton";
 
 const Scans = () => {
   const user = useUser();

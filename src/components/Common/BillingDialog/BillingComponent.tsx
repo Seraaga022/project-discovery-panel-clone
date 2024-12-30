@@ -11,13 +11,13 @@ import type {
   PlanTableColT,
   PlanTableRowT,
 } from "@appTypes/types/billing";
-import CustomChip from "./CustomChip";
-import CustomTooltip from "./CustomTooltip";
+import CustomChip from "../CustomChip";
+import CustomTooltip from "../CustomTooltip";
 import { RiStackLine } from "react-icons/ri";
 import { BsBodyText } from "react-icons/bs";
 import { FiPieChart } from "react-icons/fi";
 import { AiOutlineTeam } from "react-icons/ai";
-import CustomButton from "./CustomButton/CustomButton";
+import CustomButton from "../CustomButton/CustomButton";
 
 const PlanCard = ({
   enterprice,

@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { FaPlus } from "react-icons/fa";
 import { IoMdCloudOutline } from "react-icons/io";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../Common/CustomButton/CustomButton";
 
 const AssetManagement = () => {
   return (

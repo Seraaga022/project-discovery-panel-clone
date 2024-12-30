@@ -8,8 +8,8 @@ import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import { RxPerson } from "react-icons/rx";
 import type { UserT } from "@appTypes/types/user";
 import UserPlanChip from "./UserPlanChip";
-import CustomTooltip from "../CustomTooltip";
-import BillingDialog from "../BillingDialog";
+import CustomTooltip from "../Common/CustomTooltip";
+import BillingDialog from "../Common/BillingDialog/BillingDialog";
 import useMenu from "../../hooks/ui/useMenu";
 import useDialog from "../../hooks/ui/useDialog";
 

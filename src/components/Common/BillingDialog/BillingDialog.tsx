@@ -1,5 +1,4 @@
-import React from "react";
-import CustomDialog from "./CustomDialog";
+import CustomDialog from "../CustomDialog";
 import { Box, Typography } from "@mui/material";
 import { Clear } from "@mui/icons-material";
 import BillingComponent from "./BillingComponent";

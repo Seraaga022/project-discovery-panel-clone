@@ -9,7 +9,7 @@ import {
   Switch,
   Typography,
 } from "@mui/material";
-import CustomTooltip from "../../CustomTooltip";
+import CustomTooltip from "../../Common/CustomTooltip";
 import { FiInfo } from "react-icons/fi";
 import React from "react";
 

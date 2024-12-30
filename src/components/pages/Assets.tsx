@@ -13,7 +13,7 @@ import NewAssetDialogAdvancedTab from "../Assets/NewAssetDialog/NewAssetDialogAd
 import NewAssetDialogScopeTab from "../Assets/NewAssetDialog/NewAssetDialogScopeTab";
 import NewAssetDialogTabsFooter from "../Assets/NewAssetDialog/NewAssetDialogTabsFooter";
 import TabFeaturesSVGBackground from "../Assets/TabFeaturesSVGBackground";
-import CustomDialog from "../CustomDialog";
+import CustomDialog from "../Common/CustomDialog";
 import NewAssetDialogTabsHeader from "../Assets/NewAssetDialog/NewAssetDialogTabsHeader";
 import useDialog from "../../hooks/ui/useDialog";
 

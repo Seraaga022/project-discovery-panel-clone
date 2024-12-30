@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { AppTheme } from "../../theme/AppTheme";
+import { AppTheme } from "../../../theme/AppTheme";
 
 export const CustomButtonTheme = createTheme({
   components: {

@@ -15,7 +15,7 @@ import { FiMail } from "react-icons/fi";
 import { IoCloseCircleSharp } from "react-icons/io5";
 import { RxPlus } from "react-icons/rx";
 import { WiTime4 } from "react-icons/wi";
-import CustomButton from "../../CustomButton/CustomButton";
+import CustomButton from "../../Common/CustomButton/CustomButton";
 import useMenu from "../../../hooks/ui/useMenu";
 import useNewAssetDiscoveryFrequencyManagement from "../../../hooks/logical/useNewAssetDiscoveryFrequency";
 import {

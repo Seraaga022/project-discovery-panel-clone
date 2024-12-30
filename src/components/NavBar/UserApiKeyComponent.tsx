@@ -1,8 +1,8 @@
 import { Suspense, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import Circular from "../Loaders/Circular";
+import Circular from "../Common/Loaders/Circular";
 import { UserApiKeyT } from "../../hooks/useUserApiKey";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../Common/CustomButton/CustomButton";
 import { Clear } from "@mui/icons-material";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { TiTick } from "react-icons/ti";

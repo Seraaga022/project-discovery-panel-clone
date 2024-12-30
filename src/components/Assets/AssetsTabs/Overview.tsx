@@ -1,7 +1,7 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { RiCloudLine } from "react-icons/ri";
 import { RxPlus } from "react-icons/rx";
-import CustomDialog from "../../CustomDialog";
+import CustomDialog from "../../Common/CustomDialog";
 import useDialog from "../../../hooks/ui/useDialog";
 
 const Overview = () => {
