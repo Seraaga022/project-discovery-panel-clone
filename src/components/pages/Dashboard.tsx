@@ -2,7 +2,7 @@ import { Box, Divider, Skeleton } from "@mui/material";
 import { lazy, Suspense } from "react";
 import PageContainer from "../Common/PageContainer";
 import TemplateScansDetails from "../Dashboard/TemplateScansDetails";
-import VulenerabilitiesFeed from "../Dashboard/VulenerabilitiesFeed";
+import VulnerabilitiesFeed from "../Dashboard/VulnerabilitiesFeed";
 import { useUser } from "../../hooks/useUser";
 const DashboardWelcome = lazy(() => import("../Dashboard/WelcomeTexts"));
 const DashboardCreateTeam = lazy(
@@ -175,7 +175,7 @@ const Dashboard = () => {
             />
             <TemplateScansDetails />
             <Divider orientation="horizontal" color="#1a1a1c" />
-            <VulenerabilitiesFeed />
+            <VulnerabilitiesFeed />
           </Box>
           {/* quick liks */}
           {/* changelogs swiper */}

@@ -7,7 +7,7 @@ import { IoBugOutline, IoCubeOutline } from "react-icons/io5";
 import { LuBuilding } from "react-icons/lu";
 import { GoPlus } from "react-icons/go";
 
-const VulenerabilitiesFeed = () => {
+const VulnerabilitiesFeed = () => {
   const vulnerabilities: VulnerabilityItemsT = [
     {
       level: "medium",
@@ -289,4 +289,4 @@ const VulenerabilitiesFeed = () => {
   );
 };
 
-export default VulenerabilitiesFeed;
+export default VulnerabilitiesFeed;
