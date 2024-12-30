@@ -746,11 +746,12 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
         </Stack>
       </Box>
       {/* alerts management and buttons */}
-      <Box mt="15px" pb="20px" mb="10px">
+      <Box mt="15px" pb="5px" mb="10px">
         <Box
           display="flex"
           justifyContent="end"
-          px="25px"
+          pr="25px"
+          pl="15px"
           boxSizing="border-box"
         >
           {/* alerts management */}
@@ -777,7 +778,7 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
               alignItems="center"
               border="1px solid rgb(39, 39, 42)"
               borderRadius="8px"
-              py="8px"
+              py="10px"
               px="12px"
               width="130px"
               sx={{
@@ -788,21 +789,21 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
               <Box mr="auto" display="flex" alignItems="center" gap="8px">
                 {/* slack icon */}
                 <Box display="flex" alignItems="center">
-                  <FaSlack color="white" size={18} />
+                  <FaSlack color="white" size={20} />
                 </Box>
                 {/* teams icon */}
                 <Box display="flex" alignItems="center">
-                  <BsMicrosoftTeams color="white" size={18} />
+                  <BsMicrosoftTeams color="white" size={20} />
                 </Box>
               </Box>
               {/* text and status */}
-              <Box display="flex" alignItems="center">
+              <Stack direction="row" alignItems="center" spacing={0.6}>
                 {/* Alert text */}
-                <Box mr="8px">
+                <Box>
                   <Typography
                     sx={{
                       color: "#fff",
-                      fontSize: "12px",
+                      fontSize: "13px",
                     }}
                   >
                     Alerts
@@ -820,17 +821,17 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                     <Typography
                       sx={{
                         color: "#fff",
-                        fontSize: "13px",
+                        fontSize: "14px",
                       }}
                     >
                       {isDiscoveryAlertChecked ? "On" : "Off"}
                     </Typography>
                   </Box>
                 </Box>
-              </Box>
+              </Stack>
             </Box>
           </Box>
-          {/* alert drop down */}
+          {/* alert menu */}
           <Menu
             id="alert-manage-menu"
             anchorEl={discoveryAlertMenuAnchorEl}
@@ -843,11 +844,9 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
               top:
                 activeFrequencyInterval === "custom"
                   ? activeTab == 0
-                    ? "-90px"
-                    : "-120px"
-                  : activeTab == 0
-                  ? "-120px"
-                  : "-120px",
+                    ? "-115px"
+                    : "-130px"
+                  : "-130px",
               mt: "7px",
               "& .MuiPaper-root": {
                 minWidth: "275px",
@@ -954,6 +953,7 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                 },
                 display: "flex",
                 alignItems: "center",
+                py: "10px",
               }}
             >
               <Typography
@@ -1000,7 +1000,7 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                     <Typography
                       sx={{
                         color: "#fafafa",
-                        fontSize: "11px",
+                        fontSize: "12.5px",
                         fontWeight: 600,
                         letterSpacing: 0.6,
                       }}
@@ -1028,13 +1028,13 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: "11px",
+                          fontSize: "12.5px",
                           color: "#18181b",
                           fontWeight: 600,
                           letterSpacing: 0.5,
                         }}
                       >
-                        Add Assets
+                        Start Discovery
                       </Typography>
                     </Box>
                   </Box>

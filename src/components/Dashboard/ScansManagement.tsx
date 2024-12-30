@@ -52,7 +52,7 @@ const ScansManagement = () => {
               sx={{
                 bgcolor: "#f97316",
                 px: "12px",
-                py: "4px",
+                py: "6px",
               }}
             >
               <Typography
