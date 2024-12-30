@@ -63,7 +63,7 @@ const PlanCard = ({
           top: "-100px",
           left: "-70px",
           position: "absolute",
-          opacity: 0.2,
+          opacity: 0.14,
         }}
       />
       {/* pro year and month selector */}
@@ -73,18 +73,19 @@ const PlanCard = ({
           borderBlockEnd: "1px solid #2b2a2b",
           borderInlineStart: "1px solid #2b2a2b",
           borderBottomLeftRadius: "12px",
+          bgcolor: "#111111",
           position: "absolute",
           top: "0",
           right: "0",
         }}
       >
-        <Box display="flex" p="10px" gap="10px">
+        <Box display="flex" p="7px">
           {/* month */}
           <Box
             bgcolor={activeProPricingOption === 1 ? "#27272a" : ""}
             color={activeProPricingOption === 1 ? "#eeeeed" : ""}
             onClick={() => setActiveProPricingOption(1)}
-            px="10px"
+            px="8px"
             py="3px"
             borderRadius="8px"
             sx={{
@@ -191,7 +192,7 @@ const PlanCard = ({
             : "",
         }}
       >
-        {/* level & description */}
+        {/* level & description & a11ies */}
         <Stack spacing={5}>
           <Box>
             <Stack spacing={0.8}>
@@ -203,6 +204,7 @@ const PlanCard = ({
                     color: pro ? "#eab308" : "#eeeeee",
                     fontWeight: 700,
                     textTransform: "capitalize",
+                    letterSpacing: ".5px",
                   }}
                 >
                   {level}
@@ -210,7 +212,13 @@ const PlanCard = ({
               </Box>
               {/* description */}
               <Box maxWidth={pro ? "200px" : "unset"}>
-                <Typography sx={{ color: "#929292", fontWeight: 400 }}>
+                <Typography
+                  sx={{
+                    color: "#929292",
+                    fontWeight: 400,
+                    fontSize: ".88rem",
+                  }}
+                >
                   {description}
                 </Typography>
               </Box>
@@ -234,7 +242,13 @@ const PlanCard = ({
                         <IoIosArrowForward color="#eeeeee" />
                       </Box>
                       <Box>
-                        <Typography sx={{ color: "#929292", fontWeight: 400 }}>
+                        <Typography
+                          sx={{
+                            color: "#929292",
+                            fontWeight: 400,
+                            fontSize: ".85rem",
+                          }}
+                        >
                           {a}
                         </Typography>
                       </Box>
@@ -264,6 +278,8 @@ const PlanCard = ({
                   color: pro ? "" : "#fafafa",
                 },
                 borderRadius: "5px",
+                pt: "8px",
+                pb: pro ? "9px" : "8px",
               }}
             >
               <Typography fontWeight={600} fontSize=".85rem">
@@ -281,25 +297,35 @@ const PlanCard = ({
       {/* includes */}
       <Box p="40px">
         <Box>
-          <Stack spacing={1.4}>
+          <Stack spacing={2}>
             {/* static title */}
             <Box>
               <Typography
-                sx={{ color: "#eeeeee", fontWeight: 600, fontSize: "14px" }}
+                sx={{
+                  color: "rgb(238 238 238)",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                }}
               >
                 Includess
               </Typography>
             </Box>
             {/* include items */}
             <Box>
-              <Stack spacing={0.7} pl="4px">
+              <Stack spacing={0.8} pl="4px">
                 {includes.map((a) => (
                   <Box display="flex" alignItems="center" gap="8px">
                     <Box display="flex" alignItems="center">
                       <LuCheckCheck color="#eeeeee" />
                     </Box>
                     <Box>
-                      <Typography sx={{ color: "#929292", fontWeight: 400 }}>
+                      <Typography
+                        sx={{
+                          color: "#929292",
+                          fontWeight: 400,
+                          fontSize: ".88rem",
+                        }}
+                      >
                         {a}
                       </Typography>
                     </Box>

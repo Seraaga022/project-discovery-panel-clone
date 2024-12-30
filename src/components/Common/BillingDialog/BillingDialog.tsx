@@ -12,7 +12,7 @@ const BillingDialog /* : React.FC<BillingDialogProps> */ = ({
     <CustomDialog isOpen={isOpen} setIsOpen={setIsOpen} blur={70}>
       {/* title and close button */}
       <Box
-        mt="10px"
+        mt="25px"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -22,7 +22,7 @@ const BillingDialog /* : React.FC<BillingDialogProps> */ = ({
         position="relative"
       >
         {/* title */}
-        <Box pr="90px" pb="2px">
+        <Box pr="85px" pb="10px">
           <Box display="flex" justifyContent="center">
             <Typography
               sx={{ color: "#fff", fontWeight: 600, fontSize: "21px" }}
