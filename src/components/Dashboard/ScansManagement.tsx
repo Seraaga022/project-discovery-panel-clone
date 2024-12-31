@@ -59,7 +59,7 @@ const ScansManagement = () => {
                 sx={{
                   fontSize: "12px",
                   letterSpacing: ".5px",
-                  fontWeight: 600,
+                  fontWeight: 500,
                 }}
               >
                 Create New Scan
