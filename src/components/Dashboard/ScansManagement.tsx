@@ -45,6 +45,7 @@ const ScansManagement = () => {
             {/* button */}
             <CustomButton
               pulsingAnimation
+              pulsingColor="#FED7AA"
               color="warning"
               endIcon={<FaPlus size={11} />}
               sx={{

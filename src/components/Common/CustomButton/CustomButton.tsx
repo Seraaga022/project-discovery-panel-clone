@@ -4,10 +4,15 @@ import { CustomButtonTheme } from "./CustomButtonTheme";
 import { PulsingAnimation } from "../Animations";
 import type { CustomButtonProps } from "@appTypes/types/customButton";
 
-const CustomButton: React.FC<CustomButtonProps> = ({ children, ...props }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  pulsingAnimation,
+  pulsingColor = "#e9d5ff",
+  children,
+  ...props
+}) => {
   return (
     <ThemeProvider theme={CustomButtonTheme}>
-      {props.pulsingAnimation ? (
+      {pulsingAnimation ? (
         <Box position="relative">
           <Box
             position="absolute"
@@ -16,7 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ children, ...props }) => {
             width="12px"
             height="12px"
             borderRadius="9999px"
-            bgcolor="#e9d5ff"
+            bgcolor={pulsingColor}
             display="flex"
             zIndex="99999"
           >
