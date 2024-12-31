@@ -63,7 +63,7 @@ const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
   const listToolbarRef = React.useRef(null);
   const linkToolbarRef = React.useRef(null);
 
-  const addImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const FILES = event.target.files;
     if (!editor) return;
     if (FILES && FILES.length > 0) {
@@ -107,7 +107,7 @@ const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
         {/* image */}
         <input
           type="file"
-          onChange={addImage}
+          onChange={handleImage}
           accept="image/*"
           placeholder="."
           ref={imageToolbarRef}

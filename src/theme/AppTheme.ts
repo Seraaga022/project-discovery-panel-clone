@@ -49,8 +49,21 @@ export const AppTheme = createTheme({
     info: {
       main: "#252526",
       light: "#3B3B3B",
-      dark: "#252526",
+      300: "#6B6D80",
+      dark: "#0e0e10",
       contrastText: "#6b6d79",
+    },
+    white: {
+      main: "#eeeeee",
+      light: "#e5e5eB",
+      dark: "#d6d6d6",
+      contrastText: "#18181B",
+    },
+    warning: {
+      main: "#38270b",
+      light: "#442f0b",
+      400: "rgba(245, 158, 11, 0.5)",
+      contrastText: "#f59e0b",
     },
   },
 });

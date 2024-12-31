@@ -306,40 +306,29 @@ const Navbar = ({ user }: { user: UserT }) => {
                                     setIsFeedbackExplanationPage(true)
                                   }
                                   color="info"
+                                  variant="outlined"
                                   sx={{
-                                    minWidth: "20px",
-                                    minHeight: "0",
-                                    bgcolor: "#08080a",
-                                    border: "1px solid #252526",
-                                    color: "auto",
                                     p: "10px",
-                                    "&:hover": {
-                                      bgcolor: "#252526",
-                                    },
+                                    bgcolor: "transparent",
                                   }}
                                 >
-                                  <IoIosArrowBack color="#6b6d79" size={13} />
+                                  <IoIosArrowBack size={13} />
                                 </CustomButton>
                               </Box>
+                              {/* screenshot and send */}
                               <Box display="flex" gap="10px">
                                 {/* screenshot */}
                                 <Box>
                                   <CustomButton
                                     color="info"
+                                    variant="outlined"
                                     startIcon={
                                       <SiGooglelens color="#6b6d79" size={13} />
                                     }
                                     sx={{
-                                      minWidth: "20px",
                                       maxHeight: "33px",
-                                      bgcolor: "#0e0e10",
-                                      border: "1px solid #19191c",
-                                      color: "auto",
                                       p: "10px",
                                       px: "16px",
-                                      "&:hover": {
-                                        bgcolor: "#131315",
-                                      },
                                     }}
                                   >
                                     <Typography
@@ -363,25 +352,23 @@ const Navbar = ({ user }: { user: UserT }) => {
                                       />
                                     }
                                     sx={{
-                                      minWidth: "20px",
                                       maxHeight: "33px",
                                       bgcolor: "#6266f1",
                                       border: "1px solid transparent",
-                                      color: "auto",
                                       p: "10px",
                                       px: "14px",
                                       "&:hover": {
                                         border: "1px solid #5455bc",
                                         bgcolor: "#4749ac",
                                       },
-                                      "&::active": {
+                                      "&:active": {
                                         outline: "3px solid #242837",
                                       },
                                     }}
                                   >
                                     <Typography
                                       sx={{
-                                        color: "#fff",
+                                        color: "#eeeeee",
                                         fontWeight: 500,
                                         fontSize: "13px",
                                       }}

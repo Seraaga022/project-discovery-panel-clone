@@ -16,7 +16,9 @@ import useDialog from "../../hooks/ui/useDialog";
 import TabFeaturesSVGBackground from "./TabFeaturesSVGBackground";
 import { AssetsFeaturesDialogProps } from "@appTypes/types/newAssetDialog";
 
-const AssetsFeaturesDialog: React.FC<AssetsFeaturesDialogProps> = ({ setAssets }) => {
+const AssetsFeaturesDialog: React.FC<AssetsFeaturesDialogProps> = ({
+  setAssets,
+}) => {
   const assetManagementFeatures = [
     {
       icon: <VscCompass color="#fff" size={24} />,
@@ -155,20 +157,16 @@ const AssetsFeaturesDialog: React.FC<AssetsFeaturesDialogProps> = ({ setAssets }
               {/* buttons */}
               <Box mt="20px">
                 <Box display="flex" justifyContent="center" gap="8px">
-                  {/* 'domain or ip' button */}
+                  {/* start discovery button */}
                   <Box>
                     <CustomButton
                       onClick={() => setIsNewAssetDialogOpen(true)}
                       endIcon={<RxPlus size={18} />}
                       fullWidth
+                      color="white"
                       sx={{
-                        bgcolor: "#eeeeee",
-                        "&:hover": { bgcolor: "#d6d6d6" },
-                        textTransform: "none",
-                        color: "#18181b",
                         px: "15px",
                         py: "7px",
-                        borderRadius: "6px",
                       }}
                     >
                       <Typography
@@ -226,40 +224,26 @@ const AssetsFeaturesDialog: React.FC<AssetsFeaturesDialogProps> = ({ setAssets }
                       </Box>
                     </Box>
                   </CustomDialog>
-                  {/* 'cloud' button */}
+                  {/* cloud button */}
                   <Box>
                     <CustomButton
                       color="warning"
+                      endIcon={<RxPlus size={15} />}
+                      fullWidth
                       sx={{
-                        width: "100%",
-                        bgcolor: "#38270b",
-                        "&:hover": { bgcolor: "#442f0b" },
-                        textTransform: "none",
-                        color: "#18181b",
                         px: "15px",
                         py: "8px",
-                        borderRadius: "6px",
                       }}
                     >
-                      <Box display="flex" alignItems="center" gap="8px">
-                        <Box>
-                          <Typography
-                            sx={{
-                              fontSize: "13px",
-                              fontWeight: 600,
-                              letterSpacing: 0.7,
-                              color: "#f59e0b",
-                            }}
-                          >
-                            Connect your clouds services
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Box display="flex" alignItems="center" height="100%">
-                            <RxPlus size={15} color="#f59e0b" />
-                          </Box>
-                        </Box>
-                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "13px",
+                          fontWeight: 600,
+                          letterSpacing: 0.7,
+                        }}
+                      >
+                        Connect your clouds services
+                      </Typography>
                     </CustomButton>
                   </Box>
                 </Box>

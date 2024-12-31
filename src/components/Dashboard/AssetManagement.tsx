@@ -19,7 +19,6 @@ const AssetManagement = () => {
           {/* static texts */}
           <Box>
             <Typography
-              variant="subtitle1"
               sx={{
                 fontSize: "16px",
                 color: "#fff",
@@ -55,7 +54,6 @@ const AssetManagement = () => {
               }}
             >
               <Typography
-                variant="subtitle1"
                 sx={{
                   color: "rgb(9 9 11/1)",
                   fontSize: "12px",
@@ -68,20 +66,14 @@ const AssetManagement = () => {
             {/* cloud button */}
             <CustomButton
               color="warning"
-              endIcon={<IoMdCloudOutline color="#f59e0b" size={15} />}
+              endIcon={<IoMdCloudOutline size={15} />}
               sx={{
-                bgcolor: "#3c2a11",
-                "&:hover": {
-                  bgcolor: "#473111",
-                },
-                py: "4px",
+                py: "5.5px",
                 px: "12px",
               }}
             >
               <Typography
-                variant="subtitle1"
                 sx={{
-                  color: "#f59e0b",
                   fontSize: "12px",
                   fontWeight: 500,
                   letterSpacing: 0.5,

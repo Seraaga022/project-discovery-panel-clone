@@ -979,67 +979,46 @@ const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
           <Box>
             <Box display="flex" gap="15px">
               {/* cancel button */}
-              <Box>
-                <CustomButton
-                  onClick={() => setIsNewAssetDialogOpen(false)}
-                  color="inherit"
+              <CustomButton
+                onClick={() => setIsNewAssetDialogOpen(false)}
+                color="info"
+                variant="outlined"
+                sx={{
+                  py: "7px",
+                  px: "15px",
+                  color: "#fafafa",
+                }}
+              >
+                <Typography
                   sx={{
-                    border: "1px solid #27272a",
-                    py: "7px",
-                    px: "15px",
-                    "&:hover": {
-                      bgcolor: "#27272a",
-                    },
+                    fontSize: "12.5px",
+                    fontWeight: 600,
+                    letterSpacing: 0.6,
                   }}
                 >
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <Typography
-                      sx={{
-                        color: "#fafafa",
-                        fontSize: "12.5px",
-                        fontWeight: 600,
-                        letterSpacing: 0.6,
-                      }}
-                    >
-                      Cancel
-                    </Typography>
-                  </Box>
-                </CustomButton>
-              </Box>
+                  Cancel
+                </Typography>
+              </CustomButton>
               {/* add button */}
-              <Box>
-                <CustomButton
-                  onClick={() => setAssets([0, 1])}
+              <CustomButton
+                onClick={() => setAssets([0, 1])}
+                color="white"
+                sx={{
+                  px: "15px",
+                  py: "8px",
+                }}
+              >
+                <Typography
                   sx={{
-                    bgcolor: "#eeeeee",
-                    "&:hover": {
-                      bgcolor: "#d6d6d6",
-                    },
+                    fontSize: "12.5px",
                     color: "#18181b",
-                    px: "15px",
-                    py: "8px",
+                    fontWeight: 600,
+                    letterSpacing: 0.5,
                   }}
                 >
-                  <Box display="flex" gap="8px">
-                    <Box>
-                      <Typography
-                        sx={{
-                          fontSize: "12.5px",
-                          color: "#18181b",
-                          fontWeight: 600,
-                          letterSpacing: 0.5,
-                        }}
-                      >
-                        Start Discovery
-                      </Typography>
-                    </Box>
-                  </Box>
-                </CustomButton>
-              </Box>
+                  Start Discovery
+                </Typography>
+              </CustomButton>
             </Box>
           </Box>
         </Box>

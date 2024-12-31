@@ -19,7 +19,6 @@ const ScansManagement = () => {
           {/* texts */}
           <Box>
             <Typography
-              variant="subtitle1"
               sx={{
                 fontSize: "16px",
                 color: "#fff",
@@ -29,7 +28,6 @@ const ScansManagement = () => {
             >
               Your Scans <br />
               <Typography
-                variant="subtitle1"
                 sx={{
                   fontSize: "14px",
                   fontWeight: 500,
@@ -48,16 +46,19 @@ const ScansManagement = () => {
             <CustomButton
               pulsingAnimation
               color="warning"
-              endIcon={<FaPlus color="#000" size={11} />}
+              endIcon={<FaPlus size={11} />}
               sx={{
                 bgcolor: "#f97316",
+                "&:hover": {
+                  bgcolor: "#f97316",
+                },
+                color: "#000",
                 px: "12px",
                 py: "6px",
               }}
             >
               <Typography
                 sx={{
-                  color: "#000",
                   fontSize: "12px",
                   letterSpacing: ".6",
                   fontWeight: 600,

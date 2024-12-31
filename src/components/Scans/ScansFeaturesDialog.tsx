@@ -163,16 +163,13 @@ const ScansFeaturesDialog = () => {
                         <CustomButton
                           color="warning"
                           sx={{
-                            minWidth: "10px",
                             px: "16px",
                             py: "8px",
-                            color: "rgb(245 158 11/1)",
-                            bgcolor: "rgba(245,158,11,.2)",
-                            fontWeight: 700,
-                            fontSize: "12px",
                           }}
                         >
-                          Upgrader for Pro
+                          <Typography fontWeight={700} fontSize="12px">
+                            Upgrader for Pro
+                          </Typography>
                         </CustomButton>
                       </Box>
                     </Stack>

@@ -96,7 +96,6 @@ const PlanCard = ({
           >
             <Box>
               <Typography
-                variant="subtitle1"
                 className="monthly-text"
                 sx={{
                   fontSize: "12px",
@@ -127,7 +126,6 @@ const PlanCard = ({
           >
             <Box>
               <Typography
-                variant="subtitle1"
                 className="yearly-text"
                 sx={{
                   fontSize: "12px",
@@ -168,7 +166,6 @@ const PlanCard = ({
                   }}
                 >
                   <Typography
-                    variant="subtitle1"
                     sx={{
                       textTransform: "none",
                       fontFamily: "consolas",
@@ -972,7 +969,6 @@ const BillingComponent = () => {
           onClick={handleCompareAllPlansClick}
         >
           <Typography
-            variant="subtitle1"
             sx={{ fontSize: "14px", color: "#c5c5c6", fontWeight: 500 }}
           >
             Compare all plans
