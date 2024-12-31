@@ -34,3 +34,9 @@ export interface DialogTabsHeaderProps {
   activeTabSetter: React.Dispatch<React.SetStateAction<number>>;
   activeTab: number;
 }
+
+export type AssetsQnyT = number[];
+
+export interface AssetsFeaturesDialogProps {
+  setAssets: React.Dispatch<React.SetStateAction<AssetsQnyT>>;
+}
