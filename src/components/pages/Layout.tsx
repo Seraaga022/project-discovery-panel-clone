@@ -3,6 +3,7 @@ import Navbar from "../NavBar/Navbar";
 import { Outlet } from "react-router-dom";
 import { AppTheme } from "../../theme/AppTheme";
 import type { UserT } from "@appTypes/types/user";
+import { Toaster } from "sonner";
 
 const Layout = () => {
   const user: UserT = {
@@ -16,6 +17,7 @@ const Layout = () => {
 
   return (
     <ThemeProvider theme={AppTheme}>
+      <Toaster />
       <Box minWidth="1300px">
         <Navbar user={user} />
         <Box id="rest">
