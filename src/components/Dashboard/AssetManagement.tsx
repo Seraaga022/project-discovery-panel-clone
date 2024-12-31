@@ -1,5 +1,4 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { FaPlus } from "react-icons/fa";
 import { IoMdCloudOutline } from "react-icons/io";
 import CustomButton from "../Common/CustomButton/CustomButton";
 
@@ -15,9 +14,9 @@ const AssetManagement = () => {
         boxSizing="border-box"
       >
         {/* text content and buttons */}
-        <Stack spacing={2.5}>
+        <Stack spacing={2.8}>
           {/* static texts */}
-          <Box>
+          <Stack spacing={1}>
             <Typography
               sx={{
                 fontSize: "16px",
@@ -26,27 +25,25 @@ const AssetManagement = () => {
                 letterSpacing: ".5px",
               }}
             >
-              Your Exposures <br />
-              <Box
-                component="span"
-                sx={{
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  color: "#878689",
-                  letterSpacing: ".5px",
-                }}
-              >
-                Continuously monitor as your team deploys.
-              </Box>
+              Your Exposures
             </Typography>
-          </Box>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                fontWeight: 500,
+                color: "#878689",
+                letterSpacing: ".5px",
+              }}
+            >
+              Continuously monitor as your team deploys.
+            </Typography>
+          </Stack>
           {/* buttons */}
           <Box display="flex" zIndex={999} gap="10px">
-            {/* domain button */}
+            {/* start discovery button */}
             <CustomButton
               pulsingAnimation
               color="secondary"
-              endIcon={<FaPlus color="#09090b" size={11} />}
               sx={{
                 bgcolor: "rgb(0 148 255/1)",
                 px: "12px",
@@ -55,12 +52,12 @@ const AssetManagement = () => {
             >
               <Typography
                 sx={{
-                  color: "rgb(9 9 11/1)",
-                  fontSize: "12px",
-                  fontWeight: 600,
+                  color: "#09090b",
+                  fontSize: "12.5px",
+                  fontWeight: 500,
                 }}
               >
-                Add Domain or IP
+                Start Discovery
               </Typography>
             </CustomButton>
             {/* cloud button */}

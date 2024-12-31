@@ -15,9 +15,9 @@ const ScansManagement = () => {
         display="flex"
       >
         {/* text content and buttons */}
-        <Stack spacing={2.5}>
+        <Stack spacing={2.8}>
           {/* texts */}
-          <Box>
+          <Stack spacing={1}>
             <Typography
               sx={{
                 fontSize: "16px",
@@ -26,41 +26,38 @@ const ScansManagement = () => {
                 letterSpacing: ".5px",
               }}
             >
-              Your Scans <br />
-              <Typography
-                sx={{
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  color: "#878689",
-                  letterSpacing: ".5px",
-                }}
-              >
-                Set up automated vulnerability scans across your assets for
-                comprehensive monitoring.
-              </Typography>
+              Your Scans
             </Typography>
-          </Box>
+            <Typography
+              sx={{
+                fontSize: "14px",
+                fontWeight: 500,
+                color: "#878689",
+                letterSpacing: ".5px",
+              }}
+            >
+              Set up automated vulnerability scans across your assets for
+              comprehensive monitoring.
+            </Typography>
+          </Stack>
           {/* button */}
-          <Box display="flex" zIndex={999} gap="10px">
+          <Box display="flex" zIndex={999}>
             {/* button */}
             <CustomButton
               pulsingAnimation
               color="warning"
               endIcon={<FaPlus size={11} />}
               sx={{
-                bgcolor: "#f97316",
-                "&:hover": {
-                  bgcolor: "#f97316",
-                },
-                color: "#000",
+                bgcolor: "rgba(56, 39, 11, .6)",
+                color: "#f97316",
                 px: "12px",
-                py: "6px",
+                py: "4.5px",
               }}
             >
               <Typography
                 sx={{
                   fontSize: "12px",
-                  letterSpacing: ".6",
+                  letterSpacing: ".5px",
                   fontWeight: 600,
                 }}
               >
