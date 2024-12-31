@@ -72,7 +72,7 @@ const AssetManagement = () => {
               <Typography
                 sx={{
                   fontSize: "12px",
-                  fontWeight: 500,
+                  fontWeight: 400,
                   letterSpacing: 0.5,
                 }}
               >
