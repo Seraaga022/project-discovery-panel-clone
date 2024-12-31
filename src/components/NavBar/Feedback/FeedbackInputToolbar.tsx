@@ -12,56 +12,68 @@ import { AiOutlineBold } from "react-icons/ai";
 import { IoIosList } from "react-icons/io";
 import { FiLink } from "react-icons/fi";
 import { Editor } from "@tiptap/react";
-
-const ToolbarKey = (props: BoxProps) => {
-  const ToolbarButtonTheme = createTheme({
-    components: {
-      MuiButton: {
-        defaultProps: {
-          color: "info",
-          className: "toolbar-key",
-          sx: {
-            textTransform: "none",
-            minWidth: "1px",
-            p: "1px",
-            transition: "all ease-in 200ms",
-            "& .Mui-focused": {
-              outline: "2px solid #272b3a",
-            },
-            "& .MuiTouchRipple-root": {
-              color: AppTheme.palette.info.dark,
-            },
-            "&:hover": {
-              bgcolor: AppTheme.palette.info.light,
-            },
-            color: AppTheme.palette.info.contrastText,
-          },
-        },
-      },
-    },
-  });
-
-  return (
-    <Box
-      width="16px"
-      maxWidth="16px"
-      height="16px"
-      maxHeight="16px"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      {...props}
-    >
-      <ThemeProvider theme={ToolbarButtonTheme}>{props.children}</ThemeProvider>
-    </Box>
-  );
-};
+import { ToolbarItemClickHandlerActionT } from "@appTypes/types/dashboard";
 
 const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
   const imageToolbarRef = React.useRef(null);
-  const boldToolbarRef = React.useRef(null);
-  const listToolbarRef = React.useRef(null);
-  const linkToolbarRef = React.useRef(null);
+
+  const ToolbarKey = ({
+    boldKey = false,
+    ...props
+  }: BoxProps & { boldKey?: boolean }) => {
+    const ToolbarButtonTheme = createTheme({
+      components: {
+        MuiButton: {
+          defaultProps: {
+            color: "info",
+            className: "toolbar-key",
+            sx: {
+              textTransform: "none",
+              minWidth: "1px",
+              p: "1px",
+              transition: "all ease-in 200ms",
+              "& .Mui-focused": {
+                outline: "2px solid #272b3a",
+              },
+              "& .MuiTouchRipple-root": {
+                color: AppTheme.palette.info.dark,
+              },
+              "&:hover": {
+                bgcolor: AppTheme.palette.info.light,
+              },
+              color: AppTheme.palette.info.contrastText,
+            },
+          },
+        },
+      },
+    });
+
+    return (
+      <Box
+        width="16px"
+        maxWidth="16px"
+        height="16px"
+        maxHeight="16px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          "& .toolbar-key": {
+            bgcolor: boldKey
+              ? editor?.isActive("bold")
+                ? "#252526"
+                : "unset"
+              : "unset",
+          },
+        }}
+        {...props}
+      >
+        <ThemeProvider theme={ToolbarButtonTheme}>
+          {props.children}
+        </ThemeProvider>
+      </Box>
+    );
+  };
 
   const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const FILES = event.target.files;
@@ -87,16 +99,32 @@ const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
     console.log(editor.getHTML);
   };
 
-  const handleToolBarClick = (
+  const handleImageClick = (
     ref: React.RefObject<HTMLInputElement | HTMLButtonElement>
   ) => {
     if (!ref.current) return;
     ref.current.click();
   };
 
+  const toolbarItemClickHandler = ({
+    action,
+  }: ToolbarItemClickHandlerActionT) => {
+    if (!editor) return;
+    switch (action) {
+      case "BOLD": {
+        editor.chain().focus().toggleBold().run();
+        return;
+      }
+      case "LIST": {
+        editor.chain().focus().toggleBulletList().run();
+        return;
+      }
+    }
+  };
+
   return (
     <Box className="toolbar" p="10px">
-      {/* toolbar actual functionality trigers */}
+      {/* toolbar actual image input trigger */}
       <Box
         sx={{
           "& > input, button": {
@@ -112,60 +140,30 @@ const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
           placeholder="."
           ref={imageToolbarRef}
         />
-        {/* bold */}
-        <button
-          onClick={() => {
-            if (!editor) return;
-            editor.chain().focus().toggleBold().run();
-          }}
-          ref={boldToolbarRef}
-        >
-          Bold
-        </button>
-        {/* list */}
-        <button
-          onClick={() => {
-            if (!editor) return;
-            editor.chain().focus().toggleBulletList().run();
-          }}
-          ref={listToolbarRef}
-        >
-          Bullet List
-        </button>
-        {/* link */}
-        <button onClick={handleLink} ref={linkToolbarRef}>
-          Link
-        </button>
       </Box>
       {/* toolbar ui */}
       <Box display="flex" gap="10px">
         {/* image */}
         <ToolbarKey>
-          <Button onClick={() => handleToolBarClick(imageToolbarRef)}>
+          <Button onClick={() => handleImageClick(imageToolbarRef)}>
             <CiImageOn />
           </Button>
         </ToolbarKey>
         {/* bold */}
-        <ToolbarKey
-          sx={{
-            "& .toolbar-key": {
-              bgcolor: editor?.isActive("bold") ? "#252526" : "unset",
-            },
-          }}
-        >
-          <Button onClick={() => handleToolBarClick(boldToolbarRef)}>
+        <ToolbarKey boldKey>
+          <Button onClick={() => toolbarItemClickHandler({ action: "BOLD" })}>
             <AiOutlineBold />
           </Button>
         </ToolbarKey>
         {/* list */}
         <ToolbarKey>
-          <Button onClick={() => handleToolBarClick(listToolbarRef)}>
-            <IoIosList size={28} />
+          <Button onClick={() => toolbarItemClickHandler({ action: "LIST" })}>
+            <IoIosList style={{ maxHeight: "15px" }} size={28} />
           </Button>
         </ToolbarKey>
         {/* link */}
         <ToolbarKey>
-          <Button onClick={() => handleToolBarClick(linkToolbarRef)}>
+          <Button onClick={() => handleLink()}>
             <FiLink style={{ margin: "1px" }} size={12} />
           </Button>
         </ToolbarKey>

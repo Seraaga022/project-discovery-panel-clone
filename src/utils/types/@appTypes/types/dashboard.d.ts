@@ -10,3 +10,7 @@ export type TemplateFeedChartItemT = {
   day: string;
   templates: templatesTypesT;
 }[];
+
+export type ToolbarItemClickHandlerActionT = {
+  action: "BOLD" | "LIST";
+};
