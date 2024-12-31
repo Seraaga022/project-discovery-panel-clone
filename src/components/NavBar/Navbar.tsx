@@ -431,7 +431,7 @@ const Navbar = ({ user }: { user: UserT }) => {
                         pr="20px"
                         pt="20px"
                         maxHeight="10px"
-                        zIndex="-9999"
+                        zIndex="9999"
                       >
                         <Box>
                           <Clear
