@@ -17,7 +17,7 @@ const Layout = () => {
 
   return (
     <ThemeProvider theme={AppTheme}>
-      <Toaster />
+      <Toaster visibleToasts={1} />
       <Box minWidth="1300px">
         <Navbar user={user} />
         <Box id="rest">
