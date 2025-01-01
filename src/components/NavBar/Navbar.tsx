@@ -1,5 +1,5 @@
 import { AppBar, Box, Stack, SvgIcon, Typography } from "@mui/material";
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 import NavbarProfile from "./NavbarProfile";
 import NavigationButtons from "./NavigationButtonsCompo";
 import React, { lazy, Suspense } from "react";

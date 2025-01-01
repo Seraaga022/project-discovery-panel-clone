@@ -21,7 +21,7 @@ import useNewAssetDiscoveryFrequencyManagement from "../../../hooks/logical/useN
 import {
   DialogTabsFooterProps,
   TimeMenuItemsProps,
-} from "@appTypes/types/newAssetDialog";
+} from "@appTypes/newAssetDialog";
 
 const NewAssetDialogTabsFooter: React.FC<DialogTabsFooterProps> = ({
   setIsNewAssetDialogOpen,

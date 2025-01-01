@@ -10,7 +10,7 @@ import type {
   TplanCardT,
   PlanTableColT,
   PlanTableRowT,
-} from "@appTypes/types/billing";
+} from "@appTypes/billing";
 import CustomChip from "../CustomChip";
 import CustomTooltip from "../CustomTooltip";
 import { RiStackLine } from "react-icons/ri";

@@ -12,7 +12,7 @@ import { AiOutlineBold } from "react-icons/ai";
 import { IoIosList } from "react-icons/io";
 import { FiLink } from "react-icons/fi";
 import { Editor } from "@tiptap/react";
-import { ToolbarItemClickHandlerActionT } from "@appTypes/types/dashboard";
+import { ToolbarItemClickHandlerActionT } from "@appTypes/dashboard";
 
 const FeedbackInputToolbar = ({ editor }: { editor: Editor | null }) => {
   const imageToolbarRef = React.useRef(null);

@@ -3,7 +3,7 @@ import React from "react";
 import type {
   TemplatesTypesT,
   TemplateFeedChartItemT,
-} from "@appTypes/types/dashboard";
+} from "@appTypes/dashboard";
 import templateFeedChartItems from "../../assets/data/templateFeedChartItems";
 import getUniqueKey from "../../utils/lib/getUniqueKey";
 import { motion } from "framer-motion";

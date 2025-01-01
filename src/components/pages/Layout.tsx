@@ -2,7 +2,7 @@ import { Box, ThemeProvider } from "@mui/material";
 import Navbar from "../NavBar/Navbar";
 import { Outlet } from "react-router-dom";
 import { AppTheme } from "../../theme/AppTheme";
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 import { Toaster } from "sonner";
 
 const Layout = () => {
@@ -17,7 +17,7 @@ const Layout = () => {
 
   return (
     <ThemeProvider theme={AppTheme}>
-      <Toaster visibleToasts={1} />
+      <Toaster />
       <Box minWidth="1300px">
         <Navbar user={user} />
         <Box id="rest">

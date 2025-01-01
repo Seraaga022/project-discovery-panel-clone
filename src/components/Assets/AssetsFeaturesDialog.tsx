@@ -14,7 +14,7 @@ import NewAssetDialogAdvancedTab from "./NewAssetDialog/NewAssetDialogAdvancedTa
 import NewAssetDialogTabsFooter from "./NewAssetDialog/NewAssetDialogTabsFooter";
 import useDialog from "../../hooks/ui/useDialog";
 import TabFeaturesSVGBackground from "./TabFeaturesSVGBackground";
-import { AssetsFeaturesDialogProps } from "@appTypes/types/newAssetDialog";
+import { AssetsFeaturesDialogProps } from "@appTypes/newAssetDialog";
 
 const AssetsFeaturesDialog: React.FC<AssetsFeaturesDialogProps> = ({
   setAssets,

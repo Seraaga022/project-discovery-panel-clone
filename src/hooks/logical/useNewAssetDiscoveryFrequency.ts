@@ -3,7 +3,7 @@ import {
   DiscoveryTimeT,
   ActiveFrequencyIntervalT,
   DiscoveryDaysT,
-} from "@appTypes/types/newAssetDialog";
+} from "@appTypes/newAssetDialog";
 
 export default function useNewAssetDiscoveryFrequencyManagement() {
   const [activeFrequencyInterval, setActiveFrequencyInterval] =

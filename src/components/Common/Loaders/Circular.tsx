@@ -1,6 +1,7 @@
+import { CircularLoaderProps } from "@appTypes/loader";
 import { Box, CircularProgress } from "@mui/material";
 
-const Circular = () => {
+const Circular: React.FC<CircularLoaderProps> = ({ color = "#404040" }) => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
       <CircularProgress
@@ -9,7 +10,7 @@ const Circular = () => {
           maxWidth: "17px",
           maxHeight: "17px",
           "& .MuiCircularProgress-circle": {
-            color: "#404040",
+            color: color,
           },
         }}
       />

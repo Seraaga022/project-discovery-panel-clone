@@ -6,7 +6,7 @@ import {
 } from "@mui/icons-material";
 import { Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import { RxPerson } from "react-icons/rx";
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 import UserPlanChip from "./UserPlanChip";
 import CustomTooltip from "../Common/CustomTooltip";
 import BillingDialog from "../Common/BillingDialog/BillingDialog";

@@ -1,4 +1,4 @@
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 
 export const useUser = () => {
   const user: UserT = {

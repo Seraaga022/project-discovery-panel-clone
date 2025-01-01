@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import type { OptionalNBC, TabT } from "@appTypes/types/navigationTabButton";
+import type { OptionalNBC, TabT } from "@appTypes/navigationTabButton";
 import { TbHomeShield } from "react-icons/tb";
 import { CgDatabase } from "react-icons/cg";
 import { RiEditCircleLine } from "react-icons/ri";

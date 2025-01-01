@@ -1,6 +1,6 @@
 import { Clear } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
-import { DialogTabsHeaderProps } from "@appTypes/types/newAssetDialog";
+import { DialogTabsHeaderProps } from "@appTypes/newAssetDialog";
 
 const NewAssetDialogTabsHeader: React.FC<DialogTabsHeaderProps> = ({
   dialogOpenSetter,

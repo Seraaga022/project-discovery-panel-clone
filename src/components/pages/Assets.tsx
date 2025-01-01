@@ -4,7 +4,7 @@ import { CgDatabase } from "react-icons/cg";
 import { HiOutlineChip } from "react-icons/hi";
 import { LuShapes } from "react-icons/lu";
 import { Link, Outlet } from "react-router-dom";
-import { AssetsQnyT } from "@appTypes/types/newAssetDialog";
+import { AssetsQnyT } from "@appTypes/newAssetDialog";
 import AssetsFeaturesDialog from "../Assets/AssetsFeaturesDialog";
 
 const Assets = () => {

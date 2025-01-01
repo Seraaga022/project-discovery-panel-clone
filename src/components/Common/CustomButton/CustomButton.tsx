@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, ThemeProvider } from "@mui/material";
 import { CustomButtonTheme } from "./CustomButtonTheme";
 import { PulsingAnimation } from "../Animations";
-import type { CustomButtonProps } from "@appTypes/types/customButton";
+import type { CustomButtonProps } from "@appTypes/customButton";
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   pulsingAnimation,

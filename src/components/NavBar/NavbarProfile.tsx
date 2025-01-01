@@ -1,5 +1,5 @@
 import { Avatar, Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 import CustomDialog from "../Common/CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";

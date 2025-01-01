@@ -1,7 +1,7 @@
 import { Box, TextField, Typography } from "@mui/material";
 import VulnerabilityCard from "./VulnerabilityCard";
 import getUniqueKey from "../../utils/lib/getUniqueKey";
-import type { VulnerabilityItemsT } from "@appTypes/types/vulnerabilityCard";
+import type { VulnerabilityItemsT } from "@appTypes/vulnerabilityCard";
 import { FiSearch } from "react-icons/fi";
 import { IoBugOutline, IoCubeOutline } from "react-icons/io5";
 import { LuBuilding } from "react-icons/lu";

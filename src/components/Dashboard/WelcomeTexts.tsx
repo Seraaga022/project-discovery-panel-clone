@@ -1,5 +1,5 @@
 import { Box, BoxProps, Typography } from "@mui/material";
-import type { UserT } from "@appTypes/types/user";
+import type { UserT } from "@appTypes/user";
 
 const WelcomeTexts = ({
   userName,
