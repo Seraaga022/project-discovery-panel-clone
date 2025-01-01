@@ -11,7 +11,7 @@ import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
 import { LuSiren } from "react-icons/lu";
 import { toast as soonerToast } from "sonner";
 import { ToastLayout, PromiseToast } from "./ToastComponents";
-import InnerThemeProvider from "../CustomThemeProvider";
+import InnerThemeProvider from "../InnerThemeProvider";
 import { ToastTheme } from "../../../theme/ToastTheme";
 
 const customToast = ({
