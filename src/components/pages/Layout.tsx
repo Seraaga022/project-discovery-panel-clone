@@ -7,10 +7,11 @@ import { LuSiren } from "react-icons/lu";
 import Circular from "../Common/Loaders/Circular";
 import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
 import CloseIcon from "@mui/icons-material/close";
-import SettingsDialog from "./Settings";
 
 const Layout = () => {
   const location = useLocation();
+
+  const previousLocation = location.state?.previousLocation;
 
   return (
     <ThemeProvider theme={AppTheme}>
@@ -39,10 +40,9 @@ const Layout = () => {
       <Box minWidth="1300px">
         <Navbar />
         <Box id="rest">
-          <Outlet />
+          <Outlet context={previousLocation} />
         </Box>
       </Box>
-      {location.pathname === "/settings" && <SettingsDialog />}
     </ThemeProvider>
   );
 };

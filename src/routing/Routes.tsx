@@ -7,6 +7,7 @@ import Assets from "../components/Pages/Assets";
 import Technologies from "../components/Assets/AssetsTabs/Technologies";
 import Overview from "../components/Assets/AssetsTabs/Overview";
 import Inventory from "../components/Assets/AssetsTabs/Inventory";
+import SettingsDialog from "../components/Pages/Settings";
 
 export const routes = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const routes = createBrowserRouter([
       },
       { path: "scans", element: <Scans /> },
       { path: "templates", element: <Templates /> },
-      { path: "settings", element: null },
+      { path: "settings", element: <SettingsDialog /> },
     ],
   },
 ]);
