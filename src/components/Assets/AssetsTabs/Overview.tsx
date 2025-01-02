@@ -1,8 +1,9 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { RiCloudLine } from "react-icons/ri";
 import { RxPlus } from "react-icons/rx";
 import CustomDialog from "../../Common/CustomDialog";
 import useDialog from "../../../hooks/ui/useDialog";
+import CustomButton from "../../Common/CustomButton/CustomButton";
 
 const Overview = () => {
   const {
@@ -57,40 +58,27 @@ const Overview = () => {
                 pb="8px"
               >
                 <Box display="flex" alignItems="center" gap="16px">
-                  {/* create button */}
+                  {/* start discovery button */}
                   <Box>
-                    <Button
+                    <CustomButton
+                      fullWidth
+                      endIcon={<RxPlus size={20} />}
+                      color="white"
                       sx={{
-                        width: "100%",
-                        bgcolor: "#eeeeee",
-                        "&:hover": { bgcolor: "#d6d6d6" },
-                        textTransform: "none",
-                        color: "#18181b",
-                        px: "17px",
-                        py: "7px",
-                        borderRadius: "6px",
+                        px: "18px",
+                        py: "8px",
                       }}
                       onClick={() => setIsNewAssetDialogOpen(true)}
                     >
-                      <Box display="flex" gap="8px">
-                        <Box>
-                          <Typography
-                            sx={{
-                              fontSize: "13px",
-                              fontWeight: 600,
-                              letterSpacing: 0.5,
-                            }}
-                          >
-                            Add New Assets
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Box display="flex" alignItems="center" height="100%">
-                            <RxPlus size={18} />
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Button>
+                      <Typography
+                        sx={{
+                          fontSize: "13px",
+                          letterSpacing: 0.5,
+                        }}
+                      >
+                        Start Discovery
+                      </Typography>
+                    </CustomButton>
                   </Box>
                   {/* create dialog */}
                   <CustomDialog
@@ -101,39 +89,24 @@ const Overview = () => {
                   </CustomDialog>
                   {/* cloud button */}
                   <Box>
-                    <Button
+                    <CustomButton
                       color="warning"
+                      endIcon={<RiCloudLine size={15} color="#f59e0b" />}
                       sx={{
-                        width: "100%",
-                        bgcolor: "#38270b",
-                        "&:hover": { bgcolor: "#442f0b" },
-                        textTransform: "none",
-                        color: "#18181b",
-                        px: "17px",
-                        py: "8px",
-                        borderRadius: "6px",
+                        px: "16px",
+                        py: "9px",
                       }}
                     >
-                      <Box display="flex" alignItems="center" gap="8px">
-                        <Box>
-                          <Typography
-                            sx={{
-                              fontSize: "13px",
-                              fontWeight: 600,
-                              letterSpacing: 0.7,
-                              color: "#f59e0b",
-                            }}
-                          >
-                            Connect Cloud Services
-                          </Typography>
-                        </Box>
-                        <Box>
-                          <Box display="flex" alignItems="center" height="100%">
-                            <RiCloudLine size={15} color="#f59e0b" />
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Button>
+                      <Typography
+                        sx={{
+                          fontSize: "13px",
+                          letterSpacing: 0.7,
+                          color: "#f59e0b",
+                        }}
+                      >
+                        Connect Cloud Services
+                      </Typography>
+                    </CustomButton>
                   </Box>
                 </Box>
               </Box>

@@ -11,7 +11,6 @@ const Assets = () => {
   const [activeTab, setActiveTab] = React.useState(
     window.location.href.split("/")[4] || ""
   );
-
   const assetsNavItemsBaseClasses = [
     "asset-groups",
     "inventory",
