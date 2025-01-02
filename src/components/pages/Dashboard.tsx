@@ -1,13 +1,14 @@
-import { Box, Divider, Skeleton } from "@mui/material";
 import { lazy, Suspense } from "react";
+
+import { Box, Divider, Skeleton } from "@mui/material";
+
 import { useUser } from "../../hooks/useUser";
 import PageContainer from "../Common/PageContainer";
 import TemplateScansDetails from "../Dashboard/TemplateScansDetails";
 import VulnerabilitiesFeed from "../Dashboard/VulnerabilitiesFeed";
+
 const DashboardWelcome = lazy(() => import("../Dashboard/WelcomeTexts"));
-const DashboardCreateTeam = lazy(
-  () => import("../Dashboard/CreateTeamTopSection")
-);
+const DashboardCreateTeam = lazy(() => import("../Dashboard/CreateTeamButton"));
 const AssetManagement = lazy(() => import("../Dashboard/AssetManagement"));
 const ScansManagement = lazy(() => import("../Dashboard/ScansManagement"));
 

@@ -1,5 +1,4 @@
 import { AppBar, Box, Stack, SvgIcon, Typography } from "@mui/material";
-import type { UserT } from "@appTypes/user";
 import NavbarProfile from "./NavbarProfile";
 import NavigationButtons from "./NavigationButtonsCompo";
 import React, { lazy, Suspense } from "react";
@@ -16,14 +15,17 @@ import FeedbackExplanation from "./Feedback/FeedbackInfo";
 const TeamManagement = lazy(() => import("./TeamManagementCompo"));
 import CustomButton from "../Common/CustomButton/CustomButton";
 import "./Feedback/feedbackRichInput.css";
+import { useUser } from "../../hooks/useUser";
 
-const Navbar = ({ user }: { user: UserT }) => {
+const Navbar = () => {
   const [changelogDialogState, setChangelogDialogState] =
     React.useState<boolean>(false);
   const [feedbackDialogState, setFeedbackDialogState] =
     React.useState<boolean>(false);
   const [isFeedbackExplanationPage, setIsFeedbackExplanationPage] =
     React.useState<boolean>(false);
+
+  const user = useUser();
 
   return (
     <Box bgcolor="transparent" mb="68px" width="1300px">

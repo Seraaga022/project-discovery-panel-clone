@@ -18,7 +18,7 @@ const UserPlanChip: React.FC<
         </Box>
       )}
       {/* Plan title */}
-      <Box>
+      <Box display="flex" alignItems="center">
         <Typography
           sx={{
             fontSize: "10px",

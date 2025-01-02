@@ -14,3 +14,16 @@ a {
   font-family: roboto;
   src: url("/fonts/Roboto-Medium.ttf");
 }
+
+[data-type="error"] {
+  border-color: #c25875;
+}
+
+.toast-close-button {
+  border: 1px solid #27272a !important;
+  background-color: #09090b !important;
+  &:hover {
+    background-color: #09090b;
+    border-color: #27272a !important;
+  }
+}

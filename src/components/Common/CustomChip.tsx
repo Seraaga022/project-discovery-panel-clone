@@ -13,7 +13,7 @@ const CustomChip: React.FC<BoxProps> = ({ children, ...props }) => {
       alignItems="center"
       gap="3px"
       px="5px"
-      py="2px"
+      py="4px"
       {...props}
     >
       {children}

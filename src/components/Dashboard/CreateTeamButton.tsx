@@ -1,7 +1,7 @@
 import { Box, BoxProps, Typography } from "@mui/material";
 import CustomButton from "../Common/CustomButton/CustomButton";
 
-const CreateTeam = (props: BoxProps) => {
+const CreateTeamButton = (props: BoxProps) => {
   return (
     <Box {...props}>
       <CustomButton
@@ -21,4 +21,4 @@ const CreateTeam = (props: BoxProps) => {
   );
 };
 
-export default CreateTeam;
+export default CreateTeamButton;
