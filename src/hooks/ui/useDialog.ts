@@ -1,4 +1,4 @@
-import { BillingDialogProps } from "@appTypes/_index";
+import { BillingDialogProps } from "@appTypes/billing";
 import { useState } from "react";
 
 export default function useDialog() {

@@ -2,7 +2,7 @@ import CustomDialog from "../CustomDialog";
 import { Box, Typography } from "@mui/material";
 import { Clear } from "@mui/icons-material";
 import BillingComponent from "./BillingComponent";
-import { BillingDialogProps } from "@appTypes/_index";
+import { BillingDialogProps } from "@appTypes/billing";
 
 const BillingDialog /* : React.FC<BillingDialogProps> */ = ({
   isOpen,
