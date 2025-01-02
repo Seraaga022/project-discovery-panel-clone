@@ -5,12 +5,11 @@ const NavDocs = () => {
   return (
     <Box>
       <Typography
+        aria-details="brighten-on-hover"
         sx={{
           fontSize: "13px",
           color: "#a1a1aa",
-          "&:hover": { color: "#eeeeee" },
           cursor: "pointer",
-          transition: "color ease-in 90ms",
           fontWeight: 400,
         }}
       >

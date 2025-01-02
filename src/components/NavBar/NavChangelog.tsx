@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import ChangeLogDialog from "./ChangeLogDialog";
 import useDialog from "../../hooks/ui/useDialog";
+import ChangeLogDialog from "./ChangelogDialog";
 
 const NavChangelog = () => {
   const {
@@ -12,12 +12,11 @@ const NavChangelog = () => {
     <>
       <Box onClick={() => setChangelogDialogState(true)}>
         <Typography
+          aria-details="brighten-on-hover"
           sx={{
             fontSize: "13px",
             color: "#a1a1aa",
-            "&:hover": { color: "#eeeeee" },
             cursor: "pointer",
-            transition: "color ease-in 90ms",
             fontWeight: 400,
             userSelect: "none",
           }}

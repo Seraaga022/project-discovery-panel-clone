@@ -33,6 +33,15 @@ export const AppTheme = createTheme({
         fontFamily: "roboto, sans-serif",
         variant: "default",
       },
+      variants: [
+        {
+          props: { "aria-details": "brighten-on-hover" },
+          style: {
+            "&:hover": { color: "#e5e5e5" },
+            transition: "color ease-in 80ms",
+          },
+        },
+      ],
     },
     MuiTooltip: {
       styleOverrides: {

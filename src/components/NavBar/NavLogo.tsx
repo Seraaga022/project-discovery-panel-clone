@@ -11,11 +11,10 @@ const NavLogo = () => {
         {/* Version */}
         <Box marginRight="5px">
           <Typography
+            aria-details="brighten-on-hover"
             sx={{
               color: "#a1a1ab",
-              "&:hover": { color: "#e5e5e5" },
               fontSize: "12px",
-              transition: "color ease-in 60ms",
               fontWeight: 400,
             }}
           >
