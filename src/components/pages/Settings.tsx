@@ -20,7 +20,9 @@ const SettingsDialog = () => {
         navigate(-1);
       }}
     >
-      <Box>settings page</Box>
+      <Box minWidth="1000px" minHeight="79svh">
+        settings page
+      </Box>
     </CustomDialog>
   );
 };

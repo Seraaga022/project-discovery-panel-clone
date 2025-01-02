@@ -7,7 +7,7 @@ import { LuSiren } from "react-icons/lu";
 import Circular from "../Common/Loaders/Circular";
 import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
 import CloseIcon from "@mui/icons-material/close";
-import SettingsDialog from "./SettingsDialog";
+import SettingsDialog from "./Settings";
 
 const Layout = () => {
   const location = useLocation();
