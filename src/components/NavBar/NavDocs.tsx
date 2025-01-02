@@ -1,0 +1,28 @@
+import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+
+const NavDocs = () => {
+  return (
+    <Box>
+      <Typography
+        sx={{
+          fontSize: "13px",
+          color: "#a1a1aa",
+          "&:hover": { color: "#eeeeee" },
+          cursor: "pointer",
+          transition: "color ease-in 90ms",
+          fontWeight: 400,
+        }}
+      >
+        <Link
+          to="https://docs.projectdiscovery.io/cloud/introduction"
+          target="_blank"
+        >
+          Docs
+        </Link>
+      </Typography>
+    </Box>
+  );
+};
+
+export default NavDocs;

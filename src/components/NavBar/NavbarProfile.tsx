@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 import { Avatar, Box, Menu, MenuItem, Stack, Typography } from "@mui/material";
-import type { UserT } from "@appTypes/user";
+
 import CustomDialog from "../Common/CustomDialog";
 import useUserApiKey from "../../hooks/useUserApiKey";
 import UserApiKeyComponent from "./UserApiKeyComponent";
 import BillingDialog from "../Common/BillingDialog/BillingDialog";
 import useMenu from "../../hooks/ui/useMenu";
 import useDialog from "../../hooks/ui/useDialog";
-import { useNavigate } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
 
 const CustomProfileMenuItem = (props: {
   value: string;
@@ -30,7 +32,7 @@ const CustomProfileMenuItem = (props: {
   );
 };
 
-const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
+const NavbarProfile = () => {
   const {
     anchorEl,
     IS_MENU_OPEN: IS_PROFILE_MENU_OPEN,
@@ -49,6 +51,7 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
   } = useDialog();
 
   const userApiKey = useUserApiKey();
+  const user = useUser();
 
   const navigate = useNavigate();
 
