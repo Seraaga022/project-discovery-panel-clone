@@ -1,14 +1,17 @@
 import { Box, ThemeProvider } from "@mui/material";
 import Navbar from "../NavBar/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { AppTheme } from "../../theme/AppTheme";
 import { Toaster } from "sonner";
 import { LuSiren } from "react-icons/lu";
 import Circular from "../Common/Loaders/Circular";
 import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
 import CloseIcon from "@mui/icons-material/close";
+import SettingsDialog from "./SettingsDialog";
 
 const Layout = () => {
+  const location = useLocation();
+
   return (
     <ThemeProvider theme={AppTheme}>
       <Toaster
@@ -39,6 +42,7 @@ const Layout = () => {
           <Outlet />
         </Box>
       </Box>
+      {location.pathname === "/settings" && <SettingsDialog />}
     </ThemeProvider>
   );
 };

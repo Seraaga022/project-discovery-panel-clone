@@ -6,6 +6,7 @@ import UserApiKeyComponent from "./UserApiKeyComponent";
 import BillingDialog from "../Common/BillingDialog/BillingDialog";
 import useMenu from "../../hooks/ui/useMenu";
 import useDialog from "../../hooks/ui/useDialog";
+import { useNavigate } from "react-router-dom";
 
 const CustomProfileMenuItem = (props: {
   value: string;
@@ -48,6 +49,8 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
   } = useDialog();
 
   const userApiKey = useUserApiKey();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -167,7 +170,10 @@ const NavbarProfile = ({ user }: { user: Partial<UserT> }) => {
             handleClose();
           }}
         />
-        <CustomProfileMenuItem value="Settings" />
+        <CustomProfileMenuItem
+          value="Settings"
+          onClick={() => navigate("settings")}
+        />
         <CustomProfileMenuItem
           value="Terms"
           onClick={() =>

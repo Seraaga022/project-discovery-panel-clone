@@ -25,6 +25,7 @@ export const routes = createBrowserRouter([
       },
       { path: "scans", element: <Scans /> },
       { path: "templates", element: <Templates /> },
+      { path: "settings", element: null },
     ],
   },
 ]);

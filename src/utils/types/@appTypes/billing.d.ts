@@ -26,3 +26,5 @@ export interface BillingDialogProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export type useDialogInitialState = boolean | undefined;

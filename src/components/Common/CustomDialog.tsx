@@ -6,11 +6,18 @@ const CustomDialog: React.FC<{
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   blur?: number;
-}> = ({ children, isOpen, setIsOpen, blur = 11 }) => {
+  onClose?: () => void;
+}> = ({
+  children,
+  isOpen,
+  setIsOpen,
+  blur = 11,
+  onClose = () => setIsOpen(false),
+}) => {
   return (
     <Dialog
       open={isOpen}
-      onClose={() => setIsOpen(false)}
+      onClose={onClose}
       sx={{
         "& .MuiPaper-root": {
           scrollBehavior: "smooth",

@@ -6,7 +6,6 @@ import { useUser } from "../../hooks/useUser";
 import PageContainer from "../Common/PageContainer";
 import TemplateScansDetails from "../Dashboard/TemplateScansDetails";
 import VulnerabilitiesFeed from "../Dashboard/VulnerabilitiesFeed";
-
 const DashboardWelcome = lazy(() => import("../Dashboard/WelcomeTexts"));
 const DashboardCreateTeam = lazy(() => import("../Dashboard/CreateTeamButton"));
 const AssetManagement = lazy(() => import("../Dashboard/AssetManagement"));
