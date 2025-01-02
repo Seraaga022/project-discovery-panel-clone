@@ -76,6 +76,7 @@ const NavbarProfile = () => {
         aria-expanded={IS_PROFILE_MENU_OPEN ? "true" : undefined}
         onClick={handleClick}
       />
+      {/* user profile menu */}
       <Menu
         id="avatar-drop-down"
         anchorEl={anchorEl}
@@ -173,6 +174,17 @@ const NavbarProfile = () => {
             handleClose();
           }}
         />
+        {/* api key dialog */}
+        <CustomDialog
+          isOpen={isApiUserKeyDropDownOpen}
+          setIsOpen={setIsUserApiKeyDialogOpen}
+        >
+          {/* user api key component */}
+          <UserApiKeyComponent
+            userApiKey={userApiKey}
+            setUserApiKeyDialogState={setIsUserApiKeyDialogOpen}
+          />
+        </CustomDialog>
         <CustomProfileMenuItem
           value="Settings"
           onClick={() => navigate("settings")}
@@ -185,17 +197,6 @@ const NavbarProfile = () => {
         />
         <CustomProfileMenuItem value="Logout" />
       </Menu>
-      {/* api key dialog */}
-      <CustomDialog
-        isOpen={isApiUserKeyDropDownOpen}
-        setIsOpen={setIsUserApiKeyDialogOpen}
-      >
-        {/* user api key component */}
-        <UserApiKeyComponent
-          userApiKey={userApiKey}
-          setUserApiKeyDialogState={setIsUserApiKeyDialogOpen}
-        />
-      </CustomDialog>
       {/* billing dialog */}
       <BillingDialog
         isOpen={isBillingDialogOpen}
