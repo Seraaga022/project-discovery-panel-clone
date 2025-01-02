@@ -16,6 +16,7 @@ const TeamManagement = lazy(() => import("./TeamManagementCompo"));
 import CustomButton from "../Common/CustomButton/CustomButton";
 import "./Feedback/feedbackRichInput.css";
 import { useUser } from "../../hooks/useUser";
+import NavSettings from "./NavSettings";
 
 const Navbar = () => {
   const [changelogDialogState, setChangelogDialogState] =
@@ -508,10 +509,13 @@ const Navbar = () => {
                   </Link>
                 </Typography>
               </Box>
-              {/* custom avatar */}
-              <Box mr="10px" ml="9px">
+              {/* settings and custom avatar */}
+              <Stack direction="row" alignItems="center" spacing={1.5}>
+                {/* settings */}
+                <NavSettings />
+                {/* custom avatar */}
                 <NavbarProfile user={user} />
-              </Box>
+              </Stack>
             </Box>
           </Box>
         </Box>
